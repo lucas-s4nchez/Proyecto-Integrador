@@ -1,0 +1,142 @@
+:root {
+  --principal: #088178;
+  --negro: #111;
+  --blanco: #fff;
+}
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  height: 200vh;
+}
+[class*="contenedor"] {
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: 7rem;
+  background-color: var(--blanco);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 9999;
+}
+.header__contenedor {
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  font-size: 3.6rem;
+  color: var(--negro);
+}
+.nav__toogle-input {
+  display: none;
+}
+.nav__toogle {
+  cursor: pointer;
+  color: var(--negro);
+  font-size: 3rem;
+}
+.nav__toogle:hover {
+  color: var(--principal);
+}
+
+.nav__menu {
+  position: absolute;
+  list-style: none;
+  background-color: var(--blanco);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  top: 70px;
+  right: 0;
+  width: 75vw;
+  height: calc(100vh - 7rem);
+  z-index: 999;
+  display: flex;
+  transform: scale(0);
+  transition: transform 0.3s;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.06);
+}
+.nav__li {
+  /* width: 100%; */
+  padding: 0 20px;
+  position: relative;
+}
+.nav__link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--negro);
+  font-weight: 700;
+}
+.nav__link:hover,
+.nav__link.nav__link--active {
+  color: var(--principal);
+}
+.nav__link.nav__link--active::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: var(--principal);
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+.nav__toogle-input:checked + .nav__menu {
+  transform: scale(1);
+}
+@media (min-width: 992px) {
+  .nav__toogle {
+    display: none;
+  }
+
+  .nav__menu {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    height: 7rem;
+    box-shadow: unset;
+    gap: 3rem;
+    transform: scale(1);
+  }
+  .nav__li {
+    width: max-content;
+    padding: 0 20px;
+  }
+  .nav__link {
+    display: block;
+    width: max-content;
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+    color: var(--negro);
+  }
+}
+/*!Hero*/
+.hero {
+  background-image: url(img/hero.webp);
+  height: calc(100vh - 7rem);
+  background-size: cover;
+  background-position: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
