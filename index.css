@@ -4,7 +4,7 @@
   --negro: #111;
   --negroAlternativo: #222;
   --blanco: #fff;
-  --verde: #465b52c0;
+  --verde: #2c2c2c;
 }
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700;900&display=swap");
 * {
@@ -19,7 +19,6 @@ html {
 
 body {
   font-size: 1.6rem;
-  height: 200vh;
   width: 100%;
 }
 h1 {
@@ -99,6 +98,11 @@ p {
   transform: scale(0);
   transition: transform 0.3s;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.06);
+}
+@media (min-width: 768px) {
+  .nav__menu {
+    width: 50vw;
+  }
 }
 .nav__li {
   /* width: 100%; */
@@ -224,4 +228,47 @@ p {
     background-size: cover;
     background-position: 50%;
   }
+}
+/*! seccion de iconos*/
+.contenedor {
+  margin-block: 5rem;
+}
+.iconos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .iconos {
+    flex-direction: row;
+  }
+}
+.icono {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 768px) {
+  .icono {
+    height: 25rem;
+    width: 33%;
+  }
+}
+.icono__i {
+  font-size: 4rem;
+  text-align: center;
+  transition: 0.4s ease;
+}
+.icono:hover .icono__i {
+  color: var(--principal);
+}
+.icono__titulo {
+  text-align: center;
+}
+.icono__texto {
+  margin: 0;
 }
