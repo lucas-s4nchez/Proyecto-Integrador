@@ -835,6 +835,7 @@ a {
 .footer__redes-box {
   display: flex;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 .footer__redes-link {
   color: var(--blanco);
