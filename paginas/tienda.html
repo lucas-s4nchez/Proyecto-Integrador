@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yury | Tienda</title>
+  <script src="https://kit.fontawesome.com/96e4c6db82.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../index.css">
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__contenedor">
+      <div class="logo">
+        <a href="#">
+          <span class="logo__texto">Yury</span>
+        </a>
+      </div>
+      <nav class="nav">
+
+        <label for="menu">
+          <div class="nav__toogle"><i class="fa-solid fa-bars"></i></div>
+        </label>
+        <input type="checkbox" class="nav__toogle-input" id="menu">
+
+        <ul class="nav__menu">
+          <li class="nav__li">
+            <a class="nav__link" href="../index.html">Inicio</a>
+          </li>
+          <li class="nav__li">
+            <a class="nav__link nav__link--active" href="tienda.html">Tienda</a>
+          </li>
+          <li class="nav__li">
+            <a class="nav__link" href="#">Contacto</a>
+          </li>
+          <li class="nav__li">
+            <a class="nav__link" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+          <li class="nav__li">
+            <a class="nav__link nav__link--log" href="#">Iniciar Sesion</a>
+          </li>
+          <li class="nav__li">
+            <a class="nav__link" href="#">Registrarse</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="hero-2">
+    <div class="hero2__contenedor">
+      <h2 class="hero-2__heading">#LosMejoresPrecios</h2>
+      <p class="hero-2__p">Ahorra con ofertas de hasta un 30% de descuento!</p>
+    </div>
+  </section>
+  <main class="main__contenedor">
+    <aside class="filtros">
+      <form class="filtros__form">
+        <div class="filtros__div">
+          <label class="filtros__label" for="orden">Ordenar por: </label>
+          <select class="filtros__select" id="orden">
+            <option class="filtros__option" value=""> --Seleccione--</option>
+            <option class="filtros__option value=" A-Z">Alfabeticamente A - Z</option>
+            <option class="filtros__option value=" Z-A">Alfabeticamente Z - A</option>
+            <option class="filtros__option value=" Menor">Menor Precio</option>
+            <option class="filtros__option value=" Mayor">Mayor Precio</option>
+          </select>
+        </div>
+        <div class="filtros__div">
+          <label class="filtros__label" for="minimo">Precio Min</label>
+          <select class="filtros__select" id="minimo">
+            <option class="filtros__option value="">Seleccione</option>
+            <option class=" filtros__option value="20000">5,000</option>
+            <option class="filtros__option value=" 30000">10,000</option>
+            <option class="filtros__option value=" 40000">15,000</option>
+            <option class="filtros__option value=" 50000">20,000</option>
+            <option class="filtros__option value=" 60000">30,000</option>
+            <option class="filtros__option value=" 70000">40,000</option>
+            <option class="filtros__option value=" 80000">50,000</option>
+          </select>
+        </div>
+        <div class="filtros__div">
+          <label class="filtros__label" for="maximo">Precio Max</label>
+          <select class="filtros__select" id="maximo">
+            <option class="filtros__option value="">Seleccione</option>
+            <option class=" filtros__option value="20000">5,000</option>
+            <option class="filtros__option value=" 30000">10,000</option>
+            <option class="filtros__option value=" 40000">15,000</option>
+            <option class="filtros__option value=" 50000">20,000</option>
+            <option class="filtros__option value=" 60000">30,000</option>
+            <option class="filtros__option value=" 70000">40,000</option>
+            <option class="filtros__option value=" 80000">50,000</option>
+          </select>
+        </div>
+        <div class="filtros__div">
+          <label class="filtros__label" for="color">Color</label>
+          <select class="filtros__select" id="color">
+            <option class="filtros__option value="">Seleccione</option>
+            <option class=" filtros__option value="Negro">Negro</option>
+            <option class="filtros__option value=" Azul">Azul</option>
+            <option class="filtros__option value=" Blanco">Blanco</option>
+            <option class="filtros__option value=" Rojo">Rojo</option>
+            <option class="filtros__option value=" Rojo">Amarillo</option>
+          </select>
+        </div>
+        <div class="filtros__div">
+          <label class="filtros__label" for="genero">Género</label>
+          <select class="filtros__select" id="genero">
+            <option class="filtros__option value="">Seleccione</option>
+            <option class=" filtros__option value="Hombre">Hombre</option>
+            <option class="filtros__option value=" Mujer">Mujer</option>
+          </select>
+        </div>
+        <div class="filtros__div">
+          <label class="filtros__label" for="marca">Marca</label>
+          <select class="filtros__select" id="marca">
+            <option class="filtros__option value="">Seleccione</option>
+            <option class=" filtros__option value="Nike">Nike</option>
+            <option class="filtros__option value=" Azul">Adidas</option>
+            <option class="filtros__option value=" Blanco">New Balance</option>
+            <option class="filtros__option value=" Rojo">Topper</option>
+            <option class="filtros__option value=" Rojo">Fila</option>
+          </select>
+        </div>
+      </form>
+    </aside>
+    <div class="productos-destacados__grid">
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product1.webp" alt="producto 1" width="200px" height="200px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Mujer</span>
+            <span class="producto__marca">Nike</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Air Max SC</h4>
+            <span class="producto__color">Blanco</span>
+          </div>
+
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$22.500</span>
+              <span class="precios__descuento">$15.750 </span>
+            </div>
+            <!-- <div class="carrito">
+                                  <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div> -->
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product2.webp" alt="producto 2" width="200px" height="200px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Mujer</span>
+            <span class="producto__marca">Nike</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Nike Court Legacy</h4>
+            <span class="producto__color">Rosa</span>
+          </div>
+
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$16.000</span>
+              <span class="precios__descuento">$11.200 </span>
+            </div>
+            <!-- <div class="carrito">
+                                  <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div> -->
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product3.webp" alt="producto 1" width="200px" height="200px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Hombre</span>
+            <span class="producto__marca">Nike</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Air Max 2017</h4>
+            <span class="producto__color">Rojo</span>
+          </div>
+
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$25.000</span>
+              <span class="precios__descuento">$17.500 </span>
+            </div>
+            <!-- <div class="carrito">
+                                  <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div> -->
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product4.webp" alt="producto 1" width="200px" height="200px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Hombre</span>
+            <span class="producto__marca">Nike</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Air Zoom</h4>
+            <span class="producto__color">Azul</span>
+          </div>
+
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$34.000</span>
+              <span class="precios__descuento">$23.800 </span>
+            </div>
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product13.webp" alt="producto 1" width="300px" height="300px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Hombre</span>
+            <span class="producto__marca">Nike</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Air Jordan 1 Mid</h4>
+            <span class="producto__color">Amarrillo / Negro</span>
+          </div>
+
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$56.000</span>
+              <span class="precios__descuento">$39200</span>
+            </div>
+            <!-- <div class="carrito">
+                                  <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div> -->
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product8.webp" alt="producto 1" width="200px" height="200px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Mujer</span>
+            <span class="producto__marca">Nike</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Air Monarch IV</h4>
+            <span class="producto__color">Blanco</span>
+          </div>
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$30000</span>
+              <span class="precios__descuento">$21000</span>
+            </div>
+            <!-- <div class="carrito">
+                                  <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div> -->
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product16.webp" alt="producto 1" width="200px" height="200px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Hombre</span>
+            <span class="producto__marca">New Balance</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Classic Urbanas 500</h4>
+            <span class="producto__color">Verde</span>
+          </div>
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$17.500</span>
+              <span class="precios__descuento">$12.250</span>
+            </div>
+            <!-- <div class="carrito">
+                                  <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div> -->
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product15.webp" alt="producto 1" width="300px" height="300px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Hombre</span>
+            <span class="producto__marca">Nike</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Air Max 2017 </h4>
+            <span class="producto__color">Blanco / Rojo</span>
+          </div>
+
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$25.000</span>
+              <span class="precios__descuento">$17.500</span>
+            </div>
+            <!-- <div class="carrito">
+                                  <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div> -->
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+      <!-- producto -->
+      <div class="producto">
+        <div class="producto__box-img">
+          <img class="producto__img" src="../img/product6.webp" alt="producto 1" width="300px" height="300px">
+        </div>
+        <div class="producto__contenido">
+          <div class="producto__header">
+            <span class="producto__genero">Mujer</span>
+            <span class="producto__marca">Nike</span>
+          </div>
+          <div>
+            <h4 class="producto__nombre">Air Zoom </h4>
+            <span class="producto__color">Blanco </span>
+          </div>
+          <div class="producto__comprar">
+            <div class="precios">
+              <span class="precios__normal">$34.000</span>
+              <span class="precios__descuento">$23.800</span>
+            </div>
+            <!-- <div class="carrito">
+                                  <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div> -->
+          </div>
+          <button class="producto__btn">Ver Producto</button>
+        </div>
+      </div>
+      <!-- fin producto -->
+    </div>
+  </main>
+
+  <!-- <section class="newsletter">
+    <div class="newsletter__contenedor">
+      <div class="newsletter__texto">
+        <h3 class="newsletter__h3">Suscríbete para participar de increíbles sorteos!</h3>
+        <p class="newsletter__p">
+          Todas las semanas sorteamos cupones de descuento de hasta un 50%,
+          también participas por un par de zapatillas a tu elección!
+        </p>
+      </div>
+      <form class="newsletter__form ">
+        <div class="newsletter__div">
+          <input class="newsletter__input" type="email" id="newsletter" required><span class="newsletter__barra"></span>
+          <label class="newsletter__label" for="newsletter">Email</label>
+        </div>
+        <button class="newsletter__button" type="submit">Suscribirme</button>
+      </form>
+    </div>
+  </section> -->
+  <footer class="footer" id="footer">
+    <div class="footer__contenedor">
+      <div class="footer__contacto">
+
+        <h3 class="footer__h3">Contacto</h3>
+        <p class="footer__p"><span class="footer__span">Dirección: </span>Av. del Libertador 101, B1638 Vicente López,
+          Provincia de Buenos Aires</p>
+        <p class="footer__p"><span class="footer__span">Teléfono: </span>01147440564</p>
+        <p class="footer__p"><span class="footer__span">Horarios: </span>Lun - Vie de 09:00 a 18:00</p>
+      </div>
+      <div class="footer__cuenta">
+        <h3 class="footer__h3">Mi cuenta</h3>
+        <a class="footer__p footer__p--enlace" href="">Iniciar sesión</a>
+        <a class="footer__p footer__p--enlace" href="">Ver carrito</a>
+        <p class="footer__p" href="">Ayuda</p>
+      </div>
+      <div class="footer__acerca">
+        <h3 class="footer__h3">Acerca de</h3>
+        <p class="footer__p" href="">Quienes somos</p>
+        <p class="footer__p" href="">Informacion de envíos</p>
+        <p class="footer__p" href="">Políticas de privacidad</p>
+        <p class="footer__p" href="">Términos y condiciones</p>
+        <a class="footer__p footer__p--enlace" href="">Contáctanos</a>
+      </div>
+      <div class="footer__redes">
+        <h3 class="footer__h3">Síguenos</h3>
+        <div class="footer__redes-box">
+          <div class="instagram">
+            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <div class="facebook">
+            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+          <div class="twitter">
+            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+          <div class="pinterest">
+            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+          <div class="tiktok">
+            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+          <div class="youtube">
+            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="logo">
+          <a href="#">
+            <span class="logo__texto logo__texto--blanco">Yury</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="footer__final ">Sitio diseñado por <a class="footer__autor" href="https://github.com/lucas-s4nchez"
+        target="_blank">Lucas Sánchez</a>
+    </p>
+  </footer>
+</body>
+
+</html>

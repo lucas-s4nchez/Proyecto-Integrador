@@ -3,6 +3,7 @@
 :root {
   --principal: #088178;
   --principal-dark: #06615b;
+  --principal-light: #5ee4db;
   --negro: #000;
   --negroAlternativo: #222;
   --blanco: #fff;
@@ -395,9 +396,14 @@ a {
   flex-direction: column;
   gap: 1rem;
 }
-.producto__marca {
-  display: block;
-  text-align: right;
+.producto__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gris);
+}
+.producto__color {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--gris);
@@ -431,7 +437,7 @@ a {
   color: var(--principal-dark);
 }
 .producto__btn {
-  width: 50%;
+  width: 60%;
   padding: 1rem 0;
   font-weight: 700;
   color: var(--blanco);
@@ -441,6 +447,7 @@ a {
   outline: none;
   transition: 0.3s ease;
 }
+
 .producto__btn:hover {
   color: var(--blanco);
   background-color: var(--principal-dark);
@@ -648,7 +655,7 @@ a {
       rgba(0, 0, 0, 0.897) 0,
       rgba(0, 0, 0, 0.986)
     ),
-    url(img/nike-5126389_1920.jpg);
+    url(img/nike-5126389_1920.webp);
   background-position: center, center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -854,4 +861,90 @@ a {
 .footer__autor {
   text-decoration: none;
   color: var(--principal);
+}
+/***********************!Pagina de tienda ***************************************/
+.hero-2 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8) 0,
+      rgba(0, 0, 0, 0.8)
+    ),
+    url(img/mackenzie-marco-XG88BYDSDZA-unsplash.webp);
+  height: 25vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-2__heading {
+  font-size: 2.4rem;
+  color: var(--blanco);
+}
+@media (min-width: 768px) {
+  .hero-2__heading {
+    font-size: 3.2rem;
+  }
+}
+.hero-2__p {
+  color: var(--blancoAlternativo);
+  margin: 0;
+}
+.main__contenedor {
+  display: grid;
+  margin-block: 5rem;
+}
+@media (min-width: 992px) {
+  .main__contenedor {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+.filtros {
+  margin-bottom: 5rem;
+}
+.filtros__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+@media (min-width: 992px) {
+  .filtros__form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+}
+.filtros__div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 992px) {
+  .filtros__div {
+    width: 70%;
+  }
+}
+.filtros__select {
+  border: 1px solid var(--principal);
+  outline: none;
+  padding: 0.5rem;
+  text-align: center;
+  background: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.filtros__label {
+  font-weight: 700;
+  color: var(--negroAlternativo);
+}
+.filtros__option {
+  background-color: var(--principal-light);
+  font-size: 1.4rem;
+  color: var(--gris-oscuro);
 }
