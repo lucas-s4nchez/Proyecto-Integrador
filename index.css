@@ -981,7 +981,7 @@ a {
   background: #1d976c;
   background: -webkit-linear-gradient(to right, #1d976c, #93f9b9);
   background: linear-gradient(to right, #1d976c, #93f9b9);
-  max-height: 22rem;
+  max-height: 100%;
   background-size: contain;
 }
 @media (min-width: 768px) {
@@ -1001,6 +1001,7 @@ a {
 .info__img {
   width: 80%;
   max-width: 35rem;
+  object-fit: cover;
 }
 
 @media (min-width: 768px) {
@@ -1011,7 +1012,7 @@ a {
   }
 }
 .info__contenido {
-  padding: 3rem 2rem;
+  padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
