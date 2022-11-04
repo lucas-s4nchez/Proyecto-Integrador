@@ -49,5 +49,6 @@
   &:hover {
     background-color: darken($hoverBg, 10%);
     color: $hoverColor;
+    border: none;
   }
 }

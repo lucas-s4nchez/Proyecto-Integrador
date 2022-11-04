@@ -1,0 +1,42 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+.icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-block: 5rem;
+}
+@media (min-width: 768px) {
+  .icons {
+    flex-direction: row;
+  }
+}
+.icon {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  @include m.tablet {
+    .icon {
+      height: 25rem;
+      width: 33%;
+    }
+  }
+  &__i {
+    font-size: 4rem;
+    text-align: center;
+    transition: 0.4s ease;
+  }
+  &:hover .icon__i {
+    color: v.$primaryColor;
+  }
+  &__title {
+    text-align: center;
+  }
+  &__text {
+    margin: 0;
+  }
+}
