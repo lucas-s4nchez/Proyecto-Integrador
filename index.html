@@ -72,6 +72,8 @@
   <script src="https://kit.fontawesome.com/96e4c6db82.js" crossorigin="anonymous"></script>
   <!-- hamburgercss  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+  <!-- swiper  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <!-- css  -->
   <link rel="stylesheet" href="./assets/css/app.css">
 
@@ -87,7 +89,7 @@
       </div>
       <nav class="nav">
 
-        <ul class="nav__menu">
+        <ul class="nav__menu" id="menu">
           <li class="nav__li">
             <a class="nav__link nav__link--active" href="index.html">Inicio</a>
           </li>
@@ -118,7 +120,7 @@
         <button class="cart-button">
           <i class="cart-button__icon fa-solid fa-bag-shopping"></i>
         </button>
-        <button class="hamburger-button hamburger hamburger--collapse" type="button">
+        <button class="hamburger-button hamburger hamburger--collapse" type="button" id="btn-menu">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
@@ -199,15 +201,48 @@
       <a href="#" class="close--registro">X</a>
     </div>
 
-  </article>
+  </article> -->
   <section class="hero">
-    <div class="hero__contenedor">
-      <h4 class="hero__heading">Ofertas de Invierno</h4>
-      <h2 class="hero__heading-2">Hasta 30% off</h2>
-      <h1 class="hero__heading-3">En todos los productos</h1>
-      <p>No esperes más aprovecha estas increíbles ofertas</p>
-      <a href="/paginas/tienda.html" class="hero__button">Tienda</a>
-    </div>
+
+    <ul class="slider__contenedor">
+      <div class="slider__slide">
+        <div class="hero__bgGradient">
+          <div class="hero__items container">
+            <div class="item">
+              <div class="item__box-1">
+                <img class="item__img" src="./assets/img/item-1.png" alt="Slider image">
+              </div>
+              <div class="item__box-2">
+                <h4 class="item__h4">Ofertas de Verano</h4>
+                <h2 class="item__h2">Hasta 30% off</h2>
+                <p>No esperes más aprovecha estas increíbles ofertas</p>
+                <a href="/paginas/tienda.html" class="item__button">Tienda</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider__slide">
+        <div class=" hero__bgGradient hero__bgGradient--2">
+          <div class="hero__items container">
+            <div class="item">
+              <div class="item__box-1 item__box-1--reverse">
+                <img class="item__img item__img--small" src="./assets/img/item-2.png" alt="Slider image">
+              </div>
+              <div class="item__box-2 item__box-2--reverse">
+                <h4 class="item__h4">Destacado</h4>
+                <h2 class="item__h2">Fila Float Knit</h2>
+                <p>Llevate las tuyas antes de que se agoten!</p>
+                <a href="/paginas/tienda.html" class="item__button">Ver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </ul>
+
+
   </section>
   <section class="contenedor">
     <div class="iconos">
@@ -236,7 +271,7 @@
   <main class="productos-destacados contenedor" id="destacados">
     <h2 class="productos-destacados__titulo">Productos Destacados</h2>
     <div class="productos-destacados__grid">
-      
+
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product1.webp" alt="imagen de zapatillas" width="200px" height="200px">
@@ -256,15 +291,15 @@
               <span class="precios__normal">$22.500</span>
               <span class="precios__descuento">$15.750 </span>
             </div>
-            
+
           </div>
           <a class="producto__link" href="#producto1">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      
-      
+
+
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product13.webp" alt="imagen de zapatillas" width="300px"
@@ -285,15 +320,15 @@
               <span class="precios__normal">$56.000</span>
               <span class="precios__descuento">$39200</span>
             </div>
-            
+
           </div>
           <a class="producto__link" href="#producto13">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      
-      
+
+
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product8.webp" alt="imagen de zapatillas" width="200px" height="200px">
@@ -312,15 +347,15 @@
               <span class="precios__normal">$30000</span>
               <span class="precios__descuento">$21000</span>
             </div>
-            
+
           </div>
           <a class="producto__link" href="#producto8">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      
-      
+
+
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product16.webp" alt="imagen de zapatillas" width="200px"
@@ -340,15 +375,15 @@
               <span class="precios__normal">$17.500</span>
               <span class="precios__descuento">$12.250</span>
             </div>
-            
+
           </div>
           <a class="producto__link" href="#producto16">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      
-      
+
+
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product15.webp" alt="imagen de zapatillas" width="300px"
@@ -369,15 +404,15 @@
               <span class="precios__normal">$25.000</span>
               <span class="precios__descuento">$17.500</span>
             </div>
-            
+
           </div>
           <a class="producto__link" href="#producto15">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      
-      
+
+
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product6.webp" alt="imagen de zapatillas" width="300px" height="300px">
@@ -396,16 +431,16 @@
               <span class="precios__normal">$34.000</span>
               <span class="precios__descuento">$23.800</span>
             </div>
-            
+
           </div>
           <a class="producto__link" href="#producto6">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      
+
     </div>
-    
+
     <article class="info " id="producto1">
       <div class="info__imagen ">
         <img class="info__img" src="../img/product1.webp" alt="imagen de zapatillas">
@@ -458,9 +493,9 @@
 
 
     </article>
-    
 
-    
+
+
     <article class="info " id="producto13">
       <div class="info__imagen ">
         <img class="info__img info__img--invertida" src="../img/product13.webp" alt="imagen de zapatillas">
@@ -513,8 +548,8 @@
 
 
     </article>
-    
-    
+
+
     <article class="info " id="producto8">
       <div class="info__imagen ">
         <img class="info__img info__img--invertida" src="../img/product8.webp" alt="imagen de zapatillas">
@@ -567,8 +602,8 @@
 
 
     </article>
-    
-    
+
+
     <article class="info " id="producto16">
       <div class="info__imagen ">
         <img class="info__img " src="../img/product16.webp" alt="imagen de zapatillas">
@@ -621,8 +656,8 @@
 
 
     </article>
-    
-    
+
+
     <article class="info " id="producto15">
       <div class="info__imagen ">
         <img class="info__img info__img--invertida" src="../img/product15.webp" alt="imagen de zapatillas">
@@ -675,8 +710,8 @@
 
 
     </article>
-    
-    
+
+
     <article class="info " id="producto6">
       <div class="info__imagen ">
         <img class="info__img " src="../img/product6.webp" alt="imagen de zapatillas">
@@ -729,262 +764,8 @@
 
 
     </article>
-    
+
   </main>
-  <section class="slider contenedor">
-    <h2 class="slider__titulo">Lo que opinan nuestros clientes</h2>
-    <div class="slider__track">
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial1.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Matt Enmen</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          Epico,
-          La verdad que estuve tirado 6 meses sin calzado, ya que tuve que donar todo porque me habian engualichado
-          todas
-          mis
-          pertenencias, despues de recibir las zapas, me senti como un ser humano con calzado, cosa que
-          antes no me
-          sentia asi. Recomiendo comprar aqui, para aquellos que tenemos magia negra encima y nos despojamos de nuestra
-          ropa.
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial2.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Laper Dida</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          Excelentes zapatillas. Que más decir de esta empresa? ya se sabe todo con tal solo ver el nombre te dice que
-          es muy buena
-          calidad.
-          <br>
-          PD: Justin es de piscis.
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial3.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Eldo Mingo</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          Muy lindas zapatillas!
-          <br>
-          Mi hijo agarro mi tarjeta sin mi permiso y compro en esta página, estaba muy enojado y lo castigué, cuando iba
-          a cancelar la compra llegaron las zapas (eso fue muy rápido). Cuando vi las zapatillas fue un amor a primera
-          vista, asi que decidí quedarmelas y no me arrepiento!!!1.
-          <br>
-          Gracias hijo, pero igual no te voy a devolver la play.
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial4.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Cindy Nero</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          Excelente atención y gran variedad de zapatillas. Todas las dudas te las despejan y te brindan soluciones.
-          Recomendable 100%. SIUUUUU
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial5.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Elsa Capuntas</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          No se brilla apagando a otros💫✨🌟🙌
-          <br>
-          Ay perdón, pensé que era twitter. En cuanto a las zapatillas:
-          <br>
-          Excelentes! Elegí el talle equivocado y me las cambiaron :) <br>
-          Muy buena atencion al cliente, sin dudas volvere a comprar.
-
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial1.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Matt Enmen</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          Epico,
-          La verdad que estuve tirado 6 meses sin calzado, ya que tuve que donar todo porque me habian engualichado
-          todas
-          mis
-          pertenencias, despues de recibir las zapas, me senti como un ser humano con calzado, cosa que
-          antes no me
-          sentia asi. Recomiendo comprar aqui, para aquellos que tenemos magia negra encima y nos despojamos de nuestra
-          ropa.
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial2.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Laper Dida</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          Excelentes zapatillas. Que más decir de esta empresa? ya se sabe todo con tal solo ver el nombre te dice que
-          es muy buena
-          calidad.
-          <br>
-          PD: Justin es de piscis.
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial3.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Eldo Mingo</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          Muy lindas zapatillas!
-          <br>
-          Mi hijo agarro mi tarjeta sin mi permiso y compro en esta página, estaba muy enojado y lo castigué, cuando iba
-          a cancelar la compra llegaron las zapas (eso fue muy rápido). Cuando vi las zapatillas fue un amor a primera
-          vista, asi que decidí quedarmelas y no me arrepiento!!!1.
-          <br>
-          Gracias hijo, pero igual no te voy a devolver la play.
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial4.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Cindy Nero</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          Excelente atención y gran variedad de zapatillas. Todas las dudas te las despejan y te brindan soluciones.
-          Recomendable 100%. SIUUUUU
-        </blockquote>
-      </article>
-      <article class="opinion">
-        <header class="opinion__header">
-          <div class="opinion__imagen">
-            <img src="img/testimonial5.webp" alt="perfil de cliente" width="100px">
-          </div>
-          <div class="opinion__informacion">
-            <p class="opinion__autor">Elsa Capuntas</p>
-            <div class="opinion__calificacion">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </header>
-        <blockquote class="opinion__texto">
-          No se brilla apagando a otros💫✨🌟🙌
-          <br>
-          Ay perdón, pensé que era twitter. En cuanto a las zapatillas:
-          <br>
-          Excelentes! Elegí el talle equivocado y me las cambiaron :) <br>
-          Muy buena atencion al cliente, sin dudas volvere a comprar.
-
-        </blockquote>
-      </article>
-
-    </div>
-  </section>
   <section class="galeria contenedor" id="galeria">
     <h2 class="galeria__titulo">Ahora estamos en Instagram <a href="https://www.instagram.com/"
         class=" galeria__titulo--enlace" target="_blank">¡Síguenos!</a> </h2>
@@ -1145,6 +926,8 @@
     </p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="./assets/js/main.js" type="module"></script>
 </body>
 
-</html> -->
+</html>

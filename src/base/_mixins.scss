@@ -21,3 +21,33 @@
     @content;
   }
 }
+@mixin button(
+  $bgColor,
+  $hoverBg,
+  $fontSize,
+  $color,
+  $hoverColor,
+  $width,
+  $border
+) {
+  background-color: $bgColor;
+  padding: 1rem 1.5rem;
+  color: $color;
+  font-size: $fontSize;
+  font-weight: 400;
+  display: inline-block;
+  width: $width;
+  font-weight: 700;
+  border: $border;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+
+  @include tablet {
+    width: $width;
+  }
+  &:hover {
+    background-color: darken($hoverBg, 10%);
+    color: $hoverColor;
+  }
+}
