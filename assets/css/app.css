@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  font-family: "Spartan", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 4.4rem;
+}
+
+h2 {
+  font-size: 3.4rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+[class$=container] {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+[class$=heading] {
+  margin: 2rem 0;
+}
+
+/** Media Queries **/
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: 7rem;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 9999;
+}
+.header__container {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header__logo {
+  height: 6rem;
+  width: 10rem;
+}
+.header__logo-img {
+  height: 6rem;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+}
+.nav__menu {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  top: 101%;
+  left: 0;
+  right: 0;
+  height: calc(100vh - 70px);
+  width: 100%;
+  margin: 0;
+  background-color: #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@media (min-width: 768px) {
+  .nav__menu {
+    position: unset;
+    top: unset;
+    bottom: unset;
+    left: unset;
+    right: unset;
+    height: unset;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    gap: 2rem;
+    -webkit-transform: unset;
+            transform: unset;
+  }
+}
+.nav__li {
+  position: relative;
+}
+.nav__link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 700;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.nav__link:hover, .nav__link.nav__link--active {
+  color: #088178;
+}
+.nav__link.nav__link--active::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: #088178;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+.profile-button {
+  display: none;
+}
+.profile-button__button {
+  border-radius: 50%;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+  padding: 1rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.profile-button__button:hover {
+  border-color: #ffffff;
+  background-color: #088178;
+  color: #ffffff;
+}
+
+.cart-button {
+  border: none;
+  background-color: #ffffff;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+}
+.cart-button__icon {
+  font-size: 2.5rem;
+  color: #088178;
+}
+
+.hamburger {
+  display: block;
+}
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before {
+  background: #088178;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner:after,
+.hamburger.is-active .hamburger-inner:before {
+  background: #088178;
+}

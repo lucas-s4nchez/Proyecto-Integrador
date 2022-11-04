@@ -1,0 +1,24 @@
+@use "base/variables" as v;
+
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: 7rem;
+  background-color: v.$white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 9999;
+  &__container {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    height: 6rem;
+    width: 10rem;
+  }
+  &__logo-img {
+    height: 6rem;
+  }
+}

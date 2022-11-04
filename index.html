@@ -70,25 +70,22 @@
     rel="stylesheet">
   <!-- fontawesome  -->
   <script src="https://kit.fontawesome.com/96e4c6db82.js" crossorigin="anonymous"></script>
+  <!-- hamburgercss  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
   <!-- css  -->
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
 
 </head>
 
 <body>
   <header class="header">
-    <div class="header__contenedor">
-      <div class="logo">
-        <a href="#">
-          <span class="logo__texto">Yury</span>
+    <div class="header__container">
+      <div class="header__logo">
+        <a href="./index.html">
+          <img class="header__logo-img" src="./assets/img/logo-black.svg" alt="Logo">
         </a>
       </div>
       <nav class="nav">
-
-        <label for="menu">
-          <div class="nav__toogle"><i class="fa-solid fa-bars"></i></div>
-        </label>
-        <input type="checkbox" class="nav__toogle-input" id="menu">
 
         <ul class="nav__menu">
           <li class="nav__li">
@@ -98,10 +95,10 @@
             <a class="nav__link" href="paginas/tienda.html">Tienda</a>
           </li>
           <li class="nav__li">
-            <a class="nav__link" href="paginas/contacto.html">Contacto</a>
+            <a class="nav__link" href="paginas/tienda.html">Favoritos</a>
           </li>
           <li class="nav__li">
-            <a class="nav__link" href="paginas/carrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="nav__link" href="paginas/contacto.html">Contacto</a>
           </li>
           <li class="nav__li">
             <a class="nav__link  " href="#login">Iniciar Sesion</a>
@@ -110,10 +107,26 @@
             <a class="nav__link" href="#registrarse">Registrarse</a>
           </li>
         </ul>
+        <div class="profile-button">
+          <button class="profile-button__button">
+            <span class="profile-button__span">
+              <i class="fa-regular fa-user"></i>
+            </span>
+          </button>
+          <span>Lucas</span>
+        </div>
+        <button class="cart-button">
+          <i class="cart-button__icon fa-solid fa-bag-shopping"></i>
+        </button>
+        <button class="hamburger-button hamburger hamburger--collapse" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
       </nav>
     </div>
   </header>
-  <article class="registro" id="login">
+  <!-- <article class="registro" id="login">
     <div class="registro__div">
       <h3 class="registro__h3">Login</h3>
       <form class="form form--registro">
@@ -223,7 +236,7 @@
   <main class="productos-destacados contenedor" id="destacados">
     <h2 class="productos-destacados__titulo">Productos Destacados</h2>
     <div class="productos-destacados__grid">
-      <!-- producto -->
+      
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product1.webp" alt="imagen de zapatillas" width="200px" height="200px">
@@ -243,17 +256,15 @@
               <span class="precios__normal">$22.500</span>
               <span class="precios__descuento">$15.750 </span>
             </div>
-            <!-- <div class="carrito">
-                                      <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    </div> -->
+            
           </div>
           <a class="producto__link" href="#producto1">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      <!-- fin producto -->
-      <!-- producto -->
+      
+      
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product13.webp" alt="imagen de zapatillas" width="300px"
@@ -274,17 +285,15 @@
               <span class="precios__normal">$56.000</span>
               <span class="precios__descuento">$39200</span>
             </div>
-            <!-- <div class="carrito">
-                                      <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    </div> -->
+            
           </div>
           <a class="producto__link" href="#producto13">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      <!-- fin producto -->
-      <!-- producto -->
+      
+      
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product8.webp" alt="imagen de zapatillas" width="200px" height="200px">
@@ -303,17 +312,15 @@
               <span class="precios__normal">$30000</span>
               <span class="precios__descuento">$21000</span>
             </div>
-            <!-- <div class="carrito">
-                                      <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    </div> -->
+            
           </div>
           <a class="producto__link" href="#producto8">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      <!-- fin producto -->
-      <!-- producto -->
+      
+      
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product16.webp" alt="imagen de zapatillas" width="200px"
@@ -333,17 +340,15 @@
               <span class="precios__normal">$17.500</span>
               <span class="precios__descuento">$12.250</span>
             </div>
-            <!-- <div class="carrito">
-                                      <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    </div> -->
+            
           </div>
           <a class="producto__link" href="#producto16">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      <!-- fin producto -->
-      <!-- producto -->
+      
+      
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product15.webp" alt="imagen de zapatillas" width="300px"
@@ -364,17 +369,15 @@
               <span class="precios__normal">$25.000</span>
               <span class="precios__descuento">$17.500</span>
             </div>
-            <!-- <div class="carrito">
-                                      <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    </div> -->
+            
           </div>
           <a class="producto__link" href="#producto15">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      <!-- fin producto -->
-      <!-- producto -->
+      
+      
       <div class="producto">
         <div class="producto__box-img">
           <img class="producto__img" src="../img/product6.webp" alt="imagen de zapatillas" width="300px" height="300px">
@@ -393,18 +396,16 @@
               <span class="precios__normal">$34.000</span>
               <span class="precios__descuento">$23.800</span>
             </div>
-            <!-- <div class="carrito">
-                                      <a class="carrito__icono" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    </div> -->
+            
           </div>
           <a class="producto__link" href="#producto6">
             <button class="producto__btn">Ver Producto</button>
           </a>
         </div>
       </div>
-      <!-- fin producto -->
+      
     </div>
-    <!-- inicio article -->
+    
     <article class="info " id="producto1">
       <div class="info__imagen ">
         <img class="info__img" src="../img/product1.webp" alt="imagen de zapatillas">
@@ -457,9 +458,9 @@
 
 
     </article>
-    <!-- fin article -->
+    
 
-    <!-- inicio article -->
+    
     <article class="info " id="producto13">
       <div class="info__imagen ">
         <img class="info__img info__img--invertida" src="../img/product13.webp" alt="imagen de zapatillas">
@@ -512,8 +513,8 @@
 
 
     </article>
-    <!-- fin article -->
-    <!-- inicio article -->
+    
+    
     <article class="info " id="producto8">
       <div class="info__imagen ">
         <img class="info__img info__img--invertida" src="../img/product8.webp" alt="imagen de zapatillas">
@@ -566,8 +567,8 @@
 
 
     </article>
-    <!-- fin article -->
-    <!-- inicio article -->
+    
+    
     <article class="info " id="producto16">
       <div class="info__imagen ">
         <img class="info__img " src="../img/product16.webp" alt="imagen de zapatillas">
@@ -620,8 +621,8 @@
 
 
     </article>
-    <!-- fin article -->
-    <!-- inicio article -->
+    
+    
     <article class="info " id="producto15">
       <div class="info__imagen ">
         <img class="info__img info__img--invertida" src="../img/product15.webp" alt="imagen de zapatillas">
@@ -674,8 +675,8 @@
 
 
     </article>
-    <!-- fin article -->
-    <!-- inicio article -->
+    
+    
     <article class="info " id="producto6">
       <div class="info__imagen ">
         <img class="info__img " src="../img/product6.webp" alt="imagen de zapatillas">
@@ -728,7 +729,7 @@
 
 
     </article>
-    <!-- fin article -->
+    
   </main>
   <section class="slider contenedor">
     <h2 class="slider__titulo">Lo que opinan nuestros clientes</h2>
@@ -1146,4 +1147,4 @@
 
 </body>
 
-</html>
+</html> -->
