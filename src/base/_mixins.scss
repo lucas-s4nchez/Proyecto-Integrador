@@ -44,3 +44,11 @@
     color: $hoverColor;
   }
 }
+@mixin label($color) {
+  color: $color;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  transition: 0.5s ease-in-out all;
+  pointer-events: none;
+}

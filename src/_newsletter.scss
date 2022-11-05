@@ -74,12 +74,7 @@
     }
   }
   &__label {
-    color: v.$light;
-    position: absolute;
-    top: 10px;
-    left: 5px;
-    transition: 0.5s ease-in-out all;
-    pointer-events: none;
+    @include m.label(v.$light);
   }
   &__span {
     position: relative;

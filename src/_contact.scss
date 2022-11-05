@@ -1,0 +1,19 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.contact {
+  margin-block: 5rem;
+  &__heading {
+    text-align: center;
+  }
+}
+.form--contact {
+  margin: auto;
+  color: v.$gray;
+  width: 100%;
+  max-width: 80rem;
+  @include m.tablet {
+    min-width: 65rem;
+    max-width: 100%;
+  }
+}

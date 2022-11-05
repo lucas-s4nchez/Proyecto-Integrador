@@ -279,6 +279,26 @@
 
   <main class="featured" id="featured"></main>
 
+  <section class="contact container">
+    <h2 class="contact__heading">#Contacto</h2>
+    <form class="form form--contact">
+      <div class="form__formfield">
+        <input class="form__input" type="text" id="nombre" required autocomplete="off"><span class="form__span"></span>
+        <label class=" form__label" style="color: #686767;" for="nombre">Nombre</label>
+      </div>
+      <div class="form__formfield">
+        <input class="form__input" type="email" id="email" required autocomplete="off"><span class="form__span"></span>
+        <label class=" form__label" style="color: #686767;" for="email">Email</label>
+      </div>
+      <div class="form__formfield">
+        <textarea class="form__input" name="" id="mensaje" cols="30" rows="10" required
+          autocomplete="off"></textarea><span class="form__span"></span>
+        <label class=" form__label" style="color: #686767;" for="mensaje">Tu mensaje</label>
+      </div>
+
+      <button class="form__button" type="submit">Enviar</button>
+    </form>
+  </section>
 
   <section class="newsletter">
     <div class="newsletter__container">
