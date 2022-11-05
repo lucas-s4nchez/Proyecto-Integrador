@@ -57,9 +57,9 @@
       1.8rem,
       v.$dark,
       v.$white,
-      200px,
-      1px solid v.$dark
+      200px
     );
+    border: 1px solid v.$dark;
   }
 }
 .item-2 {
@@ -94,8 +94,7 @@
       1.8rem,
       v.$white,
       v.$white,
-      200px,
-      none
+      200px
     );
   }
 }

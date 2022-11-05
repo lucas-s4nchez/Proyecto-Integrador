@@ -12,7 +12,7 @@ const handleBtnMenu = ({ target }) => {
 };
 
 window.swiper = new Swiper({
-  el: ".slider__contenedor",
+  el: ".slider__box",
   slideClass: "slider__slide",
   createElements: true,
   autoplay: {

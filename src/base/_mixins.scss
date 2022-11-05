@@ -21,15 +21,7 @@
     @content;
   }
 }
-@mixin button(
-  $bgColor,
-  $hoverBg,
-  $fontSize,
-  $color,
-  $hoverColor,
-  $width,
-  $border
-) {
+@mixin button($bgColor, $hoverBg, $fontSize, $color, $hoverColor, $width) {
   background-color: $bgColor;
   padding: 1rem 1.5rem;
   color: $color;
@@ -38,7 +30,8 @@
   display: inline-block;
   width: $width;
   font-weight: 700;
-  border: $border;
+  border: none;
+  cursor: pointer;
   transition-property: background-color;
   transition-duration: 0.3s;
   text-align: center;
@@ -49,6 +42,5 @@
   &:hover {
     background-color: darken($hoverBg, 10%);
     color: $hoverColor;
-    border: none;
   }
 }

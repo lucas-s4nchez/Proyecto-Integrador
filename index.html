@@ -203,7 +203,7 @@
 
   </article> -->
   <section class="hero">
-    <ul class="slider__contenedor">
+    <ul class="slider__box">
       <div class="slider__slide">
         <div class="hero__bgGradient">
           <div class="item-1 container">
@@ -278,50 +278,30 @@
   </section>
 
   <main class="featured" id="featured"></main>
-  <section class="galery container" id="galery">
-    <h2 class="galery__title">Ahora estamos en Instagram <a href="https://www.instagram.com/"
-        class=" galery__title--link" target="_blank">¡Síguenos!</a> </h2>
-    <div class="galery__contenedor">
-      <img class="galery__img" src="img/insta-1.webp" alt="Imágenes de Instagram">
 
-      <img class="galery__img" src="img/insta-2.webp" alt="Imágenes de Instagram">
-
-      <img class="galery__img" src="img/insta-3.webp" alt="Imágenes de Instagram">
-
-      <img class="galery__img" src="img/insta-4.webp" alt="Imágenes de Instagram">
-
-      <img class="galery__img" src="img/insta-5.webp" alt="Imágenes de Instagram">
-
-      <img class="galery__img" src="img/insta-6.webp" alt="Imágenes de Instagram">
-
-      <img class="galery__img" src="img/insta-7.webp" alt="Imágenes de Instagram">
-
-      <img class="galery__img" src="img/insta-8.webp" alt="Imágenes de Instagram">
-    </div>
-
-  </section>
 
   <section class="newsletter">
-    <div class="newsletter__contenedor">
-      <div class="newsletter__texto">
+    <div class="newsletter__container">
+      <div class="newsletter__text">
         <h3 class="newsletter__h3">Suscríbete para participar de increíbles sorteos!</h3>
         <p class="newsletter__p">
           Todas las semanas sorteamos cupones de descuento de hasta un 50%,
           también participas por un par de zapatillas a tu elección!
         </p>
       </div>
-      <form class="newsletter__form ">
-        <div class="newsletter__div">
-          <input class="newsletter__input" type="email" id="newsletter" required><span class="newsletter__barra"></span>
-          <label class="newsletter__label" for="newsletter">Email</label>
+      <form class="form ">
+        <div class="form__formfield">
+          <input class="form__input" type="email" id="newsletter" required autocomplete="off">
+          <span class="form__span"></span>
+          <label class="form__label" for="newsletter">Email</label>
         </div>
-        <button class="newsletter__button" type="submit">Suscribirme</button>
+        <button class="form__button" type="submit">Suscribirme</button>
       </form>
     </div>
   </section>
   <footer class="footer" id="footer">
-    <div class="footer__contenedor">
-      <div class="footer__contacto">
+    <div class="footer__container">
+      <div class="footer__contact">
 
         <h3 class="footer__h3">Contacto</h3>
         <p class="footer__p"><span class="footer__span">Dirección: </span>Av. del Libertador 101, B1638 Vicente López,
@@ -332,7 +312,7 @@
       <div class="footer__cuenta">
         <h3 class="footer__h3">Mi cuenta</h3>
         <a class="footer__p footer__p--link" href="#login">Iniciar sesión</a>
-        <a class="footer__p footer__p--enlace" href="/paginas/carrito.html">Ver carrito</a>
+        <a class="footer__p footer__p--link" style="display: block;" href="/paginas/carrito.html">Ver carrito</a>
         <p class="footer__p" href="">Ayuda</p>
       </div>
       <div class="footer__acerca">
@@ -341,38 +321,36 @@
         <p class="footer__p" href="">Informacion de envíos</p>
         <p class="footer__p" href="">Políticas de privacidad</p>
         <p class="footer__p" href="">Términos y condiciones</p>
-        <a class="footer__p footer__p--enlace" href="/paginas/contacto.html">Contáctanos</a>
+        <a class="footer__p footer__p--link" href="/paginas/contacto.html">Contáctanos</a>
       </div>
-      <div class="footer__redes">
+      <div class="footer__networks">
         <h3 class="footer__h3">Síguenos</h3>
-        <div class="footer__redes-box">
+        <div class="footer__networks-box">
           <div class="instagram">
-            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-instagram"></i></a>
+            <a class="footer__networks-link" href="#footer"><i class="fa-brands fa-instagram"></i></a>
           </div>
           <div class="facebook">
-            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="footer__networks-link" href="#footer"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
           <div class="twitter">
-            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-twitter"></i></a>
+            <a class="footer__networks-link" href="#footer"><i class="fa-brands fa-twitter"></i></a>
           </div>
           <div class="pinterest">
-            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a class="footer__networks-link" href="#footer"><i class="fa-brands fa-pinterest-p"></i></a>
           </div>
           <div class="tiktok">
-            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-tiktok"></i></a>
+            <a class="footer__networks-link" href="#footer"><i class="fa-brands fa-tiktok"></i></a>
           </div>
           <div class="youtube">
-            <a class="footer__redes-link" href="#footer"><i class="fa-brands fa-youtube"></i></a>
+            <a class="footer__networks-link" href="#footer"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
         <div class="logo">
-          <a href="#">
-            <span class="logo__texto logo__texto--blanco">Yury</span>
-          </a>
+
         </div>
       </div>
     </div>
-    <p class="footer__final ">Sitio diseñado por <a class="footer__autor" href="https://github.com/lucas-s4nchez"
+    <p class="footer__end ">Sitio diseñado por <a class="footer__author" href="https://github.com/lucas-s4nchez"
         target="_blank">Lucas Sánchez</a>
     </p>
   </footer>
