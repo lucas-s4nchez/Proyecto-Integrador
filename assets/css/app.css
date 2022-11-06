@@ -541,10 +541,10 @@ p {
   margin: 0;
 }
 
-.featured {
+.offers {
   margin-block: 5rem;
 }
-.featured__content {
+.offers__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -610,9 +610,55 @@ p {
           flex-direction: column;
   gap: 1rem;
 }
+.card__title {
+  font-weight: 600;
+  color: #222222;
+}
+.card__price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222222;
+}
+.card__old-price {
+  text-decoration: line-through;
+  color: #686767;
+}
+.card__span {
+  background-color: #0bb1a5;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
 .card__icon {
   -ms-flex-item-align: end;
       align-self: flex-end;
+  cursor: pointer;
+}
+
+.best-sellers {
+  margin-block: 5rem;
+}
+.best-sellers__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
 }
 
 .contact {

@@ -19,7 +19,8 @@ export const products = [
     ],
     sizes: [38, 39, 40, 41, 42, 43, 44, 45],
     stock: 20,
-    featured: true,
+    on_offer: null,
+    best_seller: true,
   },
   {
     id: 2,
@@ -41,7 +42,8 @@ export const products = [
     ],
     sizes: [38, 39, 40, 41],
     stock: 10,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 3,
@@ -63,7 +65,8 @@ export const products = [
     ],
     sizes: [35, 39, 40],
     stock: 50,
-    featured: false,
+    on_offer: null,
+    best_seller: true,
   },
   {
     id: 4,
@@ -85,7 +88,8 @@ export const products = [
     ],
     sizes: [35, 40],
     stock: 30,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 5,
@@ -107,7 +111,8 @@ export const products = [
     ],
     sizes: [40, 41, 43, 45],
     stock: 30,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 6,
@@ -129,7 +134,8 @@ export const products = [
     ],
     sizes: [40, 41, 42, 43, 44, 45],
     stock: 20,
-    featured: false,
+    on_offer: null,
+    best_seller: true,
   },
   {
     id: 7,
@@ -151,7 +157,8 @@ export const products = [
     ],
     sizes: [40, 43],
     stock: 10,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 8,
@@ -173,7 +180,8 @@ export const products = [
     ],
     sizes: [40, 41, 42, 43, 44, 45],
     stock: 20,
-    featured: false,
+    on_offer: null,
+    best_seller: true,
   },
   {
     id: 9,
@@ -195,7 +203,8 @@ export const products = [
     ],
     sizes: [42, 43, 44, 45],
     stock: 20,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 10,
@@ -217,7 +226,8 @@ export const products = [
     ],
     sizes: [41, 42, 43, 44, 45],
     stock: 22,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 11,
@@ -239,7 +249,8 @@ export const products = [
     ],
     sizes: [34, 35, 36, 37, 38],
     stock: 20,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 12,
@@ -261,7 +272,8 @@ export const products = [
     ],
     sizes: [40, 41, 42, 43, 44],
     stock: 23,
-    featured: false,
+    on_offer: null,
+    best_seller: true,
   },
   {
     id: 13,
@@ -283,7 +295,8 @@ export const products = [
     ],
     sizes: [38, 40, 41, 42, 43, 44, 45, 46, 47],
     stock: 13,
-    featured: true,
+    on_offer: 15,
+    best_seller: false,
   },
   {
     id: 14,
@@ -305,7 +318,8 @@ export const products = [
     ],
     sizes: [38, 40, 41, 42, 43, 44, 45],
     stock: 9,
-    featured: true,
+    on_offer: 10,
+    best_seller: false,
   },
   {
     id: 15,
@@ -327,7 +341,8 @@ export const products = [
     ],
     sizes: [34, 35, 36, 37, 38],
     stock: 15,
-    featured: false,
+    on_offer: null,
+    best_seller: true,
   },
   {
     id: 16,
@@ -349,7 +364,8 @@ export const products = [
     ],
     sizes: [41, 42, 43, 44, 45],
     stock: 12,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 17,
@@ -371,7 +387,8 @@ export const products = [
     ],
     sizes: [41, 42, 43, 44, 45],
     stock: 22,
-    featured: false,
+    on_offer: null,
+    best_seller: true,
   },
   {
     id: 18,
@@ -393,7 +410,8 @@ export const products = [
     ],
     sizes: [41, 42, 43, 44, 45],
     stock: 22,
-    featured: true,
+    on_offer: 25,
+    best_seller: false,
   },
   {
     id: 19,
@@ -415,7 +433,8 @@ export const products = [
     ],
     sizes: [41, 42, 43, 44, 45, 46],
     stock: 23,
-    featured: false,
+    on_offer: 10,
+    best_seller: false,
   },
   {
     id: 20,
@@ -437,7 +456,8 @@ export const products = [
     ],
     sizes: [35, 36],
     stock: 9,
-    featured: true,
+    on_offer: 15,
+    best_seller: false,
   },
   {
     id: 21,
@@ -459,7 +479,8 @@ export const products = [
     ],
     sizes: [33, 34, 35, 36],
     stock: 12,
-    featured: true,
+    on_offer: 20,
+    best_seller: false,
   },
   {
     id: 22,
@@ -481,7 +502,8 @@ export const products = [
     ],
     sizes: [33, 34, 35, 36],
     stock: 10,
-    featured: false,
+    on_offer: null,
+    best_seller: false,
   },
   {
     id: 23,
@@ -503,7 +525,8 @@ export const products = [
     ],
     sizes: [41, 43, 44, 45],
     stock: 13,
-    featured: true,
+    on_offer: 20,
+    best_seller: false,
   },
   {
     id: 24,
@@ -525,7 +548,8 @@ export const products = [
     ],
     sizes: [36, 37],
     stock: 5,
-    featured: true,
+    on_offer: 30,
+    best_seller: false,
   },
   {
     id: 25,
@@ -547,6 +571,7 @@ export const products = [
     ],
     sizes: [34, 35, 36, 37],
     stock: 15,
-    featured: false,
+    on_offer: null,
+    best_seller: true,
   },
 ];
