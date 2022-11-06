@@ -1,0 +1,46 @@
+@use "base/variables.scss" as v;
+@use "base/mixins" as m;
+
+.featured {
+  margin-block: 5rem;
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid v.$lightGray;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease-out;
+  width: 30rem;
+  height: max-content;
+  flex: 1 1 20rem;
+  &:hover {
+    transform: scale(102%);
+  }
+  &__img-box {
+    min-width: 20rem;
+  }
+  &__img {
+    object-fit: contain;
+    height: 20rem;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__icon {
+    align-self: flex-end;
+  }
+}

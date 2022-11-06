@@ -1,3 +1,4 @@
+/** Media Queries **/
 * {
   margin: 0;
   padding: 0;
@@ -56,7 +57,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 300;
 }
 
@@ -78,9 +79,14 @@ p {
 
 [class$=heading] {
   margin: 2rem 0;
+  font-size: 2.4rem;
+}
+@media (min-width: 768px) {
+  [class$=heading] {
+    font-size: 3.4rem;
+  }
 }
 
-/** Media Queries **/
 .header {
   position: sticky;
   top: 0;
@@ -533,6 +539,80 @@ p {
 }
 .icon__text {
   margin: 0;
+}
+
+.featured {
+  margin-block: 5rem;
+}
+.featured__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #adadad;
+  border-radius: 0.5rem;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  width: 30rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20rem;
+          flex: 1 1 20rem;
+}
+.card:hover {
+  -webkit-transform: scale(102%);
+          transform: scale(102%);
+}
+.card__img-box {
+  min-width: 20rem;
+}
+.card__img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 20rem;
+}
+.card__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+.card__icon {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 .contact {
