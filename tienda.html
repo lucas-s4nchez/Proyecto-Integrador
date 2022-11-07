@@ -71,7 +71,7 @@
   <!-- fontawesome  -->
   <script src="https://kit.fontawesome.com/96e4c6db82.js" crossorigin="anonymous"></script>
   <!-- css  -->
-  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
 
 </head>
 
@@ -80,14 +80,14 @@
     <div class="header__container">
       <div class="header__logo">
         <a href="../../index.html">
-          <img class="header__logo-img" src="../img/logo-black.svg" alt="Logo">
+          <img class="header__logo-img" src="./assets/img/logo-black.svg" alt="Logo">
         </a>
       </div>
       <nav class="nav">
 
         <ul class="nav__menu" id="menu">
           <li class="nav__li">
-            <a class="nav__link " href="../../index.html">Inicio</a>
+            <a class="nav__link " href="./index.html">Inicio</a>
           </li>
           <li class="nav__li">
             <a class="nav__link nav__link--active" href="#">Tienda</a>
@@ -126,7 +126,7 @@
   </header>
 
   </section>
-  <main class="main__container">
+  <main class="products container">
     <aside class="filters">
       <form class="filters__form">
         <div class="filters__div">
@@ -170,12 +170,6 @@
           <label class="filters__label" for="color">Color</label>
           <select class="filters__select" id="color">
             <option class="filters__option" value="">Seleccione</option>
-            <option class="filters__option" value="negro">Negro</option>
-            <option class="filters__option" value="azul">Azul</option>
-            <option class="filters__option" value="blanco">Blanco</option>
-            <option class="filters__option" value="rojo">Rojo</option>
-            <option class="filters__option" value="amarillo">Amarillo</option>
-            <option class="filters__option" value="lila">Lila</option>
           </select>
         </div>
         <div class="filters__div">
@@ -190,15 +184,11 @@
           <label class="filters__label" for="marca">Marca</label>
           <select class="filters__select" id="marca">
             <option class="filters__option" value="">Seleccione</option>
-            <option class="filters__option" value="Nike">Nike</option>
-            <option class="filters__option" value="Azul">Adidas</option>
-            <option class="filters__option" value="Blanco">Pumas</option>
-            <option class="filters__option" value="Rojo">Fila</option>
           </select>
         </div>
       </form>
     </aside>
-    <div class="products" id="products"></div>
+    <div class="products__grid" id="products"></div>
   </main>
 
   <footer class="footer" id="footer">
@@ -257,7 +247,7 @@
     </p>
   </footer>
 
-  <script src="../js/shop.js" type="module"></script>
+  <script src="./assets/js/shop.js" type="module"></script>
 </body>
 
 </html>

@@ -49,3 +49,6 @@ const formatPrice = (price) => {
   const formatPrice = `${firstTwoDigits}.${lastThreeDigits}`;
   return formatPrice;
 };
+
+export const loadSpinner = () =>
+  `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;

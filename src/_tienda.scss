@@ -1,11 +1,20 @@
 @use "base/variables" as v;
 @use "base/mixins" as m;
 
-.main__contenedor {
+.products {
   display: grid;
   margin-block: 5rem;
-  @include m.tablet {
+  @include m.desktop {
     grid-template-columns: 1fr 3fr;
+  }
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   }
 }
 .filters {
@@ -49,5 +58,6 @@
     background-color: lighten(v.$primaryColor, 70%);
     font-size: 1.4rem;
     color: v.$darkGray;
+    text-transform: capitalize;
   }
 }

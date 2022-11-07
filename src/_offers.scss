@@ -23,8 +23,12 @@
   border-radius: 0.5rem;
   transition: transform 0.3s ease-out;
   width: 30rem;
-  height: max-content;
-  flex: 1 1 20rem;
+  height: 35rem;
+  max-width: 30rem;
+  flex: 1 1 25rem;
+  @include m.tablet {
+    max-width: 30rem;
+  }
   &:hover {
     transform: scale(102%);
   }
