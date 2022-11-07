@@ -70,6 +70,10 @@
     rel="stylesheet">
   <!-- fontawesome  -->
   <script src="https://kit.fontawesome.com/96e4c6db82.js" crossorigin="anonymous"></script>
+  <!-- hamburgercss  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+  <!-- swiper  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <!-- css  -->
   <link rel="stylesheet" href="./assets/css/app.css">
 
@@ -125,69 +129,70 @@
     </div>
   </header>
 
-  </section>
   <main class="products container">
     <aside class="filters">
-      <form class="filters__form">
-        <div class="filters__div">
-          <label class="filters__label" for="orden">Ordenar por: </label>
-          <select class="filters__select" id="orden">
-            <option class="filters__option" value=""> --Seleccione--</option>
-            <option class="filters__option" value="A-Z">Alfabeticamente A - Z</option>
-            <option class="filters__option" value="Z-A">Alfabeticamente Z - A</option>
-            <option class="filters__option" value="Menor">Menor Precio</option>
-            <option class="filters__option" value="Mayor">Mayor Precio</option>
-          </select>
+      <form class="filters__form" id="filter-form">
+        <div class="filters__grid">
+          <div class="filters__div">
+            <label class="filters__label" for="orden">Ordenar por: </label>
+            <select class="filters__select" id="orden">
+              <option class="filters__option" value=""> --Seleccione--</option>
+              <option class="filters__option" value="A-Z">Alfabeticamente A - Z</option>
+              <option class="filters__option" value="Z-A">Alfabeticamente Z - A</option>
+              <option class="filters__option" value="Menor">Menor Precio</option>
+              <option class="filters__option" value="Mayor">Mayor Precio</option>
+            </select>
+          </div>
+          <div class="filters__div">
+            <label class="filters__label" for="minimo">Precio Min</label>
+            <select class="filters__select" id="minimo">
+              <option class="filters__option" value="">Seleccione</option>
+              <option class="filters__option" value="20000">$20.000</option>
+              <option class="filters__option" value="30000">$30.000</option>
+              <option class="filters__option" value="40000">$40.000</option>
+              <option class="filters__option" value="50000">$50.000</option>
+              <option class="filters__option" value="60000">$60.000</option>
+              <option class="filters__option" value="70000">$70.000</option>
+              <option class="filters__option" value="80000">$80.000</option>
+            </select>
+          </div>
+          <div class="filters__div">
+            <label class="filters__label" for="maximo">Precio Max</label>
+            <select class="filters__select" id="maximo">
+              <option class="filters__option" value="">Seleccione</option>
+              <option class="filters__option" value="20000">$20.000</option>
+              <option class="filters__option" value="30000">$30.000</option>
+              <option class="filters__option" value="40000">$40.000</option>
+              <option class="filters__option" value="50000">$50.000</option>
+              <option class="filters__option" value="60000">$60.000</option>
+              <option class="filters__option" value="70000">$70.000</option>
+              <option class="filters__option" value="80000">$80.000</option>
+              <option class="filters__option" value="90000">$90.000</option>
+            </select>
+          </div>
+          <div class="filters__div">
+            <label class="filters__label" for="color">Color</label>
+            <select class="filters__select" id="color">
+              <option class="filters__option" value="">Seleccione</option>
+            </select>
+          </div>
+          <div class="filters__div">
+            <label class="filters__label" for="genero">Género</label>
+            <select class="filters__select" id="genero">
+              <option class="filters__option" value="">Seleccione</option>
+              <option class="filters__option" value="Hombre">Hombre</option>
+              <option class="filters__option" value="Mujer">Mujer</option>
+            </select>
+          </div>
+          <div class="filters__div">
+            <label class="filters__label" for="marca">Marca</label>
+            <select class="filters__select" id="marca">
+              <option class="filters__option" value="">Seleccione</option>
+            </select>
+          </div>
         </div>
-        <div class="filters__div">
-          <label class="filters__label" for="minimo">Precio Min</label>
-          <select class="filters__select" id="minimo">
-            <option class="filters__option" value="">Seleccione</option>
-            <option class="filters__option" value="20000">$20.000</option>
-            <option class="filters__option" value="30000">$30.000</option>
-            <option class="filters__option" value="40000">$40.000</option>
-            <option class="filters__option" value="50000">$50.000</option>
-            <option class="filters__option" value="60000">$60.000</option>
-            <option class="filters__option" value="70000">$70.000</option>
-            <option class="filters__option" value="80000">$80.000</option>
-          </select>
-        </div>
-        <div class="filters__div">
-          <label class="filters__label" for="maximo">Precio Max</label>
-          <select class="filters__select" id="maximo">
-            <option class="filters__option" value="">Seleccione</option>
-            <option class="filters__option" value="20000">$20.000</option>
-            <option class="filters__option" value="30000">$30.000</option>
-            <option class="filters__option" value="40000">$40.000</option>
-            <option class="filters__option" value="50000">$50.000</option>
-            <option class="filters__option" value="60000">$60.000</option>
-            <option class="filters__option" value="70000">$70.000</option>
-            <option class="filters__option" value="80000">$80.000</option>
-            <option class="filters__option" value="90000">$90.000</option>
-          </select>
-        </div>
-        <div class="filters__div">
-          <label class="filters__label" for="color">Color</label>
-          <select class="filters__select" id="color">
-            <option class="filters__option" value="">Seleccione</option>
-          </select>
-        </div>
-        <div class="filters__div">
-          <label class="filters__label" for="genero">Género</label>
-          <select class="filters__select" id="genero">
-            <option class="filters__option" value="">Seleccione</option>
-            <option class="filters__option" value="Hombre">Hombre</option>
-            <option class="filters__option" value="Mujer">Mujer</option>
-          </select>
-        </div>
-        <div class="filters__div">
-          <label class="filters__label" for="marca">Marca</label>
-          <select class="filters__select" id="marca">
-            <option class="filters__option" value="">Seleccione</option>
-          </select>
-        </div>
+        <button class="filters__btn" id="btn-reset-filters">Reiniciar filtros</button>
       </form>
-      <button class="filters__btn" id="btn-reset-filters">Reiniciar filtros</button>
     </aside>
     <div class="products__grid" id="products"></div>
   </main>

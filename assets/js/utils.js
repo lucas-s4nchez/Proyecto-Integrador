@@ -1,3 +1,16 @@
+const btnMenu = document.getElementById("btn-menu");
+const menu = document.getElementById("menu");
+
+export const handleBtnMenu = ({ target }) => {
+  if (
+    target.matches(".hamburger-button") ||
+    target.matches(`${".hamburger-button"} *`)
+  ) {
+    btnMenu.classList.toggle("is-active");
+    menu.classList.toggle("nav__active");
+  }
+};
+
 export const renderProducts = (array, callback) => {
   return array.map(callback).join("");
 };

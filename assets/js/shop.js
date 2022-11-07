@@ -1,6 +1,12 @@
-import { renderProducts, createProduct, loadSpinner } from "./utils.js";
+import {
+  renderProducts,
+  createProduct,
+  loadSpinner,
+  handleBtnMenu,
+} from "./utils.js";
 import { products } from "./data.js";
 
+// const form = document.getElementById("filter-form");
 const productsContainer = document.getElementById("products");
 const selectColor = document.getElementById("color");
 const selectBrand = document.getElementById("marca");
@@ -167,6 +173,7 @@ const sortBy = () => {
   }
 };
 const resetFilters = () => {
+  // form.reset();
   searchValue.brand = "";
   searchValue.color = "";
   searchValue.gender = "";
@@ -175,6 +182,7 @@ const resetFilters = () => {
   searchValue.sort = "";
 };
 
+document.addEventListener("click", handleBtnMenu);
 document.addEventListener("DOMContentLoaded", renderProductsInStock);
 document.addEventListener("DOMContentLoaded", loadSelects);
 selectBrand.addEventListener("change", ({ target }) => {

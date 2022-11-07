@@ -1,20 +1,8 @@
 import { products } from "./data.js";
-import { renderProducts, createProduct } from "./utils.js";
+import { renderProducts, createProduct, handleBtnMenu } from "./utils.js";
 
-const btnMenu = document.getElementById("btn-menu");
-const menu = document.getElementById("menu");
 const productsOnOfferContainer = document.getElementById("products-offer");
 const bestSellersContainer = document.getElementById("best-seller");
-
-const handleBtnMenu = ({ target }) => {
-  if (
-    target.matches(".hamburger-button") ||
-    target.matches(`${".hamburger-button"} *`)
-  ) {
-    btnMenu.classList.toggle("is-active");
-    menu.classList.toggle("nav__active");
-  }
-};
 
 window.swiper = new Swiper({
   el: ".slider__box",

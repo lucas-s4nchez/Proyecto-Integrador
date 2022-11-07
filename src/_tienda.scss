@@ -19,11 +19,14 @@
 }
 .filters {
   margin-bottom: 5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
   &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  &__grid {
     display: flex;
     justify-content: center;
     align-items: center;

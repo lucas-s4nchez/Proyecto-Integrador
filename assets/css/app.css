@@ -597,7 +597,7 @@ p {
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
-  width: 30rem;
+  width: 100%;
   height: 35rem;
   max-width: 30rem;
   -webkit-box-flex: 1;
@@ -1018,19 +1018,24 @@ p {
 
 .filters {
   margin-bottom: 5rem;
+}
+.filters__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
-.filters__form {
+.filters__grid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1045,7 +1050,7 @@ p {
   gap: 1rem;
 }
 @media (min-width: 1024px) {
-  .filters__form {
+  .filters__grid {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
