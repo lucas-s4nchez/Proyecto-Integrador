@@ -1,0 +1,104 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.newsletter {
+  padding-block: 5rem;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.897) 0,
+      rgba(0, 0, 0, 0.986)
+    ),
+    url("../img/nike-5126389_1920.webp");
+  background-position: center, center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include m.tablet {
+      flex-direction: row;
+    }
+  }
+  &__h3 {
+    color: v.$white;
+    font-size: 2.4rem;
+  }
+  &__p {
+    color: v.$light;
+    margin-bottom: 0;
+  }
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  @include m.tablet {
+    width: 35rem;
+    justify-content: flex-end;
+  }
+  &__formfield {
+    position: relative;
+    width: 100%;
+  }
+  &__input {
+    background: none;
+    color: v.$white;
+    font-size: 1.8rem;
+    padding: 1rem 1rem 1rem 0.5rem;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid v.$light;
+    &:focus {
+      outline: none;
+      color: v.$light;
+    }
+    &:focus ~ .form__label,
+    &:valid ~ .form__label {
+      top: -14px;
+      font-size: 1.4rem;
+      color: v.$primaryColor;
+    }
+    &:focus ~ .form__span::before {
+      width: 100%;
+    }
+    & .form__label {
+      color: v.$light;
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      transition: 0.5s ease-in-out all;
+      pointer-events: none;
+    }
+  }
+  &__label {
+    @include m.label(v.$light);
+  }
+  &__span {
+    position: relative;
+    display: block;
+    width: 100%;
+    &::before {
+      content: "";
+      height: 2px;
+      width: 0%;
+      bottom: 0;
+      position: absolute;
+      background-color: v.$primaryColor;
+      transition: 0.5s ease width;
+      left: 0;
+    }
+  }
+  &__button {
+    @include m.button(
+      v.$primaryColor,
+      v.$primaryColor,
+      1.8rem,
+      v.$white,
+      v.$white,
+      100%
+    );
+  }
+}

@@ -1,0 +1,15 @@
+@use "base/variables.scss" as v;
+@use "base/mixins" as m;
+
+.best-sellers {
+  margin-block: 5rem;
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}

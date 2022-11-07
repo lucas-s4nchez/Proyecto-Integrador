@@ -1,0 +1,54 @@
+@use "variables" as v;
+
+/** Media Queries **/
+@mixin mobile {
+  @media (min-width: v.$mobile) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
+}
+@mixin desktopXL {
+  @media (min-width: v.$desktopxl) {
+    @content;
+  }
+}
+@mixin button($bgColor, $hoverBg, $fontSize, $color, $hoverColor, $width) {
+  background-color: $bgColor;
+  padding: 1rem 1.5rem;
+  color: $color;
+  font-size: $fontSize;
+  font-weight: 400;
+  display: inline-block;
+  width: $width;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+
+  @include tablet {
+    width: $width;
+  }
+  &:hover {
+    background-color: darken($hoverBg, 10%);
+    color: $hoverColor;
+  }
+}
+@mixin label($color) {
+  color: $color;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  transition: 0.5s ease-in-out all;
+  pointer-events: none;
+}

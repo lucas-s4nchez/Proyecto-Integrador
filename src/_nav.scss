@@ -1,0 +1,112 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  .nav__active {
+    transform: translateX(0);
+  }
+  &__menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 70px);
+    width: 100%;
+    margin: 0;
+    background-color: v.$white;
+    transform: translateX(-120%);
+    transition: 0.5s;
+
+    @include m.tablet {
+      position: unset;
+      top: unset;
+      bottom: unset;
+      left: unset;
+      right: unset;
+      height: unset;
+      flex-direction: row;
+      width: max-content;
+      gap: 2rem;
+      transform: unset;
+    }
+  }
+  &__li {
+    position: relative;
+  }
+  &__link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: v.$black;
+    font-weight: 700;
+    transition: 0.3s ease;
+  }
+
+  &__link:hover,
+  &__link.nav__link--active {
+    color: v.$primaryColor;
+  }
+
+  &__link.nav__link--active::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: v.$primaryColor;
+    position: absolute;
+    bottom: -8px;
+    left: 0%;
+  }
+}
+.profile-button {
+  display: none;
+  &__button {
+    border-radius: 50%;
+    border: 1px solid v.$black;
+    background-color: v.$white;
+    cursor: pointer;
+    padding: 1rem;
+    transition: 0.3s;
+  }
+  &__button:hover {
+    border-color: v.$white;
+    background-color: v.$primaryColor;
+    color: v.$white;
+  }
+}
+.cart-button {
+  border: none;
+  background-color: v.$white;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  &__icon {
+    font-size: 2.5rem;
+    color: v.$primaryColor;
+  }
+}
+.hamburger {
+  display: block;
+  @include m.tablet {
+    display: none;
+  }
+}
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before {
+  background: v.$primaryColor;
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner:after,
+.hamburger.is-active .hamburger-inner:before {
+  background: v.$primaryColor;
+}

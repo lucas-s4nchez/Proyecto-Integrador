@@ -1,0 +1,100 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+.hero {
+  overflow-x: hidden;
+
+  &__bgGradient {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    height: calc(100vh - 70px);
+    background-size: cover;
+    @include m.tablet {
+      height: 40rem;
+      display: grid;
+      place-content: center;
+    }
+    @include m.desktop {
+      height: 50rem;
+    }
+  }
+  &__bgGradient--2 {
+    background: linear-gradient(to right, #ee9ca7, #ffdde1);
+  }
+  &__bgGradient--3 {
+    background-image: url("../img/item-3.webp");
+    background-size: cover;
+  }
+}
+.item-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  @include m.tablet {
+    flex-direction: row;
+  }
+
+  &__img {
+    height: 30rem;
+    background-image: url("../img/item-1.png");
+    background-size: cover;
+    background-position: 80%;
+    overflow: hidden;
+    @include m.tablet {
+      width: 40rem;
+      height: 40rem;
+    }
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__button {
+    @include m.button(
+      transparent,
+      v.$primaryColor,
+      1.8rem,
+      v.$dark,
+      v.$white,
+      200px
+    );
+    border: 1px solid v.$dark;
+  }
+}
+.item-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  @include m.tablet {
+    flex-direction: row;
+  }
+
+  &__img {
+    height: 30rem;
+    background-image: url("../img/item-2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 80%;
+    overflow: hidden;
+    @include m.tablet {
+      width: 40rem;
+      height: 40rem;
+    }
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__button {
+    @include m.button(
+      v.$primaryColor,
+      v.$primaryColor,
+      1.8rem,
+      v.$white,
+      v.$white,
+      200px
+    );
+  }
+}
