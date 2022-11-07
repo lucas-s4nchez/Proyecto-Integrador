@@ -25,6 +25,23 @@ body {
   color: #222222;
 }
 
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #088178;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: #222222;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -1001,6 +1018,17 @@ p {
 
 .filters {
   margin-bottom: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .filters__form {
   display: -webkit-box;
@@ -1045,7 +1073,7 @@ p {
 }
 @media (min-width: 1024px) {
   .filters__div {
-    width: 70%;
+    width: 100%;
   }
 }
 .filters__select {
@@ -1066,4 +1094,34 @@ p {
   font-size: 1.4rem;
   color: #3d3d3d;
   text-transform: capitalize;
+}
+.filters__btn {
+  background-color: #088178;
+  padding: 1rem 1.5rem;
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  display: inline-block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .filters__btn {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+}
+.filters__btn:hover {
+  background-color: #04433e;
+  color: #ffffff;
 }

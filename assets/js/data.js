@@ -10,7 +10,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Tela",
     sole: "Goma",
-    color: "Blanco/Negro",
+    colors: ["blanco", "negro"],
     images: [
       "./assets/img/products/float-knit-1.webp",
       "./assets/img/products/float-knit-2.webp",
@@ -33,7 +33,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Tela",
     sole: "Goma",
-    color: "Rosa",
+    colors: ["rosa"],
     images: [
       "./assets/img/products/euro-jogger-1.webp",
       "./assets/img/products/euro-jogger-2.webp",
@@ -56,7 +56,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Poliéster",
     sole: "Goma EVA",
-    color: "Negro/Rojo",
+    colors: ["negro", "rojo"],
     images: [
       "./assets/img/products/trend-1.webp",
       "./assets/img/products/trend-2.webp",
@@ -79,7 +79,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Poliéster",
     sole: "Goma EVA",
-    color: "Negro/Rosa",
+    colors: ["negro", "rosa"],
     images: [
       "./assets/img/products/trend2-1.webp",
       "./assets/img/products/trend2-2.webp",
@@ -102,7 +102,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Malla",
     sole: "Goma",
-    color: "Negro",
+    colors: ["negro"],
     images: [
       "./assets/img/products/presence-1.webp",
       "./assets/img/products/presence-2.webp",
@@ -125,7 +125,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Poliéster",
     sole: "Goma EVA",
-    color: "Negro/Grafito",
+    colors: ["negro", "grafito"],
     images: [
       "./assets/img/products/presence-1.webp",
       "./assets/img/products/presence-2.webp",
@@ -148,7 +148,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Tela",
     sole: "Goma",
-    color: "Azul Marino",
+    colors: ["azul"],
     images: [
       "./assets/img/products/euro-jogger-hombre-1.webp",
       "./assets/img/products/euro-jogger-hombre-2.webp",
@@ -171,7 +171,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Malla",
     sole: "Goma",
-    color: "Negro",
+    colors: ["negro"],
     images: [
       "./assets/img/products/fuse-1.webp",
       "./assets/img/products/fuse-2.webp",
@@ -194,7 +194,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Tela, Malla",
     sole: "Goma",
-    color: "Gris",
+    colors: ["gris"],
     images: [
       "./assets/img/products/adp-1.webp",
       "./assets/img/products/adp-2.webp",
@@ -217,7 +217,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Tela, Malla",
     sole: "Goma",
-    color: "Negro",
+    colors: ["negro"],
     images: [
       "./assets/img/products/resolve-1.webp",
       "./assets/img/products/resolve-2.webp",
@@ -240,7 +240,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Tela, Malla",
     sole: "Goma",
-    color: "Gris",
+    colors: ["gris"],
     images: [
       "./assets/img/products/comet-1.webp",
       "./assets/img/products/comet-2.webp",
@@ -263,7 +263,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Tela",
     sole: "Goma",
-    color: "Negro",
+    colors: ["negro"],
     images: [
       "./assets/img/products/lite-1.webp",
       "./assets/img/products/lite-2.webp",
@@ -286,7 +286,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Malla",
     sole: "Goma",
-    color: "Beige",
+    colors: ["beige"],
     images: [
       "./assets/img/products/terrex-1.webp",
       "./assets/img/products/terrex-2.webp",
@@ -309,7 +309,7 @@ export const products = [
     style: "Urbano",
     exterior: "Cuero sintético",
     sole: "Goma",
-    color: "Blanco",
+    colors: ["blanco"],
     images: [
       "./assets/img/products/court-1.webp",
       "./assets/img/products/court-2.webp",
@@ -332,7 +332,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Malla",
     sole: "Goma",
-    color: "Blanco/Rosa",
+    colors: ["blanco", "rosa"],
     images: [
       "./assets/img/products/duramo-1.webp",
       "./assets/img/products/duramo-2.webp",
@@ -355,7 +355,7 @@ export const products = [
     style: "Urbano",
     exterior: "Cuero sintético",
     sole: "Goma",
-    color: "Blanco",
+    colors: ["blanco"],
     images: [
       "./assets/img/products/adventage-1.webp",
       "./assets/img/products/adventage-2.webp",
@@ -378,7 +378,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Malla",
     sole: "Goma",
-    color: "Azul",
+    colors: ["azul"],
     images: [
       "./assets/img/products/showthewail-1.webp",
       "./assets/img/products/showthewail-2.webp",
@@ -401,7 +401,7 @@ export const products = [
     style: "Urbano",
     exterior: "Tela",
     sole: "Goma",
-    color: "Rosa",
+    colors: ["rosa"],
     images: [
       "./assets/img/products/waffle-1.webp",
       "./assets/img/products/waffle-2.webp",
@@ -424,7 +424,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Poliéster",
     sole: "Goma",
-    color: "Negro",
+    colors: ["negro"],
     images: [
       "./assets/img/products/downshifter-1.webp",
       "./assets/img/products/downshifter-2.webp",
@@ -447,7 +447,7 @@ export const products = [
     style: "Urbano",
     exterior: "Cuero,Malla,Gamuza",
     sole: "Goma",
-    color: "Blanco/Lila",
+    colors: ["blanco", "lila"],
     images: [
       "./assets/img/products/airmax-lila-1.webp",
       "./assets/img/products/airmax-lila-2.webp",
@@ -470,7 +470,7 @@ export const products = [
     style: "Urbano",
     exterior: "Cuero,Malla,Gamuza",
     sole: "Goma",
-    color: "Negro",
+    colors: ["negro"],
     images: [
       "./assets/img/products/airmax-negro-1.webp",
       "./assets/img/products/airmax-negro-2.webp",
@@ -493,7 +493,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Malla",
     sole: "Goma",
-    color: "Blanco/Negro",
+    colors: ["blanco", "negro"],
     images: [
       "./assets/img/products/airmax-bella-1.webp",
       "./assets/img/products/airmax-bella-2.webp",
@@ -516,7 +516,7 @@ export const products = [
     style: "Urbano",
     exterior: "Cuero,Malla",
     sole: "Goma",
-    color: "Negro",
+    colors: ["negro"],
     images: [
       "./assets/img/products/airmax-sc-1.webp",
       "./assets/img/products/airmax-sc-2.webp",
@@ -539,7 +539,7 @@ export const products = [
     style: "Urbano",
     exterior: "Tela,Poliuretano",
     sole: "Goma",
-    color: "Celeste/Lila",
+    colors: ["celeste", "lila"],
     images: [
       "./assets/img/products/airmax-furyosa-1.webp",
       "./assets/img/products/airmax-furyosa-2.webp",
@@ -562,7 +562,7 @@ export const products = [
     style: "Deportivo",
     exterior: "Poliéster",
     sole: "Goma",
-    color: "Negro",
+    colors: ["negro"],
     images: [
       "./assets/img/products/crater-1.webp",
       "./assets/img/products/crater-2.webp",

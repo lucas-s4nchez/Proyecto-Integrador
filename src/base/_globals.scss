@@ -22,6 +22,20 @@ body {
   color: v.$dark;
 }
 
+body::-webkit-scrollbar {
+  width: 6px;
+}
+body::-webkit-scrollbar-thumb {
+  background: v.$primaryColor;
+  border-radius: 4px;
+}
+body::-webkit-scrollbar-thumb:active {
+  background-color: v.$dark;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
 img {
   max-width: 100%;
   display: block;
