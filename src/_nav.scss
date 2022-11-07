@@ -58,12 +58,12 @@
 
   &__link.nav__link--active::after {
     content: "";
-    width: 30%;
+    width: 100%;
     height: 2px;
     background: v.$primaryColor;
     position: absolute;
-    bottom: -4px;
-    left: 20px;
+    bottom: -8px;
+    left: 0%;
   }
 }
 .profile-button {

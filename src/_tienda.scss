@@ -1,0 +1,53 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.main__contenedor {
+  display: grid;
+  margin-block: 5rem;
+  @include m.tablet {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+.filters {
+  margin-bottom: 5rem;
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    @include m.desktop {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 1rem;
+    }
+  }
+  &__div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @include m.desktop {
+      width: 70%;
+    }
+  }
+  &__select {
+    border: 1px solid v.$primaryColor;
+    outline: none;
+    padding: 0.5rem;
+    text-align: center;
+    background: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+  }
+  &__label {
+    font-weight: 700;
+    color: v.$dark;
+  }
+  &__option {
+    background-color: lighten(v.$primaryColor, 70%);
+    font-size: 1.4rem;
+    color: v.$darkGray;
+  }
+}
