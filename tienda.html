@@ -102,20 +102,22 @@
           <li class="nav__li">
             <a class="nav__link" href="#">Contacto</a>
           </li>
-          <li class="nav__li">
-            <a class="nav__link  " href="#login">Iniciar Sesion</a>
+          <li class="nav__li" id="login">
+            <a class="nav__link  " href="./log-in.html">Iniciar Sesion</a>
           </li>
-          <li class="nav__li">
-            <a class="nav__link" href="#registrarse">Registrarse</a>
+          <li class="nav__li" id='sigin'>
+            <a class="nav__link" href="./sign-in.html">Registrarse</a>
           </li>
         </ul>
-        <div class="profile-button">
+        <!-- perfil  -->
+        <div class="profile-button" id="profile">
           <button class="profile-button__button">
-            <span class="profile-button__span">
-              <i class="fa-regular fa-user"></i>
-            </span>
+            <span class="profile-button__span" id="profile-name"></span>
           </button>
-          <span>Lucas</span>
+          <div id="profile-menu" class="profile-menu">
+            <button class="profile-menu__button" id="profile-toggle">Salir <i
+                class="fa-solid fa-arrow-right-from-bracket"></i></button>
+          </div>
         </div>
         <button class="cart-button">
           <i class="cart-button__icon fa-solid fa-bag-shopping"></i>
