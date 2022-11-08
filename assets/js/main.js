@@ -41,6 +41,6 @@ const renderBestSellers = () => {
 document.addEventListener("click", handleBtnMenu);
 document.addEventListener("click", handleBtnProfile);
 logout.addEventListener("click", handleLogoutUser);
-document.addEventListener("DOMContentLoaded", handleChangeUserViews);
+window.addEventListener("load", handleChangeUserViews);
 document.addEventListener("DOMContentLoaded", renderProductsOnOffer);
 document.addEventListener("DOMContentLoaded", renderBestSellers);
