@@ -3,10 +3,14 @@ import {
   createProduct,
   loadSpinner,
   handleBtnMenu,
+  handleBtnProfile,
+  handleLogoutUser,
+  handleChangeUserViews,
 } from "./utils.js";
 import { products } from "./data.js";
 
 // const form = document.getElementById("filter-form");
+const logout = document.getElementById("profile-toggle");
 const productsContainer = document.getElementById("products");
 const selectColor = document.getElementById("color");
 const selectBrand = document.getElementById("marca");
@@ -183,6 +187,10 @@ const resetFilters = () => {
 };
 
 document.addEventListener("click", handleBtnMenu);
+
+document.addEventListener("click", handleBtnProfile);
+logout.addEventListener("click", handleLogoutUser);
+document.addEventListener("DOMContentLoaded", handleChangeUserViews);
 document.addEventListener("DOMContentLoaded", renderProductsInStock);
 document.addEventListener("DOMContentLoaded", loadSelects);
 selectBrand.addEventListener("change", ({ target }) => {

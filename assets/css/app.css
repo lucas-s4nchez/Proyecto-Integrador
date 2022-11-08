@@ -104,6 +104,14 @@ p {
   }
 }
 
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -125,6 +133,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #ffffff;
 }
 .header__logo {
   height: 6rem;
@@ -230,14 +239,14 @@ p {
 }
 
 .profile-button {
-  display: none;
+  display: block;
 }
 .profile-button__button {
   border-radius: 50%;
-  border: 1px solid #000000;
+  border: 1px solid #088178;
   background-color: #ffffff;
+  color: #088178;
   cursor: pointer;
-  padding: 1rem;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -245,6 +254,60 @@ p {
   border-color: #ffffff;
   background-color: #088178;
   color: #ffffff;
+}
+.profile-button__span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2.4rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+.profile-menu {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: -1000;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  top: 100%;
+  height: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0;
+  -webkit-transform: translateY(-500%);
+          transform: translateY(-500%);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.profile-menu__active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.profile-menu__button {
+  border: none;
+  padding: 1rem 1.5rem;
+  background-color: #088178;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .cart-button {

@@ -67,19 +67,54 @@
   }
 }
 .profile-button {
-  display: none;
+  display: block;
   &__button {
     border-radius: 50%;
-    border: 1px solid v.$black;
+    border: 1px solid v.$primaryColor;
     background-color: v.$white;
+    color: v.$primaryColor;
     cursor: pointer;
-    padding: 1rem;
+    // padding: 1rem;
     transition: 0.3s;
   }
   &__button:hover {
     border-color: v.$white;
     background-color: v.$primaryColor;
     color: v.$white;
+  }
+  &__span {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+.profile-menu {
+  position: absolute;
+  display: flex;
+  z-index: -1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  top: 100%;
+  height: auto;
+  width: max-content;
+  margin: 0;
+  transform: translateY(-500%);
+  transition: all 0.5s;
+
+  &__active {
+    transform: translateY(0);
+  }
+  &__button {
+    border: none;
+    padding: 1rem 1.5rem;
+    background-color: v.$primaryColor;
+    color: v.$white;
+    cursor: pointer;
   }
 }
 .cart-button {

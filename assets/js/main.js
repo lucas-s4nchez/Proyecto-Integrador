@@ -1,8 +1,16 @@
 import { products } from "./data.js";
-import { renderProducts, createProduct, handleBtnMenu } from "./utils.js";
+import {
+  renderProducts,
+  createProduct,
+  handleBtnMenu,
+  handleBtnProfile,
+  handleChangeUserViews,
+  handleLogoutUser,
+} from "./utils.js";
 
 const productsOnOfferContainer = document.getElementById("products-offer");
 const bestSellersContainer = document.getElementById("best-seller");
+const logout = document.getElementById("profile-toggle");
 
 window.swiper = new Swiper({
   el: ".slider__box",
@@ -31,5 +39,8 @@ const renderBestSellers = () => {
 };
 
 document.addEventListener("click", handleBtnMenu);
+document.addEventListener("click", handleBtnProfile);
+logout.addEventListener("click", handleLogoutUser);
+document.addEventListener("DOMContentLoaded", handleChangeUserViews);
 document.addEventListener("DOMContentLoaded", renderProductsOnOffer);
 document.addEventListener("DOMContentLoaded", renderBestSellers);
