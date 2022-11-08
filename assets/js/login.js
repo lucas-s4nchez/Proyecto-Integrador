@@ -29,10 +29,9 @@ const loginUser = (e) => {
         : loggedUser;
     });
     saveLocalStorage("users", loggedUsers);
+    window.history.back();
   } else {
     alert("No existe este usuario, crea una cuenta");
   }
-  window.history.back();
-  window.location.reload();
 };
 formLogin?.addEventListener("submit", loginUser);
