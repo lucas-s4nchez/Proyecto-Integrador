@@ -29,7 +29,7 @@ const loginUser = (e) => {
         : loggedUser;
     });
     saveLocalStorage("users", loggedUsers);
-    window.history.back();
+    window.location.href = "./index.html";
   } else {
     alert("No existe este usuario, crea una cuenta");
   }
