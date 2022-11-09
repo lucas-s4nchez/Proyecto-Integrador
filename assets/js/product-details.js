@@ -41,10 +41,10 @@ const renderDetails = (product) => {
   const { id, brand, model, version, price, on_offer, colors, sizes } = product;
   return `
         <div class="details__info">
-          
-            <span class="details__title">
+          <i class="details__icon fa-regular fa-heart"></i>
+          <span class="details__title">
             ${brand} ${model} ${version ? version : ""}
-            </span>
+          </span>
           
           ${
             on_offer
@@ -67,13 +67,29 @@ const renderDetails = (product) => {
               .join("/")}
               </span>
           </span>
-          <select class="details__sizes" id="sizes" >
-              <option value=""> --Talle-- </option>
-              ${sizes.map((size) => `<option value="${size}">${size}</option>`)}
-          </select>
-          <button class="details__sizes">Añadir al carrito</button>
+          <span>Talle: 
+            <select class="details__sizes" id="sizes" >
+              <option value=""> Selecciona un talle </option>
+              ${sizes.map(
+                (size) =>
+                  `<option class="details__option" value="${size}">${size}</option>`
+              )}
+            </select>
+          </span>
+          
+          <button class="details__btn-cart" data-id=${id} id="btn-cart">
+            Añadir al carrito <i class="fa-solid fa-bag-shopping"></i>
+          </button>
         </div>
         `;
+};
+
+const addToCart = ({ target }) => {
+  if (!target.classList.contains("details__btn-cart")) return;
+  const size = target.parentElement.querySelector(".details__sizes").value;
+  const productId = target.dataset.id;
+  console.log(size);
+  console.log(productId);
 };
 
 const renderProductData = (product) => {
@@ -88,3 +104,4 @@ document.addEventListener("click", handleBtnProfile);
 document.addEventListener("click", handleLogoutUser);
 document.addEventListener("DOMContentLoaded", handleChangeUserViews);
 document.addEventListener("DOMContentLoaded", getProductById);
+document.addEventListener("click", addToCart);
