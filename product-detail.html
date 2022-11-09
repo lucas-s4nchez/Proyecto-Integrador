@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles</title>
+  <!-- favicons  -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="/img/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/img/ms-icon-144x144.png">
+  <meta name="theme-color" content="#088178">
+  <!-- fuentes  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700;900&family=Lobster+Two&display=swap"
+    rel="stylesheet">
+  <!-- fontawesome  -->
+  <script src="https://kit.fontawesome.com/96e4c6db82.js" crossorigin="anonymous"></script>
+  <!-- hamburgercss  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+  <!-- swiper  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <!-- css  -->
+  <link rel="stylesheet" href="./assets/css/app.css">
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo">
+        <a href="./index.html">
+          <img class="header__logo-img" src="./assets/img/logo-black.svg" alt="Logo">
+        </a>
+      </div>
+      <nav class="nav">
+
+        <ul class="nav__menu" id="menu">
+          <li class="nav__li">
+            <a class="nav__link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav__li">
+            <a class="nav__link" href="./tienda.html">Tienda</a>
+          </li>
+          <li class="nav__li">
+            <a class="nav__link" href="#">Favoritos</a>
+          </li>
+          <li class="nav__li">
+            <a class="nav__link" href="#">Contacto</a>
+          </li>
+          <li class="nav__li" id="login">
+            <a class="nav__link  " href="./log-in.html">Iniciar Sesion</a>
+          </li>
+          <li class="nav__li" id="signin">
+            <a class="nav__link" href="./sign-in.html">Registrarse</a>
+          </li>
+        </ul>
+        <!-- perfil  -->
+        <div class="profile-button" id="profile">
+          <button class="profile-button__button">
+            <span class="profile-button__span" id="profile-name"></span>
+          </button>
+          <div id="profile-menu" class="profile-menu">
+            <button class="profile-menu__button" id="profile-toggle">Salir <i
+                class="fa-solid fa-arrow-right-from-bracket"></i></button>
+          </div>
+        </div>
+        <!-- carrito  -->
+        <button class="cart-button">
+          <i class="cart-button__icon fa-solid fa-bag-shopping"></i>
+        </button>
+        <button class="hamburger-button hamburger hamburger--collapse" type="button" id="btn-menu">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="product" id="product">
+      <div class="product__main">
+        <div class="gallery">
+          <div class="gallery__content" id="img-container"></div>
+          <div class="gallery__images" id="img-list">
+            <div class="gallery__img-contain">
+              <img class="gallery__img" src="" alt="">
+            </div>
+            <div class="gallery__img-contain">
+              <img class="gallery__img" src="" alt="">
+            </div>
+            <div class="gallery__img-contain">
+              <img class="gallery__img" src="" alt="">
+            </div>
+            <div class="gallery__img-contain">
+              <img class="gallery__img" src="" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="details" id="details">
+        </div>
+      </div>
+      <div class="product__description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio aut quod pariatur officiis
+        autem fugiat illo vero. Voluptates autem illo consequatur mollitia hic itaque ut assumenda aliquam, vel odit
+        perferendis officiis? Quibusdam natus nostrum ullam ut alias dignissimos est placeat magnam illo quod quia in
+        tenetur distinctio ipsam ad temporibus unde, corporis omnis earum doloremque quasi? Sequi, libero labore
+        commodi, numquam cum eaque dolor, dolorum fugiat earum quibusdam delectus. Facilis quis beatae repudiandae
+        aliquam suscipit porro, hic eligendi magnam non itaque corrupti possimus deleniti a. Magnam cumque impedit
+        atque, aspernatur voluptatibus saepe fugit cupiditate sunt distinctio repellendus ipsum autem!
+      </div>
+    </div>
+  </main>
+  <script src="./assets/js/product-details.js" type="module"></script>
+</body>
+
+</html>
