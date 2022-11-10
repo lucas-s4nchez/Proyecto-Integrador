@@ -83,8 +83,8 @@
           </div>
         </div>
         <!-- carrito  -->
-        <button class="cart-button">
-          <i class="cart-button__icon fa-solid fa-bag-shopping"></i>
+        <button class="cart-open">
+          <i class="cart-open__icon fa-solid fa-bag-shopping"></i>
         </button>
         <button class="hamburger-button hamburger hamburger--collapse" type="button" id="btn-menu">
           <span class="hamburger-box">
@@ -92,6 +92,41 @@
           </span>
         </button>
       </nav>
+      <!-- carrito  -->
+      <div class="cart" id="cart">
+        <button class="cart-close">
+          <i class="cart-close__icon fa-solid fa-xmark"></i>
+        </button>
+        <span class="cart__heading">Tus Productos:</span>
+        <div class="cart__main">
+          <!--<div class="card card--cart box-shadow">
+                        <img
+                          class="card__img"
+                          src="./img/PhotoMenu.png"
+                          alt="pizza recomendada"
+                        />
+                        <div class="card__info">
+                          <p class="card__name">Bennzianna</p>
+                          <p class="card__description">La mas completa</p>
+                          <p class="card__price gradient-text">$ 3650</p>
+                        </div>
+                        <div class="card__buttons">
+                          <button class="btn btn--cart">-</button>
+                          <span class="card__quantity">1</span>
+                          <button class="btn btn--cart">+</button>
+                        </div>
+                      </div>-->
+        </div>
+        <div class="cart-total">
+          <p>Total:</p>
+          <span class="total"> 0.00 $</span>
+        </div>
+        <div class="btn-contain">
+          <button class="btn-buy btn">Comprar</button>
+          <button class="btn-delete btn">Vaciar carrito</button>
+        </div>
+
+      </div>
     </div>
   </header>
   <main class="container">

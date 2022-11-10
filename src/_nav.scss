@@ -117,17 +117,7 @@
     cursor: pointer;
   }
 }
-.cart-button {
-  border: none;
-  background-color: v.$white;
-  height: 4rem;
-  width: 4rem;
-  cursor: pointer;
-  &__icon {
-    font-size: 2.5rem;
-    color: v.$primaryColor;
-  }
-}
+
 .hamburger {
   display: block;
   @include m.tablet {

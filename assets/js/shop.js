@@ -6,6 +6,8 @@ import {
   handleBtnProfile,
   handleLogoutUser,
   handleChangeUserViews,
+  handleCartButton,
+  renderCart,
 } from "./main.js";
 import { products } from "./data.js";
 
@@ -15,7 +17,6 @@ const selectBrand = document.getElementById("marca");
 const selectGender = document.getElementById("genero");
 const selectMax = document.getElementById("maximo");
 const selectMin = document.getElementById("minimo");
-const selectSort = document.getElementById("orden");
 const btnReset = document.getElementById("btn-reset-filters");
 const searchValue = {
   brand: "",
@@ -23,8 +24,11 @@ const searchValue = {
   gender: "",
   minimum: "",
   maximum: "",
-  sort: "",
 };
+//usuarios del localstorage
+let users = JSON.parse(localStorage.getItem("users")) || [];
+//si un usuario esta logueado
+const isLoggedUser = users.find((user) => user.login === true);
 
 const renderProductsInStock = () => {
   const productsInStock = renderProducts(products, createProduct);
@@ -91,8 +95,7 @@ const filterProducts = () => {
     .filter(filterColor)
     .filter(filterGender)
     .filter(filterMaximum)
-    .filter(filterMinimum)
-    .filter(sortBy);
+    .filter(filterMinimum);
 
   if (filteredProducts.length) {
     const results = renderProducts(filteredProducts, createProduct);
@@ -101,7 +104,7 @@ const filterProducts = () => {
       productsContainer.innerHTML = results;
     }, 800);
   } else {
-    alert("no existe el producto");
+    console.log("no existe el producto");
   }
 };
 
@@ -135,83 +138,53 @@ const filterMinimum = (product) => {
   }
   return product;
 };
-const orderProducts = () => {
-  const sortedProducts = sortBy();
-  productsContainer.innerHTML = loadSpinner();
-  setTimeout(() => {
-    productsContainer.innerHTML = renderProducts(sortedProducts, createProduct);
-  }, 800);
-};
-const sortBy = () => {
-  if (searchValue.sort) {
-    if (searchValue.sort === "A-Z") {
-      return products.sort((a, b) => {
-        if (a.brand < b.brand) {
-          return -1;
-        }
-        if (a.brand > b.brand) {
-          return 1;
-        }
-        return 0;
-      });
-    }
-    if (searchValue.sort === "Z-A") {
-      return products.sort((a, b) => {
-        if (a.brand > b.brand) {
-          return -1;
-        }
-        if (a.brand < b.brand) {
-          return 1;
-        }
-        return 0;
-      });
-    }
-    if (searchValue.sort === "Menor") {
-      return products.sort((a, b) => a.price - b.price);
-    }
-    if (searchValue.sort === "Mayor") {
-      return products.sort((a, b) => b.price - a.price);
-    }
-  }
-};
-const resetFilters = () => {
-  // form.reset();
+
+const resetFilters = (e) => {
+  e.preventDefault();
   searchValue.brand = "";
   searchValue.color = "";
   searchValue.gender = "";
   searchValue.minimum = "";
   searchValue.maximum = "";
-  searchValue.sort = "";
+  selectColor.value = "";
+  selectGender.value = "";
+  selectMin.value = "";
+  selectMax.value = "";
+  selectBrand.value = "";
+  filterProducts();
 };
 
-document.addEventListener("click", handleBtnMenu);
-document.addEventListener("click", handleBtnProfile);
-document.addEventListener("click", handleLogoutUser);
-document.addEventListener("DOMContentLoaded", handleChangeUserViews);
-document.addEventListener("DOMContentLoaded", renderProductsInStock);
-document.addEventListener("DOMContentLoaded", loadSelects);
-selectBrand.addEventListener("change", ({ target }) => {
-  searchValue.brand = target.value;
-  filterProducts();
-});
-selectColor.addEventListener("change", ({ target }) => {
-  searchValue.color = target.value;
-  filterProducts();
-});
-selectGender.addEventListener("change", ({ target }) => {
-  searchValue.gender = target.value;
-  filterProducts();
-});
-selectMax.addEventListener("change", ({ target }) => {
-  searchValue.maximum = target.value;
-  filterProducts();
-});
-selectMin.addEventListener("change", ({ target }) => {
-  searchValue.minimum = target.value;
-  filterProducts();
-});
-selectSort.addEventListener("change", ({ target }) => {
-  searchValue.sort = target.value;
-  orderProducts();
-});
-btnReset.addEventListener("click", resetFilters);
+const init = () => {
+  document.addEventListener("click", handleBtnMenu);
+  document.addEventListener("click", handleCartButton);
+  document.addEventListener("click", handleBtnProfile);
+  document.addEventListener("click", handleLogoutUser);
+  document.addEventListener("DOMContentLoaded", handleChangeUserViews);
+  document.addEventListener("DOMContentLoaded", renderProductsInStock);
+  document.addEventListener("DOMContentLoaded", () => {
+    renderCart(isLoggedUser);
+  });
+  document.addEventListener("DOMContentLoaded", loadSelects);
+  btnReset.addEventListener("click", resetFilters);
+  selectBrand.addEventListener("change", ({ target }) => {
+    searchValue.brand = target.value;
+    filterProducts();
+  });
+  selectColor.addEventListener("change", ({ target }) => {
+    searchValue.color = target.value;
+    filterProducts();
+  });
+  selectGender.addEventListener("change", ({ target }) => {
+    searchValue.gender = target.value;
+    filterProducts();
+  });
+  selectMax.addEventListener("change", ({ target }) => {
+    searchValue.maximum = target.value;
+    filterProducts();
+  });
+  selectMin.addEventListener("change", ({ target }) => {
+    searchValue.minimum = target.value;
+    filterProducts();
+  });
+};
+init();

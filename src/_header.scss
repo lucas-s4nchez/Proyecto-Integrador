@@ -10,6 +10,7 @@
   z-index: 9999;
   &__container {
     height: inherit;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;

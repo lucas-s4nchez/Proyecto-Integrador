@@ -6,11 +6,16 @@ import {
   handleBtnProfile,
   handleChangeUserViews,
   handleLogoutUser,
+  handleCartButton,
+  renderCart,
 } from "./main.js";
 
 const productsOnOfferContainer = document.getElementById("products-offer");
 const bestSellersContainer = document.getElementById("best-seller");
-const btnLogout = document.getElementById("profile-toggle");
+//usuarios del localstorage
+let users = JSON.parse(localStorage.getItem("users")) || [];
+//si un usuario esta logueado
+const isLoggedUser = users.find((user) => user.login === true);
 
 window.swiper = new Swiper({
   el: ".slider__box",
@@ -38,9 +43,16 @@ const renderBestSellers = () => {
   bestSellersContainer.innerHTML = results;
 };
 
-document.addEventListener("click", handleBtnMenu);
-document.addEventListener("click", handleBtnProfile);
-document.addEventListener("click", handleLogoutUser);
-document.addEventListener("DOMContentLoaded", handleChangeUserViews);
-document.addEventListener("DOMContentLoaded", renderProductsOnOffer);
-document.addEventListener("DOMContentLoaded", renderBestSellers);
+const init = () => {
+  document.addEventListener("click", handleBtnMenu);
+  document.addEventListener("click", handleBtnProfile);
+  document.addEventListener("click", handleCartButton);
+  document.addEventListener("click", handleLogoutUser);
+  document.addEventListener("DOMContentLoaded", handleChangeUserViews);
+  document.addEventListener("DOMContentLoaded", renderProductsOnOffer);
+  document.addEventListener("DOMContentLoaded", renderBestSellers);
+  document.addEventListener("DOMContentLoaded", () => {
+    renderCart(isLoggedUser);
+  });
+};
+init();
