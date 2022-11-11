@@ -9,7 +9,10 @@ import {
   handleCartButton,
   renderCart,
 } from "./main.js";
+import { addToCart, handleQuantity, showTotal } from "./product-details.js";
 
+const productsCartContainer = document.querySelector(".cart__main");
+const totalCart = document.querySelector(".cart__total-span");
 const productsOnOfferContainer = document.getElementById("products-offer");
 const bestSellersContainer = document.getElementById("best-seller");
 //usuarios del localstorage
@@ -50,6 +53,9 @@ const init = () => {
   document.addEventListener("click", handleCartButton);
   document.addEventListener("click", handleLogoutUser);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
+  productsCartContainer.addEventListener("click", handleQuantity);
+  document.addEventListener("DOMContentLoaded", showTotal);
+  document.addEventListener("click", addToCart);
   document.addEventListener("DOMContentLoaded", renderProductsOnOffer);
   document.addEventListener("DOMContentLoaded", renderBestSellers);
   document.addEventListener("DOMContentLoaded", () => {

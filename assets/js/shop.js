@@ -10,8 +10,11 @@ import {
   renderCart,
 } from "./main.js";
 import { products } from "./data.js";
+import { addToCart, handleQuantity, showTotal } from "./product-details.js";
 
 const productsContainer = document.getElementById("products");
+const productsCartContainer = document.querySelector(".cart__main");
+const totalCart = document.querySelector(".cart__total-span");
 const selectColor = document.getElementById("color");
 const selectBrand = document.getElementById("marca");
 const selectGender = document.getElementById("genero");
@@ -162,6 +165,9 @@ const init = () => {
   document.addEventListener("click", handleBtnProfile);
   document.addEventListener("click", handleLogoutUser);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
+  productsCartContainer.addEventListener("click", handleQuantity);
+  document.addEventListener("DOMContentLoaded", showTotal);
+  document.addEventListener("click", addToCart);
   document.addEventListener("DOMContentLoaded", renderProductsInStock);
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(isLoggedUser);

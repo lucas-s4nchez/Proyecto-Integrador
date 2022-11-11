@@ -32,6 +32,7 @@ const getIdByQueryParams = () => {
 const findProduct = (id) => products.find((product) => product.id === id);
 
 const getProductById = () => {
+  if (!getIdByQueryParams()) return;
   const id = getIdByQueryParams();
   const product = findProduct(id);
   renderProductData(product);
@@ -100,7 +101,7 @@ const renderDetails = (product) => {
         `;
 };
 
-const addToCart = (e) => {
+export const addToCart = (e) => {
   if (!e.target.classList.contains("details__btn-cart")) return;
   const size = e.target.parentElement.querySelector(".details__sizes").value;
   if (!isLoggedUser) {
@@ -205,7 +206,7 @@ const handleMinusBtnEvent = (id, size) => {
 };
 
 //Comprueba si estamos disminuyendo o sumando la unidad
-const handleQuantity = (e) => {
+export const handleQuantity = (e) => {
   if (e.target.matches(".down")) {
     handleMinusBtnEvent(e.target.dataset.id, e.target.dataset.size);
   } else if (e.target.matches(".up")) {
@@ -219,9 +220,8 @@ const getCartTotal = () =>
     return acc + parseInt(cur.price) * parseInt(cur.quantity);
   }, 0);
 
-const showTotal = () => {
+export const showTotal = () => {
   const total = getCartTotal();
-  console.log(total);
   totalCart.innerHTML = `${numberFormat(total)}`;
 };
 
@@ -230,7 +230,7 @@ const createCartProduct = (product) => {
 };
 
 const renderProductData = (product) => {
-  const { id, brand, model, version, price, images, on_offer } = product;
+  const { images } = product;
   renderImages(images);
   const details = renderDetails(product);
   detailsContainer.innerHTML = details;

@@ -30,7 +30,6 @@ export const handleCartButton = ({ target }) => {
 };
 export const renderCartProduct = (cartProduct) => {
   const { id, img, price, name, discount, color, size, quantity } = cartProduct;
-  console.log(price);
   return `    
       <div class="cart-item">
           <div class="cart-item__main">
