@@ -3,7 +3,7 @@
 import { products } from "./data.js";
 
 //Menu hamburguesa
-const btnMenu = document.getElementById("btn-menu");
+const buttonHamburger = document.getElementById("btn-menu");
 const menu = document.getElementById("menu");
 //Boton de perfil
 const menuProfile = document.getElementById("profile-menu");
@@ -32,24 +32,12 @@ export const handleCartButton = () => {
 export const handleFavsButton = () => {
   favsContainer.classList.toggle("favs__active");
 };
-
-export const handleBtnProfile = ({ target }) => {
-  if (
-    target.matches(".profile-button__button") ||
-    target.matches(`${".profile-button__button"} *`)
-  ) {
-    menuProfile.classList.toggle("profile-menu__active");
-  }
+export const handleProfileButton = () => {
+  menuProfile.classList.toggle("profile-menu__active");
 };
-
-export const handleBtnMenu = ({ target }) => {
-  if (
-    target.matches(".hamburger-button") ||
-    target.matches(`${".hamburger-button"} *`)
-  ) {
-    btnMenu.classList.toggle("is-active");
-    menu.classList.toggle("nav__active");
-  }
+export const handleHamburgerButton = () => {
+  buttonHamburger.classList.toggle("is-active");
+  menu.classList.toggle("nav__active");
 };
 
 //Funciones del carrito
@@ -205,7 +193,7 @@ const setUserAvatar = () => {
 
 //Cerrar sesion
 export const handleLogoutUser = ({ target }) => {
-  if (!target.classList.contains("profile-menu__button")) return;
+  // if (!target.classList.contains("profile-menu__button")) return;
   const logoutUsers = users.map((item) => {
     return item.name === isLoggedUser.name && item.email === isLoggedUser.email
       ? { ...item, login: false }

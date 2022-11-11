@@ -1,7 +1,5 @@
 import { products } from "./data.js";
 import {
-  handleBtnMenu,
-  handleBtnProfile,
   handleChangeUserViews,
   handleLogoutUser,
   getNewPrice,
@@ -14,10 +12,16 @@ import {
   renderFavs,
   addEventToIconFavs,
   isExistingFavProduct,
+  handleProfileButton,
+  handleHamburgerButton,
 } from "./main.js";
 
 const buttonFavs = document.querySelector(".favs-open");
 const buttonCart = document.querySelector(".cart-open");
+const buttonProfile = document.querySelector(".profile-button__button");
+const buttonHamburger = document.getElementById("btn-menu");
+const buttonLogout = document.querySelector(".profile-menu__button");
+
 const imageContainer = document.getElementById("img-container");
 const imageList = document.querySelectorAll(".gallery__img");
 const detailsContainer = document.getElementById("details");
@@ -244,11 +248,11 @@ const renderProductData = (product) => {
   detailsContainer.innerHTML = details;
 };
 const init = () => {
-  document.addEventListener("click", handleBtnMenu);
-  document.addEventListener("click", handleBtnProfile);
-  document.addEventListener("click", handleLogoutUser);
+  buttonHamburger.addEventListener("click", handleHamburgerButton);
+  buttonLogout.addEventListener("click", handleLogoutUser);
   buttonCart.addEventListener("click", handleCartButton);
   buttonFavs.addEventListener("click", handleFavsButton);
+  buttonProfile.addEventListener("click", handleProfileButton);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   document.addEventListener("DOMContentLoaded", getProductById);
   document.addEventListener("DOMContentLoaded", showTotal);

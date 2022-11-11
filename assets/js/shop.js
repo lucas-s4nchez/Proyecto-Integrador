@@ -2,8 +2,6 @@ import {
   renderProducts,
   createProduct,
   loadSpinner,
-  handleBtnMenu,
-  handleBtnProfile,
   handleLogoutUser,
   handleChangeUserViews,
   handleCartButton,
@@ -11,12 +9,18 @@ import {
   handleFavsButton,
   renderFavs,
   addEventToIconFavs,
+  handleProfileButton,
+  handleHamburgerButton,
 } from "./main.js";
 import { products } from "./data.js";
 import { addToCart, handleQuantity, showTotal } from "./product-details.js";
 
 const buttonFavs = document.querySelector(".favs-open");
 const buttonCart = document.querySelector(".cart-open");
+const buttonProfile = document.querySelector(".profile-button__button");
+const buttonHamburger = document.getElementById("btn-menu");
+const buttonLogout = document.querySelector(".profile-menu__button");
+
 const productsContainer = document.getElementById("products");
 const productsCartContainer = document.querySelector(".cart__main");
 const selectColor = document.getElementById("color");
@@ -164,11 +168,11 @@ const resetFilters = (e) => {
 };
 
 const init = () => {
-  document.addEventListener("click", handleBtnMenu);
-  document.addEventListener("click", handleBtnProfile);
-  document.addEventListener("click", handleLogoutUser);
+  buttonHamburger.addEventListener("click", handleHamburgerButton);
+  buttonLogout.addEventListener("click", handleLogoutUser);
   buttonCart.addEventListener("click", handleCartButton);
   buttonFavs.addEventListener("click", handleFavsButton);
+  buttonProfile.addEventListener("click", handleProfileButton);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   productsCartContainer.addEventListener("click", handleQuantity);
   document.addEventListener("DOMContentLoaded", showTotal);

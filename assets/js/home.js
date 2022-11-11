@@ -2,8 +2,6 @@ import { products } from "./data.js";
 import {
   renderProducts,
   createProduct,
-  handleBtnMenu,
-  handleBtnProfile,
   handleChangeUserViews,
   handleLogoutUser,
   handleCartButton,
@@ -11,15 +9,21 @@ import {
   handleFavsButton,
   renderFavs,
   addEventToIconFavs,
+  handleProfileButton,
+  handleHamburgerButton,
 } from "./main.js";
-import { addToCart, handleQuantity, showTotal } from "./product-details.js";
+import { handleQuantity, showTotal } from "./product-details.js";
 
-const productsCartContainer = document.querySelector(".cart__main");
 const buttonFavs = document.querySelector(".favs-open");
 const buttonCart = document.querySelector(".cart-open");
+const buttonProfile = document.querySelector(".profile-button__button");
+const buttonHamburger = document.getElementById("btn-menu");
+const buttonLogout = document.querySelector(".profile-menu__button");
 
+const productsCartContainer = document.querySelector(".cart__main");
 const productsOnOfferContainer = document.getElementById("products-offer");
 const bestSellersContainer = document.getElementById("best-seller");
+
 //usuarios del localstorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
 //si un usuario esta logueado
@@ -53,20 +57,19 @@ const renderBestSellers = () => {
 };
 
 const init = () => {
-  document.addEventListener("click", handleBtnMenu);
-  document.addEventListener("click", handleBtnProfile);
-  document.addEventListener("click", handleLogoutUser);
-  document.addEventListener("DOMContentLoaded", handleChangeUserViews);
+  buttonHamburger.addEventListener("click", handleHamburgerButton);
+  buttonLogout.addEventListener("click", handleLogoutUser);
   productsCartContainer.addEventListener("click", handleQuantity);
   buttonCart.addEventListener("click", handleCartButton);
   buttonFavs.addEventListener("click", handleFavsButton);
-  document.addEventListener("DOMContentLoaded", showTotal);
-  document.addEventListener("click", addToCart);
-  document.addEventListener("DOMContentLoaded", renderProductsOnOffer);
-  document.addEventListener("DOMContentLoaded", renderBestSellers);
+  buttonProfile.addEventListener("click", handleProfileButton);
   document.addEventListener("DOMContentLoaded", () => {
+    handleChangeUserViews();
     renderCart(isLoggedUser);
+    showTotal();
     renderFavs(isLoggedUser);
+    renderProductsOnOffer();
+    renderBestSellers();
     addEventToIconFavs(isLoggedUser);
   });
 };

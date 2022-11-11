@@ -94,7 +94,6 @@
 }
 .profile-menu {
   position: absolute;
-  display: flex;
   z-index: -1000;
   flex-direction: column;
   align-items: center;
@@ -105,10 +104,13 @@
   margin: 0;
   transform: translateY(-500%);
   transition: all 0.5s;
+  display: none;
 
   &__active {
     transform: translateY(0);
+    display: flex;
   }
+
   &__button {
     border: none;
     padding: 1rem 1.5rem;
