@@ -120,9 +120,17 @@
 
 .hamburger {
   display: block;
+  padding: 0px;
+  line-height: 0.7;
   @include m.tablet {
     display: none;
   }
+}
+.hamburger-box,
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before {
+  width: 3rem;
 }
 
 .hamburger-inner,

@@ -96,12 +96,6 @@
           <li class="nav__li">
             <a class="nav__link nav__link--active" href="./tienda.html">Tienda</a>
           </li>
-          <li class="nav__li">
-            <a class="nav__link" href="#">Favoritos</a>
-          </li>
-          <li class="nav__li">
-            <a class="nav__link" href="#">Contacto</a>
-          </li>
           <li class="nav__li" id="login">
             <a class="nav__link  " href="./log-in.html">Iniciar Sesion</a>
           </li>
@@ -109,6 +103,14 @@
             <a class="nav__link" href="./sign-in.html">Registrarse</a>
           </li>
         </ul>
+        <!-- boton de favoritos  -->
+        <button class="favs-open">
+          <i class="favs-open__icon fa-solid fa-heart"></i>
+        </button>
+        <!-- boton del carrito  -->
+        <button class="cart-open">
+          <i class="cart-open__icon fa-solid fa-bag-shopping"></i>
+        </button>
         <!-- perfil  -->
         <div class="profile-button" id="profile">
           <button class="profile-button__button">
@@ -119,9 +121,8 @@
                 class="fa-solid fa-arrow-right-from-bracket"></i></button>
           </div>
         </div>
-        <button class="cart-open">
-          <i class="cart-open__icon fa-solid fa-bag-shopping"></i>
-        </button>
+
+        <!-- boton menu hamburguesa  -->
         <button class="hamburger-button hamburger hamburger--collapse" type="button" id="btn-menu">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -139,14 +140,18 @@
 
         </div>
         <div class="cart__total">
-          <p>Total:</p>
+          <p class="cart__total-p">Total:</p>
           <span class="cart__total-span"> 0.00 $</span>
         </div>
         <div class="btn-contain">
-          <button class="btn-buy btn">Comprar</button>
-          <button class="btn-delete btn">Vaciar carrito</button>
+          <button class="btn-contain__btn buy">Comprar</button>
+          <button class="btn-contain__btn delete">Vaciar carrito</button>
         </div>
 
+      </div>
+      <!-- favoritos  -->
+      <div class="favs">
+        <div class="favs__main">Mis Favoritos</div>
       </div>
     </div>
   </header>

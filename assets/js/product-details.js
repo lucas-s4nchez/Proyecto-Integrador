@@ -4,14 +4,20 @@ import {
   handleBtnProfile,
   handleChangeUserViews,
   handleLogoutUser,
-  formatPrice,
   getNewPrice,
   handleCartButton,
   saveLocalStorage,
   renderCart,
   numberFormat,
+  addToFavs,
+  handleFavsButton,
+  renderFavs,
+  addEventToIconFavs,
+  isExistingFavProduct,
 } from "./main.js";
 
+const buttonFavs = document.querySelector(".favs-open");
+const buttonCart = document.querySelector(".cart-open");
 const imageContainer = document.getElementById("img-container");
 const imageList = document.querySelectorAll(".gallery__img");
 const detailsContainer = document.getElementById("details");
@@ -52,7 +58,9 @@ const renderDetails = (product) => {
     product;
   return `
         <div class="details__info">
-          <i class="details__icon fa-regular fa-heart"></i>
+          <i class="details__icon fav-icon fa-regular
+          ${isExistingFavProduct(product, isLoggedUser) ? "fa-solid" : ""} 
+          fa-heart" data-id="${id}"></i>
           <span class="details__title">
             ${brand} ${model} ${version ? version : ""}
           </span>
@@ -237,15 +245,18 @@ const renderProductData = (product) => {
 };
 const init = () => {
   document.addEventListener("click", handleBtnMenu);
-  document.addEventListener("click", handleCartButton);
   document.addEventListener("click", handleBtnProfile);
   document.addEventListener("click", handleLogoutUser);
+  buttonCart.addEventListener("click", handleCartButton);
+  buttonFavs.addEventListener("click", handleFavsButton);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   document.addEventListener("DOMContentLoaded", getProductById);
   document.addEventListener("DOMContentLoaded", showTotal);
   productsCartContainer.addEventListener("click", handleQuantity);
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(isLoggedUser);
+    renderFavs(isLoggedUser);
+    addEventToIconFavs(isLoggedUser);
   });
   document.addEventListener("click", addToCart);
 };

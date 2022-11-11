@@ -8,13 +8,17 @@ import {
   handleChangeUserViews,
   handleCartButton,
   renderCart,
+  handleFavsButton,
+  renderFavs,
+  addEventToIconFavs,
 } from "./main.js";
 import { products } from "./data.js";
 import { addToCart, handleQuantity, showTotal } from "./product-details.js";
 
+const buttonFavs = document.querySelector(".favs-open");
+const buttonCart = document.querySelector(".cart-open");
 const productsContainer = document.getElementById("products");
 const productsCartContainer = document.querySelector(".cart__main");
-const totalCart = document.querySelector(".cart__total-span");
 const selectColor = document.getElementById("color");
 const selectBrand = document.getElementById("marca");
 const selectGender = document.getElementById("genero");
@@ -161,9 +165,10 @@ const resetFilters = (e) => {
 
 const init = () => {
   document.addEventListener("click", handleBtnMenu);
-  document.addEventListener("click", handleCartButton);
   document.addEventListener("click", handleBtnProfile);
   document.addEventListener("click", handleLogoutUser);
+  buttonCart.addEventListener("click", handleCartButton);
+  buttonFavs.addEventListener("click", handleFavsButton);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   productsCartContainer.addEventListener("click", handleQuantity);
   document.addEventListener("DOMContentLoaded", showTotal);
@@ -171,6 +176,8 @@ const init = () => {
   document.addEventListener("DOMContentLoaded", renderProductsInStock);
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(isLoggedUser);
+    renderFavs(isLoggedUser);
+    addEventToIconFavs(isLoggedUser);
   });
   document.addEventListener("DOMContentLoaded", renderSelects);
   btnReset.addEventListener("click", resetFilters);

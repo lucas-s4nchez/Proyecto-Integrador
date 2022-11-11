@@ -8,11 +8,16 @@ import {
   handleLogoutUser,
   handleCartButton,
   renderCart,
+  handleFavsButton,
+  renderFavs,
+  addEventToIconFavs,
 } from "./main.js";
 import { addToCart, handleQuantity, showTotal } from "./product-details.js";
 
 const productsCartContainer = document.querySelector(".cart__main");
-const totalCart = document.querySelector(".cart__total-span");
+const buttonFavs = document.querySelector(".favs-open");
+const buttonCart = document.querySelector(".cart-open");
+
 const productsOnOfferContainer = document.getElementById("products-offer");
 const bestSellersContainer = document.getElementById("best-seller");
 //usuarios del localstorage
@@ -50,16 +55,19 @@ const renderBestSellers = () => {
 const init = () => {
   document.addEventListener("click", handleBtnMenu);
   document.addEventListener("click", handleBtnProfile);
-  document.addEventListener("click", handleCartButton);
   document.addEventListener("click", handleLogoutUser);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   productsCartContainer.addEventListener("click", handleQuantity);
+  buttonCart.addEventListener("click", handleCartButton);
+  buttonFavs.addEventListener("click", handleFavsButton);
   document.addEventListener("DOMContentLoaded", showTotal);
   document.addEventListener("click", addToCart);
   document.addEventListener("DOMContentLoaded", renderProductsOnOffer);
   document.addEventListener("DOMContentLoaded", renderBestSellers);
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(isLoggedUser);
+    renderFavs(isLoggedUser);
+    addEventToIconFavs(isLoggedUser);
   });
 };
 init();

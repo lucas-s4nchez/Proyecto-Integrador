@@ -1,10 +1,10 @@
 @use "base/variables" as v;
 @use "base/mixins" as m;
 
-.cart {
+.favs {
   z-index: -1000;
   width: 100%;
-  height: 100vh;
+  height: 40rem;
   position: absolute;
   overflow-y: scroll;
   top: 70px;
@@ -65,27 +65,11 @@
       border-radius: 5px;
     }
   }
-  &__total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 0 1rem 0;
-    border-top: 1px solid v.$lightGray;
-  }
-  &__total-span {
-    line-height: 1;
-    font-weight: 700;
-    font-size: 2rem;
-  }
-  &__total-p {
-    line-height: 1;
-    font-size: 2rem;
-  }
 }
 
 /* Clase para cerrar o abrrir el carrito  */
 
-.cart-open {
+.favs-open {
   border: none;
   background-color: v.$white;
   height: 4rem;
@@ -96,7 +80,7 @@
     color: v.$primaryColor;
   }
 }
-.cart-close {
+.favs-close {
   border: none;
   background-color: v.$white;
   height: 4rem;
@@ -107,23 +91,10 @@
     color: v.$primaryColor;
   }
 }
-.btn-contain {
-  display: flex;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-  &__btn {
-    @include m.button(
-      v.$primaryColor,
-      darken(v.$primaryColor, 5%),
-      1.6rem,
-      v.$white,
-      v.$white,
-      max-content
-    );
-  }
+.fav-icon {
+  color: v.$primaryColor;
 }
-.cart-item {
+.favs-item {
   display: flex;
   flex-direction: column;
   padding: 1rem;

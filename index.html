@@ -96,12 +96,6 @@
           <li class="nav__li">
             <a class="nav__link" href="./tienda.html">Tienda</a>
           </li>
-          <li class="nav__li">
-            <a class="nav__link" href="#">Favoritos</a>
-          </li>
-          <li class="nav__li">
-            <a class="nav__link" href="#">Contacto</a>
-          </li>
           <li class="nav__li" id="login">
             <a class="nav__link  " href="./log-in.html">Iniciar Sesion</a>
           </li>
@@ -109,6 +103,14 @@
             <a class="nav__link" href="./sign-in.html">Registrarse</a>
           </li>
         </ul>
+        <!-- boton de favoritos  -->
+        <button class="favs-open">
+          <i class="favs-open__icon fa-solid fa-heart"></i>
+        </button>
+        <!-- boton del carrito  -->
+        <button class="cart-open">
+          <i class="cart-open__icon fa-solid fa-bag-shopping"></i>
+        </button>
         <!-- perfil  -->
         <div class="profile-button" id="profile">
           <button class="profile-button__button">
@@ -119,10 +121,7 @@
                 class="fa-solid fa-arrow-right-from-bracket"></i></button>
           </div>
         </div>
-        <!-- boton del carrito  -->
-        <button class="cart-open">
-          <i class="cart-open__icon fa-solid fa-bag-shopping"></i>
-        </button>
+
         <!-- boton menu hamburguesa  -->
         <button class="hamburger-button hamburger hamburger--collapse" type="button" id="btn-menu">
           <span class="hamburger-box">
@@ -141,16 +140,19 @@
 
         </div>
         <div class="cart__total">
-          <p>Total:</p>
+          <p class="cart__total-p">Total:</p>
           <span class="cart__total-span"> 0.00 $</span>
         </div>
         <div class="btn-contain">
-          <button class="btn-buy btn">Comprar</button>
-          <button class="btn-delete btn">Vaciar carrito</button>
+          <button class="btn-contain__btn buy">Comprar</button>
+          <button class="btn-contain__btn delete">Vaciar carrito</button>
         </div>
 
       </div>
-
+      <!-- favoritos  -->
+      <div class="favs">
+        <div class="favs__main">Mis Favoritos</div>
+      </div>
     </div>
   </header>
 
@@ -236,27 +238,6 @@
   <section class="best-sellers container">
     <h2 class="best-sellers__heading">Los más vendidos</h2>
     <div class="best-sellers__content" id="best-seller"></div>
-  </section>
-
-  <section class="contact container">
-    <h2 class="contact__heading">#Contacto</h2>
-    <form class="form form--contact">
-      <div class="form__formfield">
-        <input class="form__input" type="text" id="nombre" required autocomplete="off"><span class="form__span"></span>
-        <label class=" form__label" style="color: #686767;" for="nombre">Nombre</label>
-      </div>
-      <div class="form__formfield">
-        <input class="form__input" type="email" id="email" required autocomplete="off"><span class="form__span"></span>
-        <label class=" form__label" style="color: #686767;" for="email">Email</label>
-      </div>
-      <div class="form__formfield">
-        <textarea class="form__input" name="" id="mensaje" cols="30" rows="10" required
-          autocomplete="off"></textarea><span class="form__span"></span>
-        <label class=" form__label" style="color: #686767;" for="mensaje">Tu mensaje</label>
-      </div>
-
-      <button class="form__button" type="submit">Enviar</button>
-    </form>
   </section>
 
   <section class="newsletter">
