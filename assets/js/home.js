@@ -17,6 +17,7 @@ let users = JSON.parse(localStorage.getItem("users")) || [];
 //si un usuario esta logueado
 const isLoggedUser = users.find((user) => user.login === true);
 
+//Slider
 window.swiper = new Swiper({
   el: ".slider__box",
   slideClass: "slider__slide",

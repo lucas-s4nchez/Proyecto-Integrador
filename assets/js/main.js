@@ -30,20 +30,29 @@ export const handleCartButton = ({ target }) => {
 };
 export const renderCartProduct = (cartProduct) => {
   const { id, img, price, name, discount, color, size, quantity } = cartProduct;
+  console.log(price);
   return `    
-      <div class="cart-item box-shadow">
-          <img
-            class="cart-item__img"
-            src="${img}"
-            alt="${name}"/>
-          <div class="cart-item__info">
-            <p class="cart-item__name">${name}</p>
-            <p class="cart-item__price gradient-text">$${price}</p>
+      <div class="cart-item">
+          <div class="cart-item__main">
+            <img
+              class="cart-item__img"
+              src="${img}"
+              alt="${name}"/>
+            <div class="cart-item__info">
+              <p class="cart-item__name">${name}</p>
+              <p class="cart-item__size">Talle: ${size}</p>
+              ${
+                discount !== "null"
+                  ? `<span class="cart-item__discount">${discount}% OFF</span>`
+                  : ""
+              }
+              <p class="cart-item__price">${numberFormat(price)}</p>
+            </div>
           </div>
-          <div class="buttons">
-            <button class="buttons__down" data-id="${id}">-</button>
+          <div class="cart-item__footer">
+            <button class="cart-item__button down" data-id="${id}" data-size="${size}">-</button>
             <span class="cart-item__quantity">${quantity}</span>
-            <button class="buttons__up" data-id="${id}">+</button>
+            <button class="cart-item__button up" data-id="${id}" data-size="${size}">+</button>
           </div>
         </div>
         `;
@@ -140,15 +149,15 @@ export const createProduct = (product) => {
           
           ${
             on_offer
-              ? `<span class="card__old-price">$${formatPrice(price)}</span>`
+              ? `<span class="card__old-price">${numberFormat(price)}</span>`
               : ""
           }
           <span class="card__price">
           ${
             on_offer
-              ? `$${getNewPrice(price, on_offer)} 
+              ? `${numberFormat(getNewPrice(price, on_offer))} 
           <span class="card__span">${on_offer}% off</span>`
-              : `$${formatPrice(price)}`
+              : `${numberFormat(price)}`
           }
           </span>
         </div>
@@ -161,8 +170,7 @@ export const createProduct = (product) => {
 export const getNewPrice = (price, discount) => {
   const newPrice =
     parseInt(price) - (parseInt(price) * parseInt(discount)) / 100;
-  const formatNewPrice = formatPrice(newPrice);
-  return formatNewPrice;
+  return newPrice;
 };
 
 export const formatPrice = (price) => {
@@ -172,6 +180,14 @@ export const formatPrice = (price) => {
   return formatPrice;
 };
 
+export const numberFormat = (value) => {
+  const formatter = new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    minimumFractionDigits: 2,
+  });
+  return formatter.format(value);
+};
 export const loadSpinner = () =>
   `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
 

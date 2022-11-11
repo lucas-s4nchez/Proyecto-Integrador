@@ -35,7 +35,7 @@ const renderProductsInStock = () => {
   productsContainer.innerHTML = productsInStock;
 };
 
-const getColors = () => {
+const setSingleColors = () => {
   let newColors = [];
   const colors = products.map((product) =>
     product.colors.toString().split("/")
@@ -84,11 +84,12 @@ const createSelect = (callback, container) => {
   container.innerHTML += results;
 };
 
-const loadSelects = () => {
-  createSelect(getColors, selectColor);
+const renderSelects = () => {
+  createSelect(setSingleColors, selectColor);
   createSelect(getBrands, selectBrand);
 };
 
+//Funcion que realiza todos los filtros
 const filterProducts = () => {
   const filteredProducts = products
     .filter(filterBrand)
@@ -108,6 +109,7 @@ const filterProducts = () => {
   }
 };
 
+//Cada filtro individual
 const filterBrand = (product) => {
   if (searchValue.brand) {
     return product.brand === searchValue.brand;
@@ -164,7 +166,7 @@ const init = () => {
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(isLoggedUser);
   });
-  document.addEventListener("DOMContentLoaded", loadSelects);
+  document.addEventListener("DOMContentLoaded", renderSelects);
   btnReset.addEventListener("click", resetFilters);
   selectBrand.addEventListener("change", ({ target }) => {
     searchValue.brand = target.value;

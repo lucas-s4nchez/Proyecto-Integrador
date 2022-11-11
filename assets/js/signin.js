@@ -1,4 +1,4 @@
-import { saveLocalStorage } from "./utils.js";
+import { saveLocalStorage } from "./main.js";
 
 const inputUsername = document.getElementById("username");
 const inputEmail = document.getElementById("email");

@@ -9,11 +9,14 @@ import {
   handleCartButton,
   saveLocalStorage,
   renderCart,
+  numberFormat,
 } from "./main.js";
 
 const imageContainer = document.getElementById("img-container");
 const imageList = document.querySelectorAll(".gallery__img");
 const detailsContainer = document.getElementById("details");
+const productsCartContainer = document.querySelector(".cart__main");
+const totalCart = document.querySelector(".cart__total-span");
 const arrayImages = [...imageList];
 //usuarios del localstorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -31,7 +34,6 @@ const findProduct = (id) => products.find((product) => product.id === id);
 const getProductById = () => {
   const id = getIdByQueryParams();
   const product = findProduct(id);
-  console.log(product);
   renderProductData(product);
 };
 
@@ -56,15 +58,15 @@ const renderDetails = (product) => {
           
           ${
             on_offer
-              ? `<span class="details__old-price">$${formatPrice(price)}</span>`
+              ? `<span class="details__old-price">${numberFormat(price)}</span>`
               : ""
           }
           <span class="details__price">
           ${
             on_offer
-              ? `$${getNewPrice(price, on_offer)} 
+              ? `${numberFormat(getNewPrice(price, on_offer))} 
           <span class="details__offer">${on_offer}% off</span>`
-              : `$${formatPrice(price)}`
+              : `${numberFormat(price)}`
           }
           </span>
           <span class="details__shipping"><i class="fa-solid fa-truck-fast"></i> Envio Gratis</span>
@@ -88,9 +90,7 @@ const renderDetails = (product) => {
           <button class="details__btn-cart"
             data-id=${id} 
             data-img=${images[0]} 
-            data-price=${
-              on_offer ? getNewPrice(price, on_offer) : formatPrice(price)
-            } 
+            data-price=${on_offer ? getNewPrice(price, on_offer) : price} 
             data-discount=${on_offer} 
             data-color=${colors.toString().split(",").join("/")} 
             id="btn-cart">
@@ -115,9 +115,7 @@ const addToCart = (e) => {
   const name = e.target.parentElement
     .querySelector(".details__title")
     .textContent.trim();
-
   const product = createProductObj(id, img, name, price, discount, color, size);
-
   if (isExistingCartProduct(product)) {
     addUnitToProduct(product);
     alert("Se agregó una unidad del producto al carrito");
@@ -135,30 +133,96 @@ const addToCart = (e) => {
 const checkCartState = (user, array) => {
   saveLocalStorage("users", array);
   renderCart(user);
+  showTotal();
 };
 
 const createProductObj = (id, img, name, price, discount, color, size) => {
   return {
     id: parseInt(id),
     img,
-    price,
+    price: parseInt(price),
     name,
-    size,
+    size: parseInt(size),
     color,
     discount,
   };
 };
 
 const isExistingCartProduct = (product) => {
-  return isLoggedUser.cart.find((itemCart) => itemCart.id === product.id);
+  return isLoggedUser.cart.find(
+    (itemCart) => itemCart.id === product.id && itemCart.size === product.size
+  );
 };
 
 const addUnitToProduct = (product) => {
   isLoggedUser.cart = isLoggedUser.cart.map((cartProduct) => {
-    return parseInt(cartProduct.id) === parseInt(product.id)
+    return parseInt(cartProduct.id) === parseInt(product.id) &&
+      parseInt(cartProduct.size) === parseInt(product.size)
       ? { ...cartProduct, quantity: cartProduct.quantity + 1 }
       : cartProduct;
   });
+};
+const substractProductUnit = (existingProduct) => {
+  isLoggedUser.cart = isLoggedUser.cart.map((cartProduct) => {
+    return cartProduct.id === existingProduct.id &&
+      cartProduct.size === existingProduct.size
+      ? { ...cartProduct, quantity: cartProduct.quantity - 1 }
+      : cartProduct;
+  });
+};
+//Remover producto del carrito
+const removeProductFromCart = (id, size) => {
+  const result = isLoggedUser.cart.filter(
+    (product) => product.id !== parseInt(id) || product.size !== parseInt(size)
+  );
+  isLoggedUser.cart = result;
+  const newUsers = users.map((user) => (user.login ? isLoggedUser : user));
+  checkCartState(isLoggedUser, newUsers);
+};
+
+//Si aumentamos la unidad del producto
+const handlePlusBtnEvent = (id, size) => {
+  const existingCartProduct = isLoggedUser.cart.find(
+    (item) => item.id === parseInt(id) && item.size === parseInt(size)
+  );
+
+  addUnitToProduct(existingCartProduct);
+};
+
+//Si disminuimos la unidad del producto
+const handleMinusBtnEvent = (id, size) => {
+  const existingCartProduct = isLoggedUser.cart.find(
+    (item) => item.id === parseInt(id) && item.size === parseInt(size)
+  );
+
+  if (existingCartProduct.quantity === 1) {
+    if (window.confirm("Desea eliminar el producto del carrito?")) {
+      removeProductFromCart(id, size);
+    }
+    return;
+  }
+  substractProductUnit(existingCartProduct);
+};
+
+//Comprueba si estamos disminuyendo o sumando la unidad
+const handleQuantity = (e) => {
+  if (e.target.matches(".down")) {
+    handleMinusBtnEvent(e.target.dataset.id, e.target.dataset.size);
+  } else if (e.target.matches(".up")) {
+    handlePlusBtnEvent(e.target.dataset.id, e.target.dataset.size);
+  }
+  checkCartState(isLoggedUser, users);
+};
+
+const getCartTotal = () =>
+  isLoggedUser?.cart.reduce((acc, cur) => {
+    return acc + parseInt(cur.price) * parseInt(cur.quantity);
+  }, 0);
+
+const showTotal = () => {
+  const total = getCartTotal();
+  console.log(total);
+  totalCart.innerHTML = `${numberFormat(total)}`;
 };
 
 const createCartProduct = (product) => {
@@ -178,6 +242,8 @@ const init = () => {
   document.addEventListener("click", handleLogoutUser);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   document.addEventListener("DOMContentLoaded", getProductById);
+  document.addEventListener("DOMContentLoaded", showTotal);
+  productsCartContainer.addEventListener("click", handleQuantity);
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(isLoggedUser);
   });

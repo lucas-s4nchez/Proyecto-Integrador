@@ -22,11 +22,11 @@
     width: 8px;
   }
   &::-webkit-scrollbar-thumb {
-    background: var(--yellow);
+    background: v.$primaryColor;
     border-radius: 5px;
   }
   &::-webkit-scrollbar-thumb:active {
-    background-color: var(--red);
+    background-color: v.$white;
   }
   &::-webkit-scrollbar-track {
     border-radius: 5px;
@@ -37,15 +37,17 @@
   &__heading {
     font-weight: 500;
     font-size: 2.4rem;
-    color: v.$white;
+    color: v.$dark;
     display: block;
-    margin-top: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid v.$lightGray;
   }
   &__main {
     overflow-y: scroll;
     height: 23rem;
     margin: 1rem 0 0 0;
     padding: 2rem 0.5rem;
+    margin-block: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -53,11 +55,11 @@
       width: 8px;
     }
     &::-webkit-scrollbar-thumb {
-      background: var(--yellow);
+      background: v.$primaryColor;
       border-radius: 5px;
     }
     &::-webkit-scrollbar-thumb:active {
-      background-color: var(--red);
+      background-color: v.$white;
     }
     &::-webkit-scrollbar-track {
       border-radius: 5px;
@@ -87,5 +89,71 @@
   &__icon {
     font-size: 2.5rem;
     color: v.$primaryColor;
+  }
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  border: 1px solid v.$lightGray;
+  border-radius: 0.5rem;
+  &__main {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  &__img {
+    width: 10rem;
+    object-fit: contain;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 0.5rem;
+  }
+  &__name {
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  &__size {
+    font-weight: 700;
+    color: v.$darkGray;
+    font-size: 1.2rem;
+  }
+  &__price {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  &__discount {
+    background-color: lighten(v.$primaryColor, 10%);
+    padding: 0.5rem;
+    width: max-content;
+    border-radius: 0.5rem;
+    color: v.$white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+  }
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__button {
+    padding: 0.5rem 1rem;
+    background-color: v.$primaryColor;
+    color: v.$white;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 }
