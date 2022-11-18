@@ -881,8 +881,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: -webkit-gradient(linear, left top, right top, from(#e0eafc), to(#cfdef3));
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  background-image: url("../img/hd-wallpaper-g0af6f225c_1920.jpg");
   height: calc(100vh - 70px);
   background-size: cover;
 }
@@ -899,8 +898,8 @@ p {
   }
 }
 .hero__bgGradient--2 {
-  background: -webkit-gradient(linear, left top, right top, from(#ee9ca7), to(#ffdde1));
-  background: linear-gradient(to right, #ee9ca7, #ffdde1);
+  background-image: url("../img/bg-2.jpg");
+  background-position: center;
 }
 .hero__bgGradient--3 {
   background-image: url("../img/item-3.webp");
@@ -1021,6 +1020,7 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  color: #ffffff;
 }
 .item-2__button {
   background-color: #088178;

@@ -6,7 +6,8 @@
   &__bgGradient {
     display: flex;
     align-items: center;
-    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    background-image: url("../img/hd-wallpaper-g0af6f225c_1920.jpg");
+    // background: linear-gradient(to right, #e0eafc, #cfdef3);
     height: calc(100vh - 70px);
     background-size: cover;
     @include m.tablet {
@@ -19,7 +20,9 @@
     }
   }
   &__bgGradient--2 {
-    background: linear-gradient(to right, #ee9ca7, #ffdde1);
+    background-image: url("../img/bg-2.jpg");
+    background-position: center;
+    // background: linear-gradient(to right, #ee9ca7, #ffdde1);
   }
   &__bgGradient--3 {
     background-image: url("../img/item-3.webp");
@@ -86,6 +89,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: v.$white;
   }
   &__button {
     @include m.button(
