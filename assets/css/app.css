@@ -897,7 +897,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: url("../img/hd-wallpaper-g0af6f225c_1920.jpg");
+  background-image: url("https://i.ibb.co/zhFCcvB/hd-wallpaper-g0af6f225c-1920.jpg");
   height: calc(100vh - 70px);
   background-size: cover;
 }
@@ -914,11 +914,11 @@ p {
   }
 }
 .hero__bgGradient--2 {
-  background-image: url("../img/bg-2.jpg");
+  background-image: url("https://i.ibb.co/3sz7vL2/bg-2.jpg");
   background-position: center;
 }
 .hero__bgGradient--3 {
-  background-image: url("../img/item-3.webp");
+  background-image: url("https://i.ibb.co/zftkJjz/item-3.webp");
   background-size: cover;
 }
 
@@ -942,7 +942,7 @@ p {
 }
 .item-1__img {
   height: 30rem;
-  background-image: url("../img/item-1.png");
+  background-image: url("https://i.ibb.co/9bvS107/item-1.png");
   background-size: cover;
   background-position: 80%;
   overflow: hidden;
@@ -1013,7 +1013,7 @@ p {
 }
 .item-2__img {
   height: 30rem;
-  background-image: url("../img/item-2.png");
+  background-image: url("https://i.ibb.co/xhmZZSd/item-2.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 80%;
@@ -1272,8 +1272,8 @@ p {
 
 .newsletter {
   padding-block: 5rem;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.897)), to(rgba(0, 0, 0, 0.986))), url("../img/nike-5126389_1920.webp");
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.897) 0, rgba(0, 0, 0, 0.986)), url("../img/nike-5126389_1920.webp");
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.897)), to(rgba(0, 0, 0, 0.986))), url("https://i.ibb.co/pw0C7Qj/nike-5126389-1920.webp");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.897) 0, rgba(0, 0, 0, 0.986)), url("https://i.ibb.co/pw0C7Qj/nike-5126389-1920.webp");
   background-position: center, center;
   background-repeat: no-repeat;
   background-size: cover;
