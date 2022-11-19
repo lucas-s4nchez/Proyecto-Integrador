@@ -25,6 +25,7 @@ const buttonLogout = document.querySelector(".profile-menu__button");
 const imageContainer = document.getElementById("img-container");
 const imageList = document.querySelectorAll(".gallery__img");
 const detailsContainer = document.getElementById("details");
+const productInfoContainer = document.querySelector(".product__description");
 const productsCartContainer = document.querySelector(".cart__main");
 const totalCart = document.querySelector(".cart__total-span");
 const arrayImages = [...imageList];
@@ -92,30 +93,109 @@ const renderDetails = (product) => {
           </span>
           <span>Talle: 
             <select class="details__sizes" id="sizes" >
-              <option value=""> Selecciona un talle </option>
+              <option value="">  </option>
               ${sizes.map(
                 (size) =>
                   `<option class="details__option" value="${size}">${size}</option>`
               )}
             </select>
           </span>
+          <div class="details__footer">
+            <div class="details__buttons">
+              <button class="details__button down"> - </button>
+              <span class="details__quantity">${1}</span>
+              <button class="details__button up"> + </button>
+            </div>
+            <button class="details__btn-cart"
+              data-id=${id} 
+              data-img=${images[0]} 
+              data-price=${on_offer ? getNewPrice(price, on_offer) : price} 
+              data-discount=${on_offer} 
+              data-color=${colors.toString().split(",").join("/")} 
+              id="btn-cart">
+              Añadir al carrito <i class="fa-solid fa-bag-shopping"></i>
+            </button>
+          </div>
           
-          <button class="details__btn-cart"
-            data-id=${id} 
-            data-img=${images[0]} 
-            data-price=${on_offer ? getNewPrice(price, on_offer) : price} 
-            data-discount=${on_offer} 
-            data-color=${colors.toString().split(",").join("/")} 
-            id="btn-cart">
-            Añadir al carrito <i class="fa-solid fa-bag-shopping"></i>
-          </button>
+          </div>
+          
         </div>
         `;
 };
+const renderInfoProduct = (product) => {
+  const { style, exterior, sole, adjustment } = product;
+  return `
+    <h3 class="product__heading">Caracteristicas del producto</h3>
+    <div class="product__features">
+      <div class="product__item">
+        <div class="product__img-contain">
+          <img src="./assets/img/style.svg" alt="Icono" />
+        </div>
+        <div class="product__text">
+          <p class="product__p">
+            <span >Estilo: </span>
+            <span class="product__span">${style}</span>
+          </p>
+        </div>
+      </div>
+      <div class="product__item">
+        <div class="product__img-contain">
+          <img src="./assets/img/exterior_materials.svg" alt="Icono" />
+        </div>
+        <div class="product__text">
+          <p class="product__p">
+            <span >Materiales del exterior: </span>
+            <span class="product__span">${exterior}</span>
+          </p>
+        </div>
+      </div>
+      <div class="product__item">
+        <div class="product__img-contain">
+          <img src="./assets/img/outsole_materials.svg" alt="Icono" />
+        </div>
+        <div class="product__text">
+          <p class="product__p">
+            <span >Materiales de la suela: </span>
+            <span class="product__span">${sole}</span>
+          </p>
+        </div>
+      </div>
+      <div class="product__item">
+        <div class="product__img-contain">
+          <img src="./assets/img/adjustment_type.svg" alt="Icono" />
+        </div>
+        <div class="product__text">
+          <p class="product__p">
+            <span >Tipo de ajuste: </span>
+            <span class="product__span">${adjustment}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+const handleButtonsQuantity = () => {
+  const buttonDown = document.querySelector(".down");
+  const buttonUp = document.querySelector(".up");
+  const quantity = document.querySelector(".details__quantity");
+  buttonDown.addEventListener("click", () => {
+    let newQuantity = parseInt(quantity.textContent);
+    if (newQuantity <= 1) return;
+    newQuantity = newQuantity - 1;
+    quantity.textContent = newQuantity;
+  });
+  buttonUp.addEventListener("click", () => {
+    let newQuantity = parseInt(quantity.textContent);
+    newQuantity = newQuantity + 1;
+    quantity.textContent = newQuantity;
+  });
+};
 
 export const addToCart = (e) => {
-  if (!e.target.classList.contains("details__btn-cart")) return;
-  const size = e.target.parentElement.querySelector(".details__sizes").value;
+  const sizeElement =
+    e.target.parentElement.parentElement.querySelector(".details__sizes");
+  const size = sizeElement.value;
   if (!isLoggedUser) {
     alert("primero inicia sesion");
     return;
@@ -125,13 +205,25 @@ export const addToCart = (e) => {
     return;
   }
   const { id, img, price, discount, color } = e.target.dataset;
-  const name = e.target.parentElement
+  const name = e.target.parentElement.parentElement
     .querySelector(".details__title")
     .textContent.trim();
-  const product = createProductObj(id, img, name, price, discount, color, size);
+  const quantityElement =
+    e.target.parentElement.querySelector(".details__quantity");
+  const quantity = quantityElement.textContent;
+  const product = createProductObj(
+    id,
+    img,
+    name,
+    price,
+    discount,
+    color,
+    size,
+    quantity
+  );
   if (isExistingCartProduct(product)) {
-    addUnitToProduct(product);
-    alert("Se agregó una unidad del producto al carrito");
+    addUnitsToProduct(product);
+    alert(`Se agregaron ${quantity} unidades del producto al carrito`);
   } else {
     createCartProduct(product);
     alert("El producto se ha agregado al carrito");
@@ -141,15 +233,34 @@ export const addToCart = (e) => {
     item.id === isLoggedUser.id ? { ...isLoggedUser } : item
   );
   checkCartState(isLoggedUser, cartUser);
+  resetProductDetails(sizeElement, quantityElement);
 };
-
+const addProductCartEvent = () => {
+  const addProductButton = document.querySelector(".details__btn-cart");
+  console.log(addProductButton);
+  addProductButton.addEventListener("click", addToCart);
+};
 const checkCartState = (user, array) => {
   saveLocalStorage("users", array);
   renderCart(user);
   showTotal();
 };
 
-const createProductObj = (id, img, name, price, discount, color, size) => {
+const resetProductDetails = (size, quantity) => {
+  size.value = "";
+  quantity.textContent = 1;
+};
+
+const createProductObj = (
+  id,
+  img,
+  name,
+  price,
+  discount,
+  color,
+  size,
+  quantity
+) => {
   return {
     id: parseInt(id),
     img,
@@ -158,6 +269,7 @@ const createProductObj = (id, img, name, price, discount, color, size) => {
     size: parseInt(size),
     color,
     discount,
+    quantity: parseInt(quantity),
   };
 };
 
@@ -166,7 +278,14 @@ const isExistingCartProduct = (product) => {
     (itemCart) => itemCart.id === product.id && itemCart.size === product.size
   );
 };
-
+const addUnitsToProduct = (product) => {
+  isLoggedUser.cart = isLoggedUser.cart.map((cartProduct) => {
+    return parseInt(cartProduct.id) === parseInt(product.id) &&
+      parseInt(cartProduct.size) === parseInt(product.size)
+      ? { ...cartProduct, quantity: cartProduct.quantity + product.quantity }
+      : cartProduct;
+  });
+};
 const addUnitToProduct = (product) => {
   isLoggedUser.cart = isLoggedUser.cart.map((cartProduct) => {
     return parseInt(cartProduct.id) === parseInt(product.id) &&
@@ -179,7 +298,10 @@ const substractProductUnit = (existingProduct) => {
   isLoggedUser.cart = isLoggedUser.cart.map((cartProduct) => {
     return cartProduct.id === existingProduct.id &&
       cartProduct.size === existingProduct.size
-      ? { ...cartProduct, quantity: cartProduct.quantity - 1 }
+      ? {
+          ...cartProduct,
+          quantity: cartProduct.quantity - 1,
+        }
       : cartProduct;
   });
 };
@@ -216,13 +338,19 @@ const handleMinusBtnEvent = (id, size) => {
   }
   substractProductUnit(existingCartProduct);
 };
-
+const handleDeleteBtnEvent = (id, size) => {
+  if (window.confirm("Desea eliminar el producto del carrito?")) {
+    removeProductFromCart(id, size);
+  }
+};
 //Comprueba si estamos disminuyendo o sumando la unidad
 export const handleQuantity = (e) => {
   if (e.target.matches(".down")) {
     handleMinusBtnEvent(e.target.dataset.id, e.target.dataset.size);
   } else if (e.target.matches(".up")) {
     handlePlusBtnEvent(e.target.dataset.id, e.target.dataset.size);
+  } else if (e.target.matches(".delete")) {
+    handleDeleteBtnEvent(e.target.dataset.id, e.target.dataset.size);
   }
   checkCartState(isLoggedUser, users);
 };
@@ -238,14 +366,16 @@ export const showTotal = () => {
 };
 
 const createCartProduct = (product) => {
-  isLoggedUser.cart = [...isLoggedUser.cart, { ...product, quantity: 1 }];
+  isLoggedUser.cart = [...isLoggedUser.cart, product];
 };
 
 const renderProductData = (product) => {
   const { images } = product;
   renderImages(images);
   const details = renderDetails(product);
+  const infoProducts = renderInfoProduct(product);
   detailsContainer.innerHTML = details;
+  productInfoContainer.innerHTML = infoProducts;
 };
 const init = () => {
   buttonHamburger.addEventListener("click", handleHamburgerButton);
@@ -256,12 +386,13 @@ const init = () => {
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   document.addEventListener("DOMContentLoaded", getProductById);
   document.addEventListener("DOMContentLoaded", showTotal);
+  document.addEventListener("DOMContentLoaded", handleButtonsQuantity);
   productsCartContainer.addEventListener("click", handleQuantity);
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(isLoggedUser);
     renderFavs(isLoggedUser);
     addEventToIconFavs(isLoggedUser);
+    addProductCartEvent();
   });
-  document.addEventListener("click", addToCart);
 };
 init();

@@ -62,9 +62,12 @@ export const renderCartProduct = (cartProduct) => {
             </div>
           </div>
           <div class="cart-item__footer">
-            <button class="cart-item__button down" data-id="${id}" data-size="${size}">-</button>
-            <span class="cart-item__quantity">${quantity}</span>
-            <button class="cart-item__button up" data-id="${id}" data-size="${size}">+</button>
+            <div class="cart-item__buttons">
+              <button class="cart-item__button down" data-id="${id}" data-size="${size}">-</button>
+              <span class="cart-item__quantity">${quantity}</span>
+              <button class="cart-item__button up" data-id="${id}" data-size="${size}">+</button>
+            </div>
+            <button class="cart-item__button delete" data-id="${id}" data-size="${size}">Eliminar</button>
           </div>
         </div>
         `;

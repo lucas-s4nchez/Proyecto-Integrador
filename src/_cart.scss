@@ -175,6 +175,13 @@
   }
   &__footer {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__buttons {
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
