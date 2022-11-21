@@ -29,6 +29,22 @@ let users = JSON.parse(localStorage.getItem("users")) || [];
 //si un usuario esta logueado
 const isLoggedUser = users.find((user) => user.login === true);
 
+//Animaciones
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".ii",
+      start: "center center",
+      end: "bottom top",
+      markers: true,
+      scrub: true,
+      pin: true,
+    },
+  })
+  .from(".icon--1", { x: innerWidth * 2 })
+  .from(".icon--2", { x: innerWidth * 2 })
+  .from(".icon--3", { x: innerWidth * 2 });
+
 //Slider
 window.swiper = new Swiper({
   el: ".slider__box",

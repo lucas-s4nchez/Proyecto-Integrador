@@ -7,10 +7,12 @@
   align-items: center;
   gap: 2rem;
   margin-block: 5rem;
+  height: 100vh;
 }
 @media (min-width: 768px) {
   .icons {
     flex-direction: row;
+    height: 70vh;
   }
 }
 .icon {
