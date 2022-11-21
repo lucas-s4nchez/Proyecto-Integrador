@@ -179,13 +179,13 @@ const handleButtonsQuantity = () => {
   const buttonDown = document.querySelector(".down");
   const buttonUp = document.querySelector(".up");
   const quantity = document.querySelector(".details__quantity");
-  buttonDown.addEventListener("click", () => {
+  buttonDown?.addEventListener("click", () => {
     let newQuantity = parseInt(quantity.textContent);
     if (newQuantity <= 1) return;
     newQuantity = newQuantity - 1;
     quantity.textContent = newQuantity;
   });
-  buttonUp.addEventListener("click", () => {
+  buttonUp?.addEventListener("click", () => {
     let newQuantity = parseInt(quantity.textContent);
     newQuantity = newQuantity + 1;
     quantity.textContent = newQuantity;
@@ -237,8 +237,7 @@ export const addToCart = (e) => {
 };
 const addProductCartEvent = () => {
   const addProductButton = document.querySelector(".details__btn-cart");
-  console.log(addProductButton);
-  addProductButton.addEventListener("click", addToCart);
+  addProductButton?.addEventListener("click", addToCart);
 };
 const checkCartState = (user, array) => {
   saveLocalStorage("users", array);

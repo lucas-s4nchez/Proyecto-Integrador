@@ -765,6 +765,9 @@ p {
             justify-content: space-between;
   }
 }
+.favs-item__link {
+  width: 100%;
+}
 .favs-item__main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -824,27 +827,10 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: 1rem;
+  max-height: 1.6rem;
 }
-.favs-item__button {
-  padding: 0.5rem 1rem;
-  background-color: #088178;
-  color: #ffffff;
-  border: none;
-  border-radius: 0.5rem;
-  outline: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.favs-item__icon {
   cursor: pointer;
 }
 

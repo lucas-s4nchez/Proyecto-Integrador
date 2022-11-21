@@ -84,30 +84,35 @@ export const renderCart = (user) => {
 export const renderFavProduct = (favProduct) => {
   const { id, images, price, on_offer, brand, model, version } = favProduct;
   return `    
-      <a href="./product-detail.html?id=${id}">
+      
         <div class="favs-item">
-          <div class="favs-item__main">
-            <img
-              class="favs-item__img"
-              src="${images[0]}"
-              alt="${brand} ${model} ${version ? version : ""}"/>
-            <div class="favs-item__info">
-              <p class="favs-item__name">
-              ${brand} ${model} ${version ? version : ""}
-              </p>
-              ${
-                on_offer !== null
-                  ? `<span class="favs-item__discount">${on_offer}% OFF</span>`
-                  : ""
-              }
-              <p class="favs-item__price">${numberFormat(price)}</p>
+          <a class="favs-item__link" href="./product-detail.html?id=${id}">
+            <div class="favs-item__main">
+              <img
+                class="favs-item__img"
+                src="${images[0]}"
+                alt="${brand} ${model} ${version ? version : ""}"/>
+              <div class="favs-item__info">
+                <p class="favs-item__name">
+                ${brand} ${model} ${version ? version : ""}
+                </p>
+                ${
+                  on_offer !== null
+                    ? `<span class="favs-item__discount">${on_offer}% OFF</span>`
+                    : ""
+                }
+                <p class="favs-item__price">${numberFormat(price)}</p>
+              </div>
             </div>
-          </div>
+          </a>
           <div class="favs-item__footer">
-            <button class="favs-item__button delete" data-id="${id}">Eliminar</button>
+              <i class="favs-item__icon fav-icon fa-regular 
+              ${
+                isExistingFavProduct(favProduct, isLoggedUser) ? "fa-solid" : ""
+              } 
+              fa-heart" data-id="${id}"></i>
           </div>
         </div>
-      </a>
         `;
 };
 export const renderFavs = (user) => {
@@ -162,7 +167,7 @@ const checkFavsState = (user, array) => {
   window.location.reload();
 };
 
-//Mostrar/ocultar componentes dependiendo de si inicio sesion o no
+//Mostrar/ocultar componentes dependiendo de si el usario inicio sesion o no
 export const handleChangeUserViews = () => {
   if (isLoggedUser) {
     isLoginUser();
