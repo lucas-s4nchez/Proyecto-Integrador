@@ -1064,7 +1064,6 @@ p {
           align-items: center;
   gap: 2rem;
   margin-block: 5rem;
-  height: 100vh;
 }
 
 @media (min-width: 768px) {
@@ -1073,7 +1072,6 @@ p {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    height: 70vh;
   }
 }
 .icon {
