@@ -110,7 +110,7 @@ export const renderFavProduct = (favProduct) => {
             <div class="favs-item__main">
               <img
                 class="favs-item__img"
-                src="${images[0]}"
+                src="${images}"
                 alt="${brand} ${model} ${version ? version : ""}"/>
               <div class="favs-item__info">
                 <p class="favs-item__name">
