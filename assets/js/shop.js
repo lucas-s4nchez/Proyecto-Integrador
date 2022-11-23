@@ -176,7 +176,6 @@ const init = () => {
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   productsCartContainer.addEventListener("click", handleQuantity);
   document.addEventListener("DOMContentLoaded", showTotal);
-  document.addEventListener("click", addToCart);
   document.addEventListener("DOMContentLoaded", renderProductsInStock);
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(isLoggedUser);

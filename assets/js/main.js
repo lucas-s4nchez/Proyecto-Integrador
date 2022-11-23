@@ -101,6 +101,7 @@ export const renderCart = (user) => {
 
 //Funciones de favoritos
 export const renderFavProduct = (favProduct) => {
+  console.log(favProduct.images);
   const { id, images, price, on_offer, brand, model, version } = favProduct;
   return `    
       
