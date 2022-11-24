@@ -1404,6 +1404,78 @@ p {
   color: #088178;
 }
 
+.banner {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.9843137255)), to(rgba(0, 0, 0, 0.7176470588))), url(https://i.ibb.co/hYyThmk/brick-g6d9282843-1920.webp);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9843137255), rgba(0, 0, 0, 0.7176470588)), url(https://i.ibb.co/hYyThmk/brick-g6d9282843-1920.webp);
+  background-size: cover;
+  padding: 5rem 0;
+}
+.banner__container {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .banner__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.text {
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.text__span-1 {
+  font-size: 2.4rem;
+}
+.text__span-2 {
+  font-size: 2.4rem;
+  color: #088178;
+  text-transform: uppercase;
+}
+.text__span-3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.text__button {
+  border: none;
+  outline: none;
+  background-color: #088178;
+  color: #ffffff;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 1rem 2.4rem;
+}
+.text__button:hover {
+  background-color: #076962;
+}
+@media (min-width: 480px) {
+  .text__span-1 {
+    font-size: 3.2rem;
+  }
+  .text__span-2 {
+    font-size: 2.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .text__span-1 {
+    font-size: 4rem;
+  }
+  .text__span-2 {
+    font-size: 3.2rem;
+  }
+}
+
 .lds-ring {
   display: inline-block;
   position: relative;

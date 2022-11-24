@@ -1,0 +1,61 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+.banner {
+  background-image: linear-gradient(to right, #000000fb, #000000b7),
+    url(https://i.ibb.co/hYyThmk/brick-g6d9282843-1920.webp);
+  background-size: cover;
+  padding: 5rem 0;
+  &__container {
+    display: grid;
+    gap: 2rem;
+    @include m.tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+.text {
+  color: v.$white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  &__span-1 {
+    font-size: 2.4rem;
+  }
+  &__span-2 {
+    font-size: 2.4rem;
+    color: v.$primaryColor;
+    text-transform: uppercase;
+  }
+  &__span-3 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+  &__button {
+    border: none;
+    outline: none;
+    background-color: v.$primaryColor;
+    color: v.$white;
+    width: max-content;
+    padding: 1rem 2.4rem;
+    &:hover {
+      background-color: darken(v.$primaryColor, 5%);
+    }
+  }
+  @include m.mobile {
+    &__span-1 {
+      font-size: 3.2rem;
+    }
+    &__span-2 {
+      font-size: 2.8rem;
+    }
+  }
+  @include m.desktop {
+    &__span-1 {
+      font-size: 4rem;
+    }
+    &__span-2 {
+      font-size: 3.2rem;
+    }
+  }
+}
