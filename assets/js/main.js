@@ -2,6 +2,7 @@
 
 import { products } from "./data.js";
 
+const overlay = document.querySelector(".overlay");
 //Menu hamburguesa
 const buttonHamburger = document.getElementById("btn-menu");
 const menu = document.getElementById("menu");
@@ -17,6 +18,8 @@ const productsCartContainer = document.querySelector(".cart__main");
 const buttonFavs = document.querySelector(".favs-open");
 const favsContainer = document.querySelector(".favs");
 const productsFavsContainer = document.querySelector(".favs__main");
+// Modal success/error.
+const successModal = document.querySelector(".add-modal");
 //Links de iniciar sesion y registrarse
 const login = document.getElementById("login");
 const signin = document.getElementById("signin");
@@ -32,7 +35,13 @@ export const handleCartButton = () => {
   buttonHamburger.classList.remove("is-active");
   menu.classList.remove("nav__active");
 
-  cartContainer.classList.toggle("cart__active");
+  if (cartContainer.classList.contains("cart__active")) {
+    cartContainer.classList.remove("cart__active");
+    overlay.classList.remove("show");
+  } else {
+    cartContainer.classList.add("cart__active");
+    overlay.classList.add("show");
+  }
 };
 export const handleFavsButton = () => {
   cartContainer.classList.remove("cart__active");
@@ -40,7 +49,13 @@ export const handleFavsButton = () => {
   buttonHamburger.classList.remove("is-active");
   menu.classList.remove("nav__active");
 
-  favsContainer.classList.toggle("favs__active");
+  if (favsContainer.classList.contains("favs__active")) {
+    favsContainer.classList.remove("favs__active");
+    overlay.classList.remove("show");
+  } else {
+    favsContainer.classList.add("favs__active");
+    overlay.classList.add("show");
+  }
 };
 export const handleProfileButton = () => {
   cartContainer.classList.remove("cart__active");
@@ -48,15 +63,31 @@ export const handleProfileButton = () => {
   buttonHamburger.classList.remove("is-active");
   menu.classList.remove("nav__active");
 
-  menuProfile.classList.toggle("profile-menu__active");
+  if (menuProfile.classList.contains("profile-menu__active")) {
+    menuProfile.classList.remove("profile-menu__active");
+    overlay.classList.remove("show");
+  } else {
+    menuProfile.classList.add("profile-menu__active");
+    overlay.classList.add("show");
+  }
 };
 export const handleHamburgerButton = () => {
   cartContainer.classList.remove("cart__active");
   favsContainer.classList.remove("favs__active");
   menuProfile.classList.remove("profile-menu__active");
 
-  buttonHamburger.classList.toggle("is-active");
-  menu.classList.toggle("nav__active");
+  if (
+    buttonHamburger.classList.contains("is-active") &&
+    menu.classList.contains("nav__active")
+  ) {
+    buttonHamburger.classList.remove("is-active");
+    menu.classList.remove("nav__active");
+    overlay.classList.remove("show");
+  } else {
+    buttonHamburger.classList.add("is-active");
+    menu.classList.add("nav__active");
+    overlay.classList.add("show");
+  }
 };
 
 //Funciones del carrito
@@ -101,7 +132,6 @@ export const renderCart = (user) => {
 
 //Funciones de favoritos
 export const renderFavProduct = (favProduct) => {
-  console.log(favProduct.images);
   const { id, images, price, on_offer, brand, model, version } = favProduct;
   return `    
       
@@ -296,4 +326,22 @@ export const loadSpinner = () =>
   `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
 export const saveLocalStorage = (key, value) => {
   localStorage.setItem(`${key}`, JSON.stringify(value));
+};
+//alertas
+export const showModal = (msg, type) => {
+  if (successModal.classList.contains("active-modal")) {
+    successModal.classList.remove("active-modal");
+  }
+  successModal.classList.add("active-modal");
+  successModal.textContent = msg;
+  if (type === "success") {
+    successModal.classList.remove("error-modal");
+    successModal.classList.add("success-modal");
+  } else if (type === "error") {
+    successModal.classList.remove("success-modal");
+    successModal.classList.add("error-modal");
+  }
+  setTimeout(() => {
+    successModal.classList.remove("active-modal");
+  }, 1500);
 };

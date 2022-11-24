@@ -1,0 +1,26 @@
+@use "base/variables" as v;
+
+.add-modal {
+  place-content: center;
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  color: v.$white;
+  background-color: v.$primaryColor;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: all 0.5s ease-out;
+  text-align: center;
+  transform: translateY(200%);
+}
+.success-modal {
+  background-color: v.$primaryColor;
+}
+.error-modal {
+  background-color: v.$red;
+}
+.active-modal {
+  transition: all 0.5s ease-in;
+  transform: translateY(0);
+}

@@ -1,104 +1,73 @@
 @use "base/variables" as v;
 @use "base/mixins" as m;
 .hero {
-  overflow-x: hidden;
-
-  &__bgGradient {
-    display: flex;
-    align-items: center;
-    background-image: url("https://i.ibb.co/zhFCcvB/hd-wallpaper-g0af6f225c-1920.jpg");
-    // background: linear-gradient(to right, #e0eafc, #cfdef3);
-    height: calc(100vh - 70px);
-    background-size: cover;
-    @include m.tablet {
-      height: 40rem;
-      display: grid;
-      place-content: center;
-    }
-    @include m.desktop {
-      height: 50rem;
-    }
-  }
-  &__bgGradient--2 {
-    background-image: url("https://i.ibb.co/3sz7vL2/bg-2.jpg");
-    background-position: center;
-    // background: linear-gradient(to right, #ee9ca7, #ffdde1);
-  }
-  &__bgGradient--3 {
-    background-image: url("https://i.ibb.co/zftkJjz/item-3.webp");
-    background-size: cover;
-  }
-}
-.item-1 {
+  background-image: url(https://i.ibb.co/tmm6W37/hero.webp);
+  height: calc(100vh - 7rem);
+  background-size: cover;
+  background-position: 50%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  @include m.tablet {
-    flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  &__h1 {
+    color: v.$primaryColor;
   }
-
-  &__img {
-    height: 30rem;
-    background-image: url("https://i.ibb.co/9bvS107/item-1.png");
-    background-size: cover;
-    background-position: 80%;
-    overflow: hidden;
-    @include m.tablet {
-      width: 40rem;
-      height: 40rem;
-    }
+  &__h2 {
+    color: v.$dark;
   }
-  &__text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  &__p {
+    color: v.$dark;
+    font-weight: 700;
   }
   &__button {
-    @include m.button(
-      transparent,
-      v.$primaryColor,
-      1.8rem,
-      v.$dark,
-      v.$white,
-      200px
-    );
+    padding: 1.4rem 6rem;
+    font-weight: 700;
+    color: v.$primaryColor;
     border: 1px solid v.$dark;
-  }
-}
-.item-2 {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  @include m.tablet {
-    flex-direction: row;
-  }
-
-  &__img {
-    height: 30rem;
-    background-image: url("https://i.ibb.co/xhmZZSd/item-2.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 80%;
-    overflow: hidden;
-    @include m.tablet {
-      width: 40rem;
-      height: 40rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    outline: none;
+    background-color: transparent;
+    &:hover {
+      background-color: v.$primaryColor;
+      color: v.$white;
     }
   }
-  &__text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: v.$white;
+
+  @include m.desktop {
+    &__p {
+      font-size: 2rem;
+      padding-bottom: 1.5rem;
+    }
+    &__h2 {
+      font-size: 3.6rem;
+      line-height: 5.4rem;
+    }
+    &__h1 {
+      font-size: 5rem;
+      line-height: 6.4rem;
+      color: v.$primaryColor;
+    }
+    &__button {
+      padding: 1.4rem 8rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: v.$primaryColor;
+      border: 1px solid v.$dark;
+      cursor: pointer;
+      transition: 0.3s ease;
+      &:hover {
+        background-color: v.$primaryColor;
+        color: v.$white;
+      }
+    }
   }
-  &__button {
-    @include m.button(
-      v.$primaryColor,
-      v.$primaryColor,
-      1.8rem,
-      v.$white,
-      v.$white,
-      200px
-    );
+
+  @include m.desktopXL {
+    & {
+      height: calc(65vh - 7rem);
+      background-size: cover;
+      background-position: 50%;
+    }
   }
 }

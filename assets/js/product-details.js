@@ -14,6 +14,7 @@ import {
   isExistingFavProduct,
   handleProfileButton,
   handleHamburgerButton,
+  showModal,
 } from "./main.js";
 
 const buttonFavs = document.querySelector(".favs-open");
@@ -21,6 +22,8 @@ const buttonCart = document.querySelector(".cart-open");
 const buttonProfile = document.querySelector(".profile-button__button");
 const buttonHamburger = document.getElementById("btn-menu");
 const buttonLogout = document.querySelector(".profile-menu__button");
+// Modal.
+const successModal = document.querySelector(".add-modal");
 
 const imageContainer = document.getElementById("img-container");
 const imageList = document.querySelectorAll(".gallery__img");
@@ -113,7 +116,7 @@ const renderDetails = (product) => {
               data-discount=${on_offer} 
               data-color=${colors.toString().split(",").join("/")} 
               id="btn-cart">
-              Añadir al carrito <i class="fa-solid fa-bag-shopping"></i>
+              Añadir al carrito</i>
             </button>
           </div>
           
@@ -197,11 +200,12 @@ export const addToCart = (e) => {
     e.target.parentElement.parentElement.querySelector(".details__sizes");
   const size = sizeElement.value;
   if (!isLoggedUser) {
-    alert("primero inicia sesion");
+    showModal("Primero inicia sesion", "error");
+    // alert("primero inicia sesion");
     return;
   }
   if (!size) {
-    alert("Elige un talle");
+    showModal("Elige un talle", "error");
     return;
   }
   const { id, img, price, discount, color } = e.target.dataset;
@@ -223,10 +227,13 @@ export const addToCart = (e) => {
   );
   if (isExistingCartProduct(product)) {
     addUnitsToProduct(product);
-    alert(`Se agregaron ${quantity} unidades del producto al carrito`);
+    showModal(
+      `Se agregaron ${quantity} unidades del producto al carrito`,
+      "success"
+    );
   } else {
     createCartProduct(product);
-    alert("El producto se ha agregado al carrito");
+    showModal("El producto se ha agregado al carrito", "success");
   }
 
   const cartUser = users.map((item) =>
@@ -376,6 +383,7 @@ const renderProductData = (product) => {
   detailsContainer.innerHTML = details;
   productInfoContainer.innerHTML = infoProducts;
 };
+
 const init = () => {
   buttonHamburger.addEventListener("click", handleHamburgerButton);
   buttonLogout.addEventListener("click", handleLogoutUser);
