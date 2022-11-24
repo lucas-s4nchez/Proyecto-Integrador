@@ -1031,23 +1031,26 @@ p {
   margin-block: 5rem;
 }
 .offers__content {
+  padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   gap: 2rem;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: 1rem;
+  overflow-x: scroll;
+}
+.offers__content::-webkit-scrollbar {
+  width: 6px;
+}
+.offers__content::-webkit-scrollbar-thumb {
+  background: #088178;
+  border-radius: 4px;
+}
+.offers__content::-webkit-scrollbar-thumb:active {
+  background-color: #222222;
+}
+.offers__content::-webkit-scrollbar-track {
+  border-radius: 4px;
 }
 
 .card {
@@ -1132,23 +1135,26 @@ p {
   margin-block: 5rem;
 }
 .best-sellers__content {
+  padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   gap: 2rem;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: 1rem;
+  overflow-x: scroll;
+}
+.best-sellers__content::-webkit-scrollbar {
+  width: 6px;
+}
+.best-sellers__content::-webkit-scrollbar-thumb {
+  background: #088178;
+  border-radius: 4px;
+}
+.best-sellers__content::-webkit-scrollbar-thumb:active {
+  background-color: #222222;
+}
+.best-sellers__content::-webkit-scrollbar-track {
+  border-radius: 4px;
 }
 
 .contact {
