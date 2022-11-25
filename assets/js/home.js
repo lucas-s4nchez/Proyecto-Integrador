@@ -12,13 +12,20 @@ import {
   handleProfileButton,
   handleHamburgerButton,
 } from "./main.js";
-import { handleQuantity, showTotal } from "./product-details.js";
+import {
+  completeBuy,
+  deleteCart,
+  handleQuantity,
+  showTotal,
+} from "./product-details.js";
 
 const buttonFavs = document.querySelector(".favs-open");
 const buttonCart = document.querySelector(".cart-open");
 const buttonProfile = document.querySelector(".profile-button__button");
 const buttonHamburger = document.getElementById("btn-menu");
 const buttonLogout = document.querySelector(".profile-menu__button");
+const buttonBuy = document.querySelector(".buy");
+const buttonDelete = document.querySelector(".delete");
 
 const successModal = document.querySelector(".add-modal");
 const productsCartContainer = document.querySelector(".cart__main");
@@ -64,6 +71,8 @@ const init = () => {
   buttonCart.addEventListener("click", handleCartButton);
   buttonFavs.addEventListener("click", handleFavsButton);
   buttonProfile.addEventListener("click", handleProfileButton);
+  buttonBuy.addEventListener("click", completeBuy);
+  buttonDelete.addEventListener("click", deleteCart);
   document.addEventListener("DOMContentLoaded", () => {
     handleChangeUserViews();
     renderCart(userAuth);

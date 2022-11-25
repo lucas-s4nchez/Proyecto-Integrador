@@ -7,7 +7,6 @@ import {
   saveLocalStorage,
   renderCart,
   numberFormat,
-  addToFavs,
   handleFavsButton,
   renderFavs,
   addEventToIconFavs,
@@ -22,8 +21,8 @@ const buttonCart = document.querySelector(".cart-open");
 const buttonProfile = document.querySelector(".profile-button__button");
 const buttonHamburger = document.getElementById("btn-menu");
 const buttonLogout = document.querySelector(".profile-menu__button");
-// Modal.
-const successModal = document.querySelector(".add-modal");
+const buttonBuy = document.querySelector(".buy");
+const buttonDelete = document.querySelector(".delete");
 
 const imageContainer = document.getElementById("img-container");
 const imageList = document.querySelectorAll(".gallery__img");
@@ -35,7 +34,7 @@ const arrayImages = [...imageList];
 //usuarios del localstorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
 //si un usuario esta logueado
-const isLoggedUser = users.find((user) => user.login === true);
+const userAuth = users.find((user) => user.login === true);
 
 const getIdByQueryParams = () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -67,7 +66,7 @@ const renderDetails = (product) => {
   return `
         <div class="details__info">
           <i class="details__icon fav-icon fa-regular
-          ${isExistingFavProduct(product, isLoggedUser) ? "fa-solid" : ""} 
+          ${isExistingFavProduct(product, userAuth) ? "fa-solid" : ""} 
           fa-heart" data-id="${id}"></i>
           <span class="details__title">
             ${brand} ${model} ${version ? version : ""}
@@ -199,7 +198,7 @@ export const addToCart = (e) => {
   const sizeElement =
     e.target.parentElement.parentElement.querySelector(".details__sizes");
   const size = sizeElement.value;
-  if (!isLoggedUser) {
+  if (!userAuth) {
     showModal("Primero inicia sesion", "error");
     // alert("primero inicia sesion");
     return;
@@ -237,9 +236,9 @@ export const addToCart = (e) => {
   }
 
   const cartUser = users.map((item) =>
-    item.id === isLoggedUser.id ? { ...isLoggedUser } : item
+    item.id === userAuth.id ? { ...userAuth } : item
   );
-  checkCartState(isLoggedUser, cartUser);
+  checkCartState(userAuth, cartUser);
   resetProductDetails(sizeElement, quantityElement);
 };
 const addProductCartEvent = () => {
@@ -280,12 +279,12 @@ const createProductObj = (
 };
 
 const isExistingCartProduct = (product) => {
-  return isLoggedUser.cart.find(
+  return userAuth.cart.find(
     (itemCart) => itemCart.id === product.id && itemCart.size === product.size
   );
 };
 const addUnitsToProduct = (product) => {
-  isLoggedUser.cart = isLoggedUser.cart.map((cartProduct) => {
+  userAuth.cart = userAuth.cart.map((cartProduct) => {
     return parseInt(cartProduct.id) === parseInt(product.id) &&
       parseInt(cartProduct.size) === parseInt(product.size)
       ? { ...cartProduct, quantity: cartProduct.quantity + product.quantity }
@@ -293,7 +292,7 @@ const addUnitsToProduct = (product) => {
   });
 };
 const addUnitToProduct = (product) => {
-  isLoggedUser.cart = isLoggedUser.cart.map((cartProduct) => {
+  userAuth.cart = userAuth.cart.map((cartProduct) => {
     return parseInt(cartProduct.id) === parseInt(product.id) &&
       parseInt(cartProduct.size) === parseInt(product.size)
       ? { ...cartProduct, quantity: cartProduct.quantity + 1 }
@@ -301,7 +300,7 @@ const addUnitToProduct = (product) => {
   });
 };
 const substractProductUnit = (existingProduct) => {
-  isLoggedUser.cart = isLoggedUser.cart.map((cartProduct) => {
+  userAuth.cart = userAuth.cart.map((cartProduct) => {
     return cartProduct.id === existingProduct.id &&
       cartProduct.size === existingProduct.size
       ? {
@@ -311,28 +310,26 @@ const substractProductUnit = (existingProduct) => {
       : cartProduct;
   });
 };
-//Remover producto del carrito
+
 const removeProductFromCart = (id, size) => {
-  const result = isLoggedUser.cart.filter(
+  const result = userAuth.cart.filter(
     (product) => product.id !== parseInt(id) || product.size !== parseInt(size)
   );
-  isLoggedUser.cart = result;
-  const newUsers = users.map((user) => (user.login ? isLoggedUser : user));
-  checkCartState(isLoggedUser, newUsers);
+  userAuth.cart = result;
+  const newUsers = users.map((user) => (user.login ? userAuth : user));
+  checkCartState(userAuth, newUsers);
 };
 
-//Si aumentamos la unidad del producto
 const handlePlusBtnEvent = (id, size) => {
-  const existingCartProduct = isLoggedUser.cart.find(
+  const existingCartProduct = userAuth.cart.find(
     (item) => item.id === parseInt(id) && item.size === parseInt(size)
   );
 
   addUnitToProduct(existingCartProduct);
 };
 
-//Si disminuimos la unidad del producto
 const handleMinusBtnEvent = (id, size) => {
-  const existingCartProduct = isLoggedUser.cart.find(
+  const existingCartProduct = userAuth.cart.find(
     (item) => item.id === parseInt(id) && item.size === parseInt(size)
   );
 
@@ -358,11 +355,11 @@ export const handleQuantity = (e) => {
   } else if (e.target.matches(".delete")) {
     handleDeleteBtnEvent(e.target.dataset.id, e.target.dataset.size);
   }
-  checkCartState(isLoggedUser, users);
+  checkCartState(userAuth, users);
 };
 
 const getCartTotal = () =>
-  isLoggedUser?.cart.reduce((acc, cur) => {
+  userAuth?.cart.reduce((acc, cur) => {
     return acc + parseInt(cur.price) * parseInt(cur.quantity);
   }, 0);
 
@@ -371,8 +368,34 @@ export const showTotal = () => {
   totalCart.innerHTML = `${numberFormat(total)}`;
 };
 
+const resetCartItems = () => {
+  userAuth.cart = [];
+  checkCartState(userAuth, users);
+};
+//Funcionalidad de los botones del carrito
+const completeCartAction = (confirmMsg, successMsg) => {
+  if (!userAuth.cart.length) return;
+  if (window.confirm(confirmMsg)) {
+    resetCartItems();
+    showModal(successMsg, "success");
+  }
+};
+//Completar compra
+export const completeBuy = () => {
+  completeCartAction(
+    "¿Desea completar su compra?",
+    "La compra se ha realizado correctamente"
+  );
+};
+//Vaciar carrito
+export const deleteCart = () => {
+  completeCartAction(
+    "¿Está seguro de que desea vaciar el carrito?",
+    "Tu carrito está vacio"
+  );
+};
 const createCartProduct = (product) => {
-  isLoggedUser.cart = [...isLoggedUser.cart, product];
+  userAuth.cart = [...userAuth.cart, product];
 };
 
 const renderProductData = (product) => {
@@ -390,15 +413,17 @@ const init = () => {
   buttonCart.addEventListener("click", handleCartButton);
   buttonFavs.addEventListener("click", handleFavsButton);
   buttonProfile.addEventListener("click", handleProfileButton);
+  buttonBuy.addEventListener("click", completeBuy);
+  buttonDelete.addEventListener("click", deleteCart);
   document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   document.addEventListener("DOMContentLoaded", getProductById);
   document.addEventListener("DOMContentLoaded", showTotal);
   document.addEventListener("DOMContentLoaded", handleButtonsQuantity);
   productsCartContainer.addEventListener("click", handleQuantity);
   document.addEventListener("DOMContentLoaded", () => {
-    renderCart(isLoggedUser);
-    renderFavs(isLoggedUser);
-    addEventToIconFavs(isLoggedUser);
+    renderCart(userAuth);
+    renderFavs(userAuth);
+    addEventToIconFavs(userAuth);
     addProductCartEvent();
   });
 };
