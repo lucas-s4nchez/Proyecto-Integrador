@@ -1,37 +1,38 @@
-import { saveLocalStorage } from "./main.js";
+import { saveLocalStorage, showModal } from "./main.js";
 
 const inputUsername = document.getElementById("username");
-const inputEmail = document.getElementById("email");
+const inputPassword = document.getElementById("password");
 const formLogin = document.getElementById("form-login");
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
 const loginUser = (e) => {
   e.preventDefault();
-  if (!inputUsername.value.trim() || !inputEmail.value.trim()) {
-    alert("Completa los campos");
+  if (!inputUsername.value.trim() || !inputPassword.value.trim()) {
+    showModal("Completa los campos", "error");
     return;
   }
   const user = {
-    name: inputUsername.value.trim(),
-    email: inputEmail.value.trim(),
-    login: false,
+    username: inputUsername.value.trim(),
+    password: inputPassword.value.trim(),
   };
 
   const userAuth = users.find(
-    (loggedUser) =>
-      loggedUser.name === user.name && loggedUser.email === user.email
+    (registeredUser) =>
+      registeredUser.username === user.username &&
+      registeredUser.password === user.password
   );
   if (userAuth) {
-    const loggedUsers = users.map((loggedUser) => {
-      return loggedUser.name === user.name && loggedUser.email === user.email
-        ? { ...loggedUser, login: true }
-        : loggedUser;
+    const registeredUsers = users.map((registeredUser) => {
+      return registeredUser.username === user.username &&
+        registeredUser.password === user.password
+        ? { ...registeredUser, login: true }
+        : registeredUser;
     });
-    saveLocalStorage("users", loggedUsers);
+    saveLocalStorage("users", registeredUsers);
     window.location.href = "./index.html";
   } else {
-    alert("No existe este usuario, crea una cuenta");
+    showModal("No existe este usuario, crea una cuenta", "error");
   }
 };
 formLogin?.addEventListener("submit", loginUser);

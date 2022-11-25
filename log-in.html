@@ -6,15 +6,44 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yury | Iniciar Sesión</title>
+  <!-- fuentes  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700;900&family=Lobster+Two&display=swap"
+    rel="stylesheet">
+  <!-- fontawesome  -->
+  <script src="https://kit.fontawesome.com/96e4c6db82.js" crossorigin="anonymous"></script>
+  <!-- animated  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- css  -->
+  <link rel="stylesheet" href="./assets/css/app.css">
 </head>
 
 <body>
-  <form id="form-login">
-    <input type="text" name="username" id="username" placeholder="User Name">
-    <input type="email" name="email" id="email" placeholder="Email">
-    <button type="submit">Iniciar Sesión</button>
-  </form>
+  <div class="layout">
+    <div class="login container">
+      <form class="form form--login" id="form-login">
+        <div class="form__formfield">
+          <input class="form__input " type="text" name="username" id="username" autocomplete="off">
+          <span class="form__span"></span>
+          <label class="form__label form__label--black" for="username">Usuario</label>
+          <small></small>
+        </div>
+        <div class="form__formfield">
+          <input class="form__input" type="password" name="password" id="password" autocomplete="off">
+          <span class=" form__span"></span>
+          <label class="form__label" for="password">Contraseña</label>
+          <small></small>
+        </div>
 
+        <button class="form__button" type="submit">Iniciar Sesión</button>
+
+        <p class="form__p">No tienes una cuenta? <a class="form__a" href="./sign-in.html">Registrate aquí</a></p>
+      </form>
+    </div>
+  </div>
+  <div class="add-modal"></div>
   <script src="./assets/js/login.js" type="module"></script>
 </body>
 

@@ -242,14 +242,14 @@ const isLoginUser = () => {
 
 //El contenido del avatar es la primera letra de su username
 const setUserAvatar = () => {
-  const avatar = userAuth.name.toString().charAt(0);
+  const avatar = userAuth.username.toString().charAt(0);
   profileName.innerHTML = avatar;
 };
 
 //Cerrar sesion
 export const handleLogoutUser = () => {
   const logoutUsers = users.map((item) => {
-    return item.name === userAuth.name && item.email === userAuth.email
+    return item.username === userAuth.username && item.email === userAuth.email
       ? { ...item, login: false }
       : item;
   });

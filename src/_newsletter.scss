@@ -55,26 +55,21 @@
       outline: none;
       color: v.$light;
     }
-    &:focus ~ .form__label,
-    &:valid ~ .form__label {
-      top: -14px;
-      font-size: 1.4rem;
+    &:focus ~ .form__label {
       color: v.$primaryColor;
     }
     &:focus ~ .form__span::before {
       width: 100%;
     }
-    & .form__label {
-      color: v.$light;
-      position: absolute;
-      top: 10px;
-      left: 5px;
-      transition: 0.5s ease-in-out all;
-      pointer-events: none;
-    }
   }
+
   &__label {
-    @include m.label(v.$light);
+    color: v.$light;
+    position: absolute;
+    top: -12px;
+    left: 5px;
+    transition: 0.5s ease-in-out all;
+    pointer-events: none;
   }
   &__span {
     position: relative;
@@ -100,5 +95,24 @@
       v.$white,
       100%
     );
+  }
+  &__p {
+    color: v.$light;
+  }
+  &__a {
+    color: v.$primaryColor;
+  }
+}
+.form--login {
+  margin: auto;
+  background: rgba(255, 255, 255, 0.082);
+  box-shadow: 0 8px 32px 0 rgba(9, 10, 29, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 3rem;
+  border-radius: 2rem;
+  @include m.tablet {
+    width: 35rem;
+    justify-content: center;
   }
 }
