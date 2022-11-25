@@ -70,6 +70,7 @@
 /* Clase para cerrar o abrrir el carrito  */
 
 .favs-open {
+  position: relative;
   border: none;
   background-color: v.$white;
   height: 4rem;

@@ -11,6 +11,7 @@ import {
   addEventToIconFavs,
   handleProfileButton,
   handleHamburgerButton,
+  showTotalProductsInFavs,
 } from "./main.js";
 import { products } from "./data.js";
 import {
@@ -18,6 +19,7 @@ import {
   deleteCart,
   handleQuantity,
   showTotal,
+  showTotalProductsInCart,
 } from "./product-details.js";
 
 const buttonFavs = document.querySelector(".favs-open");
@@ -190,6 +192,8 @@ const init = () => {
     renderCart(userAuth);
     renderFavs(userAuth);
     addEventToIconFavs(userAuth);
+    showTotalProductsInCart();
+    showTotalProductsInFavs();
   });
   document.addEventListener("DOMContentLoaded", renderSelects);
   btnReset.addEventListener("click", resetFilters);

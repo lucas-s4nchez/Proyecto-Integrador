@@ -460,9 +460,24 @@ p {
   line-height: 1;
   font-size: 2rem;
 }
+.cart__count {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  border: 1px solid #ffffff;
+  background-color: #e61919;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.7rem;
+}
 
 /* Clase para cerrar o abrrir el carrito  */
 .cart-open {
+  position: relative;
   border: none;
   background-color: #ffffff;
   height: 4rem;
@@ -733,6 +748,7 @@ p {
 
 /* Clase para cerrar o abrrir el carrito  */
 .favs-open {
+  position: relative;
   border: none;
   background-color: #ffffff;
   height: 4rem;

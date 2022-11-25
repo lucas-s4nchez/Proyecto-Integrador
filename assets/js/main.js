@@ -18,8 +18,10 @@ const productsCartContainer = document.querySelector(".cart__main");
 const buttonFavs = document.querySelector(".favs-open");
 const favsContainer = document.querySelector(".favs");
 const productsFavsContainer = document.querySelector(".favs__main");
+const favsCount = document.getElementById("icon-favs");
 // Modal success/error.
 const successModal = document.querySelector(".add-modal");
+
 //Links de iniciar sesion y registrarse
 const login = document.getElementById("login");
 const signin = document.getElementById("signin");
@@ -208,9 +210,28 @@ const removeProductOfFavs = (product, user) => {
   const newUsers = users.map((item) => (item.login ? user : item));
   checkFavsState(user, newUsers);
 };
+const getTotalProductsInFavs = () => {
+  let count = 0;
+  for (let i = 0; i < userAuth?.favs.length; i++) {
+    count += 1;
+  }
+  return count;
+};
+
+export const showTotalProductsInFavs = () => {
+  const count = getTotalProductsInFavs();
+  if (count < 1) {
+    favsCount.style.display = "none";
+    return;
+  }
+  favsCount.style.display = "block";
+  favsCount.innerHTML = count;
+};
+
 const checkFavsState = (user, array) => {
   renderFavs(user);
   saveLocalStorage("users", array);
+  showTotalProductsInFavs();
   window.location.reload();
 };
 

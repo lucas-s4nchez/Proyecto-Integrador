@@ -14,6 +14,7 @@ import {
   handleProfileButton,
   handleHamburgerButton,
   showModal,
+  showTotalProductsInFavs,
 } from "./main.js";
 
 const buttonFavs = document.querySelector(".favs-open");
@@ -30,6 +31,7 @@ const detailsContainer = document.getElementById("details");
 const productInfoContainer = document.querySelector(".product__description");
 const productsCartContainer = document.querySelector(".cart__main");
 const totalCart = document.querySelector(".cart__total-span");
+const cartCount = document.getElementById("icon-span");
 const arrayImages = [...imageList];
 //usuarios del localstorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -248,6 +250,7 @@ const addProductCartEvent = () => {
 const checkCartState = (user, array) => {
   saveLocalStorage("users", array);
   renderCart(user);
+  showTotalProductsInCart();
   showTotal();
 };
 
@@ -380,14 +383,12 @@ const completeCartAction = (confirmMsg, successMsg) => {
     showModal(successMsg, "success");
   }
 };
-//Completar compra
 export const completeBuy = () => {
   completeCartAction(
     "¿Desea completar su compra?",
     "La compra se ha realizado correctamente"
   );
 };
-//Vaciar carrito
 export const deleteCart = () => {
   completeCartAction(
     "¿Está seguro de que desea vaciar el carrito?",
@@ -396,6 +397,24 @@ export const deleteCart = () => {
 };
 const createCartProduct = (product) => {
   userAuth.cart = [...userAuth.cart, product];
+};
+const getTotalProductsInCart = () => {
+  let count = 0;
+  for (let i = 0; i < userAuth?.cart.length; i++) {
+    const element = userAuth?.cart[i].quantity;
+    count += element;
+  }
+  return count;
+};
+
+export const showTotalProductsInCart = () => {
+  const count = getTotalProductsInCart();
+  if (count < 1) {
+    cartCount.style.display = "none";
+    return;
+  }
+  cartCount.style.display = "block";
+  cartCount.innerHTML = count;
 };
 
 const renderProductData = (product) => {
@@ -425,6 +444,8 @@ const init = () => {
     renderFavs(userAuth);
     addEventToIconFavs(userAuth);
     addProductCartEvent();
+    showTotalProductsInCart();
+    showTotalProductsInFavs();
   });
 };
 init();

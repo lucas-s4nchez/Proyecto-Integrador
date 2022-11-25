@@ -81,11 +81,26 @@
     line-height: 1;
     font-size: 2rem;
   }
+  &__count {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    border: 1px solid v.$white;
+    background-color: v.$red;
+    color: v.$white;
+    border-radius: 50%;
+    width: 1.8rem;
+    height: 1.8rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.7rem;
+  }
 }
 
 /* Clase para cerrar o abrrir el carrito  */
 
 .cart-open {
+  position: relative;
   border: none;
   background-color: v.$white;
   height: 4rem;

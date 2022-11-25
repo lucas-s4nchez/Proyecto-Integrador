@@ -11,12 +11,14 @@ import {
   addEventToIconFavs,
   handleProfileButton,
   handleHamburgerButton,
+  showTotalProductsInFavs,
 } from "./main.js";
 import {
   completeBuy,
   deleteCart,
   handleQuantity,
   showTotal,
+  showTotalProductsInCart,
 } from "./product-details.js";
 
 const buttonFavs = document.querySelector(".favs-open");
@@ -81,6 +83,8 @@ const init = () => {
     renderProductsOnOffer();
     renderBestSellers();
     addEventToIconFavs(userAuth);
+    showTotalProductsInCart();
+    showTotalProductsInFavs();
   });
 };
 init();
