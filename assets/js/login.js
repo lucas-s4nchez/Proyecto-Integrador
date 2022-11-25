@@ -18,11 +18,11 @@ const loginUser = (e) => {
     login: false,
   };
 
-  const isLoggedUser = users.find(
+  const userAuth = users.find(
     (loggedUser) =>
       loggedUser.name === user.name && loggedUser.email === user.email
   );
-  if (isLoggedUser) {
+  if (userAuth) {
     const loggedUsers = users.map((loggedUser) => {
       return loggedUser.name === user.name && loggedUser.email === user.email
         ? { ...loggedUser, login: true }

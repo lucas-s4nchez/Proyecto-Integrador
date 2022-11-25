@@ -23,10 +23,11 @@ const successModal = document.querySelector(".add-modal");
 //Links de iniciar sesion y registrarse
 const login = document.getElementById("login");
 const signin = document.getElementById("signin");
+
 //usuarios del localstorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
-//si un usuario esta logueado
-const isLoggedUser = users.find((user) => user.login === true);
+//el usuario que esta activo
+const userAuth = users.find((user) => user.login === true);
 
 //manejar los menus desplegables
 export const handleCartButton = () => {
@@ -157,9 +158,7 @@ export const renderFavProduct = (favProduct) => {
           </a>
           <div class="favs-item__footer">
               <i class="favs-item__icon fav-icon fa-regular 
-              ${
-                isExistingFavProduct(favProduct, isLoggedUser) ? "fa-solid" : ""
-              } 
+              ${isExistingFavProduct(favProduct, userAuth) ? "fa-solid" : ""} 
               fa-heart" data-id="${id}"></i>
           </div>
         </div>
@@ -189,10 +188,8 @@ export const addToFavs = ({ target }, user) => {
   const product = products.find((product) => product.id === parseInt(id));
   if (!isExistingFavProduct(product, user)) {
     addProductToFavs(product, user);
-    alert("El producto se agregó a favoritos");
   } else {
     removeProductOfFavs(product, user);
-    alert("El producto se ha eliminado de favoritos");
   }
   const favsUser = users.map((item) =>
     item.id === user.id ? { ...user } : item
@@ -219,7 +216,7 @@ const checkFavsState = (user, array) => {
 
 //Mostrar/ocultar componentes dependiendo de si el usario inicio sesion o no
 export const handleChangeUserViews = () => {
-  if (isLoggedUser) {
+  if (userAuth) {
     isLoginUser();
     setUserAvatar();
   } else {
@@ -245,14 +242,14 @@ const isLoginUser = () => {
 
 //El contenido del avatar es la primera letra de su username
 const setUserAvatar = () => {
-  const avatar = isLoggedUser.name.toString().charAt(0);
+  const avatar = userAuth.name.toString().charAt(0);
   profileName.innerHTML = avatar;
 };
 
 //Cerrar sesion
 export const handleLogoutUser = () => {
   const logoutUsers = users.map((item) => {
-    return item.name === isLoggedUser.name && item.email === isLoggedUser.email
+    return item.name === userAuth.name && item.email === userAuth.email
       ? { ...item, login: false }
       : item;
   });
@@ -272,7 +269,7 @@ export const createProduct = (product) => {
     <div class="card">
     
       <i class="card__icon fav-icon fa-regular 
-      ${isExistingFavProduct(product, isLoggedUser) ? "fa-solid" : ""} 
+      ${isExistingFavProduct(product, userAuth) ? "fa-solid" : ""} 
       fa-heart" data-id="${id}"></i>
       <a  href="./product-detail.html?id=${id}">
         <div class="card__img-box">

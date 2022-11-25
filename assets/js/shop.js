@@ -13,7 +13,7 @@ import {
   handleHamburgerButton,
 } from "./main.js";
 import { products } from "./data.js";
-import { addToCart, handleQuantity, showTotal } from "./product-details.js";
+import { handleQuantity, showTotal } from "./product-details.js";
 
 const buttonFavs = document.querySelector(".favs-open");
 const buttonCart = document.querySelector(".cart-open");
@@ -38,8 +38,8 @@ const searchValue = {
 };
 //usuarios del localstorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
-//si un usuario esta logueado
-const isLoggedUser = users.find((user) => user.login === true);
+//el usuario que esta activo
+const userAuth = users.find((user) => user.login === true);
 
 const renderProductsInStock = () => {
   const productsInStock = renderProducts(products, createProduct);
@@ -178,9 +178,9 @@ const init = () => {
   document.addEventListener("DOMContentLoaded", showTotal);
   document.addEventListener("DOMContentLoaded", renderProductsInStock);
   document.addEventListener("DOMContentLoaded", () => {
-    renderCart(isLoggedUser);
-    renderFavs(isLoggedUser);
-    addEventToIconFavs(isLoggedUser);
+    renderCart(userAuth);
+    renderFavs(userAuth);
+    addEventToIconFavs(userAuth);
   });
   document.addEventListener("DOMContentLoaded", renderSelects);
   btnReset.addEventListener("click", resetFilters);

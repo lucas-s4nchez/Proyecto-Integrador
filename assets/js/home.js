@@ -20,14 +20,15 @@ const buttonProfile = document.querySelector(".profile-button__button");
 const buttonHamburger = document.getElementById("btn-menu");
 const buttonLogout = document.querySelector(".profile-menu__button");
 
+const successModal = document.querySelector(".add-modal");
 const productsCartContainer = document.querySelector(".cart__main");
 const productsOnOfferContainer = document.getElementById("products-offer");
 const bestSellersContainer = document.getElementById("best-seller");
 
 //usuarios del localstorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
-//si un usuario esta logueado
-const isLoggedUser = users.find((user) => user.login === true);
+//el usuario que esta activo
+const userAuth = users.find((user) => user.login === true);
 
 //Slider
 window.swiper = new Swiper({
@@ -65,12 +66,12 @@ const init = () => {
   buttonProfile.addEventListener("click", handleProfileButton);
   document.addEventListener("DOMContentLoaded", () => {
     handleChangeUserViews();
-    renderCart(isLoggedUser);
+    renderCart(userAuth);
     showTotal();
-    renderFavs(isLoggedUser);
+    renderFavs(userAuth);
     renderProductsOnOffer();
     renderBestSellers();
-    addEventToIconFavs(isLoggedUser);
+    addEventToIconFavs(userAuth);
   });
 };
 init();

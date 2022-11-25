@@ -1,0 +1,31 @@
+.brands {
+  margin-block: 5rem;
+  &__track {
+    display: flex;
+    animation: scroll 10s linear infinite;
+    -webkit-animation: scroll 10s linear infinite;
+    width: calc(20rem * 12);
+  }
+  &__img-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10rem;
+    min-width: 20rem;
+  }
+  &__img {
+    width: 10rem;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-20rem * 4));
+    transform: translateX(calc(-20rem * 4));
+  }
+}

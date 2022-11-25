@@ -1409,6 +1409,7 @@ p {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9843137255), rgba(0, 0, 0, 0.7176470588)), url(https://i.ibb.co/hYyThmk/brick-g6d9282843-1920.webp);
   background-size: cover;
   padding: 5rem 0;
+  margin-block: 5rem;
 }
 .banner__container {
   display: grid;
@@ -1476,6 +1477,58 @@ p {
   }
 }
 
+.brands {
+  margin-block: 5rem;
+}
+.brands__track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  animation: scroll 10s linear infinite;
+  -webkit-animation: scroll 10s linear infinite;
+  width: 240rem;
+}
+.brands__img-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 10rem;
+  min-width: 20rem;
+}
+.brands__img {
+  width: 10rem;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-80rem);
+    transform: translateX(-80rem);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-80rem);
+    transform: translateX(-80rem);
+  }
+}
 .lds-ring {
   display: inline-block;
   position: relative;
