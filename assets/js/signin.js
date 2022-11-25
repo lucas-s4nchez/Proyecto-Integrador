@@ -128,7 +128,7 @@ const createUser = (e) => {
   saveLocalStorage("users", users);
   showModal("nuevo usuario", "success");
   setTimeout(() => {
-    window.history.back();
+    window.location.href = "./log-in.html";
   }, 1500);
 };
 
