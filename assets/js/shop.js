@@ -182,20 +182,20 @@ const init = () => {
   buttonCart.addEventListener("click", handleCartButton);
   buttonFavs.addEventListener("click", handleFavsButton);
   buttonProfile.addEventListener("click", handleProfileButton);
-  document.addEventListener("DOMContentLoaded", handleChangeUserViews);
   productsCartContainer.addEventListener("click", handleQuantity);
   buttonBuy.addEventListener("click", completeBuy);
   buttonDelete.addEventListener("click", deleteCart);
-  document.addEventListener("DOMContentLoaded", showTotal);
-  document.addEventListener("DOMContentLoaded", renderProductsInStock);
   document.addEventListener("DOMContentLoaded", () => {
     renderCart(userAuth);
     renderFavs(userAuth);
     addEventToIconFavs(userAuth);
+    handleChangeUserViews();
+    showTotal();
+    renderProductsInStock();
+    renderSelects();
     showTotalProductsInCart();
     showTotalProductsInFavs();
   });
-  document.addEventListener("DOMContentLoaded", renderSelects);
   btnReset.addEventListener("click", resetFilters);
   selectBrand.addEventListener("change", ({ target }) => {
     searchValue.brand = target.value;

@@ -29,7 +29,6 @@ const buttonLogout = document.querySelector(".profile-menu__button");
 const buttonBuy = document.querySelector(".buy");
 const buttonDelete = document.querySelector(".delete");
 
-const successModal = document.querySelector(".add-modal");
 const productsCartContainer = document.querySelector(".cart__main");
 const productsOnOfferContainer = document.getElementById("products-offer");
 const bestSellersContainer = document.getElementById("best-seller");
