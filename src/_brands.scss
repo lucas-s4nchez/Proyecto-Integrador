@@ -1,6 +1,8 @@
 .brands {
   margin-block: 5rem;
+  overflow-x: hidden;
   &__track {
+    overflow: hidden;
     display: flex;
     animation: scroll 10s linear infinite;
     -webkit-animation: scroll 10s linear infinite;

@@ -1515,8 +1515,10 @@ p {
 
 .brands {
   margin-block: 5rem;
+  overflow-x: hidden;
 }
 .brands__track {
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
